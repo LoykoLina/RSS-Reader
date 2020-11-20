@@ -6,7 +6,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "RSSRTopicsListTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,8 +21,9 @@
     } else {
         UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         self.window = window;
+        self.window.backgroundColor = UIColor.whiteColor;
         
-        ViewController *rootVC = [ViewController new];
+        RSSRTopicsListTableViewController *rootVC = [RSSRTopicsListTableViewController new];
 
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootVC];
         

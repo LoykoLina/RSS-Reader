@@ -6,7 +6,7 @@
 //
 
 #import "SceneDelegate.h"
-#import "ViewController.h"
+#import "RSSRTopicsListTableViewController.h"
 
 @interface SceneDelegate ()
 
@@ -18,8 +18,9 @@
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions API_AVAILABLE(ios(13.0)){
     UIWindow *window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene *)scene];
     self.window = window;
+    self.window.backgroundColor = UIColor.whiteColor;
     
-    ViewController *rootVC = [ViewController new];
+    RSSRTopicsListTableViewController *rootVC = [RSSRTopicsListTableViewController new];
 
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootVC];
     
