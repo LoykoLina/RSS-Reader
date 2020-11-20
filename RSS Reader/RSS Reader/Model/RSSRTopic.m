@@ -15,7 +15,7 @@
         _title = [dictionary[kRSSElementKeyTitle] copy];
         _link = [dictionary[kRSSElementKeyLink] copy];
         _topicDescription = [[self refactorDescription:dictionary[kRSSElementKeyDescription]] copy];
-        _pubDate = [self dateFromString:dictionary[kRSSElementKeyPubDate]];
+        _pubDate = [[self dateFromString:dictionary[kRSSElementKeyPubDate]] retain];
         _imageURL = [dictionary[kRSSElementKeyEnclosure] copy];
     }
     return self;

@@ -31,19 +31,16 @@
 
 - (void)loadTopicsFromURL:(NSURL *)url
                completion:(void (^)(NSMutableArray<RSSRTopic *> *topics, NSError *error))completion {
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    request.HTTPMethod = @"GET";
+    NSURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
     __block typeof(self) weakSelf = self;
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:request
                                                      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        [weakSelf retain];
         if (error) {
             completion(nil, error);
         } else {
             [weakSelf.parser parseTopics:data completion:completion];
         }
-        [weakSelf release];
     }];
     [dataTask resume];
     

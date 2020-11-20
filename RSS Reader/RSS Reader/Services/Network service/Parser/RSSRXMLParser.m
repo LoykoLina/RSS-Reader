@@ -43,37 +43,28 @@
     if (self.completion) {
         self.completion(nil, parseError);
     }
-
-    [self.items release];
-    [self.itemDictionary release];
-    [self.parsingDictionary release];
-    [self.parsingString release];
-
-    self.items = nil;
-    self.itemDictionary = nil;
-    self.parsingDictionary = nil;
-    self.parsingString = nil;
 }
 
 - (void)parserDidStartDocument:(NSXMLParser *)parser {
-    self.items = [NSMutableArray new];
+    self.items = [NSMutableArray array];
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict {
     if ([elementName isEqualToString:kRSSElementKeyItem]) {
-        self.itemDictionary = [NSMutableDictionary new];
+        self.itemDictionary = [NSMutableDictionary dictionary];
 
     } else if ([elementName isEqualToString:kRSSElementKeyTitle] ||
                [elementName isEqualToString:kRSSElementKeyLink] ||
                [elementName isEqualToString:kRSSElementKeyPubDate] ||
                [elementName isEqualToString:kRSSElementKeyDescription]) {
-        self.parsingDictionary = [NSMutableDictionary new];
-        self.parsingString = [NSMutableString new];
+        self.parsingDictionary = [NSMutableDictionary dictionary];
+        self.parsingString = [NSMutableString string];
 
     } else if ([elementName isEqualToString:kRSSElementKeyEnclosure]) {
-        self.parsingDictionary = [NSMutableDictionary new];
-        self.parsingString = [attributeDict[kRSSElementKeyURL] mutableCopy];
-
+        self.parsingDictionary = [NSMutableDictionary dictionary];
+        NSMutableString *enclosureURL = [attributeDict[kRSSElementKeyURL] mutableCopy];
+        self.parsingString = enclosureURL;
+        [enclosureURL release];
     }
 }
 
@@ -84,7 +75,6 @@
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
     if (self.parsingString) {
         [self.parsingDictionary setObject:self.parsingString forKey:elementName];
-        [self.parsingString release];
         self.parsingString = nil;
     }
     
@@ -94,13 +84,9 @@
         [elementName isEqualToString:kRSSElementKeyDescription] ||
         [elementName isEqualToString:kRSSElementKeyEnclosure]) {
         [self.itemDictionary addEntriesFromDictionary:self.parsingDictionary];
-        [self.parsingDictionary release];
-        self.parsingDictionary = nil;
 
     } else if ([elementName isEqualToString:kRSSElementKeyItem]) {
         RSSRTopic *item = [[RSSRTopic alloc] initWithDictionary:self.itemDictionary];
-        [self.itemDictionary release];
-        self.itemDictionary = nil;
         [self.items addObject:item];
         [item release];
     }
@@ -110,17 +96,6 @@
     if (self.completion) {
         self.completion(self.items, nil);
     }
-
-    [self.items release];
-    self.items = nil;
-    [self.itemDictionary release];
-    [self.parsingDictionary release];
-    [self.parsingString release];
-
-    self.items = nil;
-    self.itemDictionary = nil;
-    self.parsingDictionary = nil;
-    self.parsingString = nil;
 }
 
 

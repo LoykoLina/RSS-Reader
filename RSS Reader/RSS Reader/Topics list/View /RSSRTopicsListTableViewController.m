@@ -39,14 +39,14 @@ static NSString * const kTitle = @"TUT.by News";
     
     RSSRXMLParser *parser = [RSSRXMLParser new];
     RSSRNetworkService *service = [[RSSRNetworkService alloc] initWithParser:parser];
-    [parser release];
-    
-    self.presenter = [[RSSRTopicsListPresenter alloc] initWithService:service];
+    RSSRTopicsListPresenter *presenter = [[RSSRTopicsListPresenter alloc] initWithService:service];
+    self.presenter = presenter;
     self.presenter.topicsListView = self;
-    
-    [service release];
-    
     [self.presenter loadTopics];
+    
+    [parser release];
+    [presenter release];
+    [service release];
 }
 
 - (void)dealloc {
@@ -98,14 +98,13 @@ static NSString * const kTitle = @"TUT.by News";
 
 - (void)setTopics:(NSMutableArray<RSSRTopic *> *)topics {
     self.dataSource = topics;
-    __block typeof(self) weakSelf = self;
+    
     dispatch_async(dispatch_get_main_queue(), ^{
-        [weakSelf.tableView reloadData];
+        [self.tableView reloadData];
     });
 }
 
 - (void)showAlertControllerWithTitle:(NSString *)title message:(NSString *)message; {
-    __block typeof(self) weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
                                                                                  message:message
@@ -114,7 +113,7 @@ static NSString * const kTitle = @"TUT.by News";
                                                             style:UIAlertActionStyleDefault
                                                           handler:nil]];
         
-        [weakSelf presentViewController:alertController animated:YES completion:nil];
+        [self presentViewController:alertController animated:YES completion:nil];
     });
 }
 
