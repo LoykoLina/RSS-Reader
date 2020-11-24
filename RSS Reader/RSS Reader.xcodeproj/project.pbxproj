@@ -20,6 +20,7 @@
 		CAB5FDDC256711A200163CBC /* RSSRTopicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAB5FDD2256711A200163CBC /* RSSRTopicTableViewCell.xib */; };
 		CAB5FDDD256711A200163CBC /* RSSRTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDD4256711A200163CBC /* RSSRTopic.m */; };
 		CAB5FDE525671B1900163CBC /* UIColor+RSSRColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDE425671B1900163CBC /* UIColor+RSSRColor.m */; };
+		CAD3D8EB256D9C6100BCDD49 /* NSDate+StringConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = CAD3D8EA256D9C6100BCDD49 /* NSDate+StringConversion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,8 @@
 		CAB5FDD5256711A200163CBC /* RSSRTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRTopic.h; sourceTree = "<group>"; };
 		CAB5FDE325671B1900163CBC /* UIColor+RSSRColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+RSSRColor.h"; sourceTree = "<group>"; };
 		CAB5FDE425671B1900163CBC /* UIColor+RSSRColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RSSRColor.m"; sourceTree = "<group>"; };
+		CAD3D8E9256D9C6100BCDD49 /* NSDate+StringConversion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+StringConversion.h"; sourceTree = "<group>"; };
+		CAD3D8EA256D9C6100BCDD49 /* NSDate+StringConversion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+StringConversion.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +86,7 @@
 				CAB5FDC7256711A200163CBC /* Topics list */,
 				CAB5FDBD256711A200163CBC /* Services */,
 				CAB5FDD3256711A200163CBC /* Model */,
-				CAB5FDE125671AC700163CBC /* UIColor category */,
+				CAB5FDE125671AC700163CBC /* Category */,
 				CA554FDA25642EEF009F124F /* Default */,
 				CA554FCB25642E91009F124F /* Assets.xcassets */,
 				CA554FD025642E91009F124F /* Info.plist */,
@@ -179,13 +182,31 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		CAB5FDE125671AC700163CBC /* UIColor category */ = {
+		CAB5FDE125671AC700163CBC /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				CAD3D8E8256D9BA000BCDD49 /* NSDate */,
+				CAD3D8E6256D9B8B00BCDD49 /* UIColor */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		CAD3D8E6256D9B8B00BCDD49 /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
 				CAB5FDE325671B1900163CBC /* UIColor+RSSRColor.h */,
 				CAB5FDE425671B1900163CBC /* UIColor+RSSRColor.m */,
 			);
-			path = "UIColor category";
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		CAD3D8E8256D9BA000BCDD49 /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				CAD3D8E9256D9C6100BCDD49 /* NSDate+StringConversion.h */,
+				CAD3D8EA256D9C6100BCDD49 /* NSDate+StringConversion.m */,
+			);
+			path = NSDate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +288,7 @@
 				CAB5FDD7256711A200163CBC /* RSSRXMLParser.m in Sources */,
 				CA554FC425642E8E009F124F /* SceneDelegate.m in Sources */,
 				CAB5FDDD256711A200163CBC /* RSSRTopic.m in Sources */,
+				CAD3D8EB256D9C6100BCDD49 /* NSDate+StringConversion.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

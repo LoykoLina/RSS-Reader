@@ -6,40 +6,34 @@
 //
 
 #import "RSSRNetworkService.h"
-#import "RSSRTopic.h"
-#import "RSSRXMLParser.h"
+
 
 @interface RSSRNetworkService ()
 
 @property (nonatomic, retain) NSURLSession *session;
-@property (nonatomic, retain) RSSRXMLParser *parser;
 
 @end
 
 @implementation RSSRNetworkService
 
-- (instancetype)initWithParser:(RSSRXMLParser *)parser {
-    self = [super init];
-    if (self) {
-        _parser = [parser retain];
-        
+- (NSURLSession *)session {
+    if (!_session) {
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
         _session = [NSURLSession sessionWithConfiguration:configuration];
     }
-    return self;
+    return _session;
 }
 
 - (void)loadTopicsFromURL:(NSURL *)url
-               completion:(void (^)(NSMutableArray<RSSRTopic *> *topics, NSError *error))completion {
+               completion:(void (^)(NSData *data, NSError *error))completion {
     NSURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
-    __block typeof(self) weakSelf = self;
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:request
                                                      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error) {
             completion(nil, error);
         } else {
-            [weakSelf.parser parseTopics:data completion:completion];
+            completion(data, nil);
         }
     }];
     [dataTask resume];
@@ -49,7 +43,6 @@
 
 - (void)dealloc {
     [_session release];
-    [_parser release];
     [super dealloc];
 }
 

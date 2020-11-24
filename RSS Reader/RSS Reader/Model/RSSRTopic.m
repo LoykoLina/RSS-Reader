@@ -6,28 +6,23 @@
 //
 
 #import "RSSRTopic.h"
+#import "NSDate+StringConversion.h"
+
+static NSString * const kDefaultDateFormat = @"EE, d LLLL yyyy HH:mm:ss Z";
 
 @implementation RSSRTopic
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
-    self = [super init];
-    if (self) {
-        _title = [dictionary[kRSSElementKeyTitle] copy];
-        _link = [dictionary[kRSSElementKeyLink] copy];
-        _topicDescription = [[self refactorDescription:dictionary[kRSSElementKeyDescription]] copy];
-        _pubDate = [[self dateFromString:dictionary[kRSSElementKeyPubDate]] retain];
-        _imageURL = [dictionary[kRSSElementKeyEnclosure] copy];
+- (void)configureWithDictionary:(NSDictionary *)dictionary {
+    if (dictionary && dictionary.count > 0) {
+        self.title = dictionary[kRSSElementKeyTitle];
+        self.link = dictionary[kRSSElementKeyLink];
+        self.topicDescription = [self refactorDescription:dictionary[kRSSElementKeyDescription]];
+        self.pubDate = [NSDate dateFromString:dictionary[kRSSElementKeyPubDate]
+                                   withFormat:kDefaultDateFormat];
+        self.imageURL = dictionary[kRSSElementKeyEnclosure];
+    } else {
+        [NSException raise:NSInvalidArgumentException format:@"Dictionary argument must not be nil or empty!"];
     }
-    return self;
-}
-
-- (void)dealloc {
-    [_title release];
-    [_link release];
-    [_topicDescription release];
-    [_pubDate release];
-    [_imageURL release];
-    [super dealloc];
 }
 
 - (NSString *)refactorDescription:(NSString*)description {
@@ -45,16 +40,13 @@
     return description;
 }
 
-- (NSDate *)dateFromString:(NSString *)dateString {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter new] autorelease];
-    [dateFormatter setDateFormat:@"EE, d LLLL yyyy HH:mm:ss Z"];
-    return [dateFormatter dateFromString:dateString];
-}
-
-- (NSString *)formattedDate {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter new] autorelease];
-    [dateFormatter setDateFormat:@"MMM d, yyyy HH:mm"];
-    return [dateFormatter stringFromDate:self.pubDate];
+- (void)dealloc {
+    [_title release];
+    [_link release];
+    [_topicDescription release];
+    [_pubDate release];
+    [_imageURL release];
+    [super dealloc];
 }
 
 @end

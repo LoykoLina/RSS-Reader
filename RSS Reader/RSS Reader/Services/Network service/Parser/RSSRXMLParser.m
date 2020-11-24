@@ -86,7 +86,8 @@
         [self.itemDictionary addEntriesFromDictionary:self.parsingDictionary];
 
     } else if ([elementName isEqualToString:kRSSElementKeyItem]) {
-        RSSRTopic *item = [[RSSRTopic alloc] initWithDictionary:self.itemDictionary];
+        RSSRTopic *item = [RSSRTopic new];
+        [item configureWithDictionary:self.itemDictionary];
         [self.items addObject:item];
         [item release];
     }

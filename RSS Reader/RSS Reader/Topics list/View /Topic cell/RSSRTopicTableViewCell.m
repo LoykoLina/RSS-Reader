@@ -8,6 +8,9 @@
 #import "RSSRTopicTableViewCell.h"
 #import "RSSRTopic.h"
 #import "UIColor+RSSRColor.h"
+#import "NSDate+StringConversion.h"
+
+static NSString * const kTopicDateFormat = @"MMM d, yyyy HH:mm";
 
 @interface RSSRTopicTableViewCell ()
 
@@ -49,7 +52,7 @@
 
 - (void)configureWithItem:(RSSRTopic *)topic {
     self.title.text = topic.title;
-    self.pubDate.text = [topic formattedDate];
+    self.pubDate.text = [topic.pubDate stringWithFormat:kTopicDateFormat];
     self.topicDescription.text = topic.topicDescription;
 }
 

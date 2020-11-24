@@ -38,8 +38,9 @@ static NSString * const kTitle = @"TUT.by News";
     
     
     RSSRXMLParser *parser = [RSSRXMLParser new];
-    RSSRNetworkService *service = [[RSSRNetworkService alloc] initWithParser:parser];
-    RSSRTopicsListPresenter *presenter = [[RSSRTopicsListPresenter alloc] initWithService:service];
+    RSSRNetworkService *service = [RSSRNetworkService new];
+    RSSRTopicsListPresenter *presenter = [[RSSRTopicsListPresenter alloc] initWithService:service
+                                                                                   parser:parser];
     self.presenter = presenter;
     self.presenter.topicsListView = self;
     [self.presenter loadTopics];

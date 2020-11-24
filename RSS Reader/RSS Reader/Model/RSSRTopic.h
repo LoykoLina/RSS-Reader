@@ -25,8 +25,7 @@ static NSString * const kRSSElementKeyURL = @"url";
 @property (nonatomic, retain) NSDate *pubDate;
 @property (nonatomic, copy) NSString *imageURL;
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
-- (NSString *)formattedDate;
+- (void)configureWithDictionary:(NSDictionary *)dictionary;
 
 @end
 
