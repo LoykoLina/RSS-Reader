@@ -10,13 +10,23 @@
 
 static NSString * const kDefaultDateFormat = @"EE, d LLLL yyyy HH:mm:ss Z";
 
+@interface RSSRTopic ()
+
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *link;
+@property (nonatomic, copy) NSString *summary;
+@property (nonatomic, retain) NSDate *pubDate;
+@property (nonatomic, copy) NSString *imageURL;
+
+@end
+
 @implementation RSSRTopic
 
 - (void)configureWithDictionary:(NSDictionary *)dictionary {
     if (dictionary && dictionary.count > 0) {
         self.title = dictionary[kRSSElementKeyTitle];
         self.link = dictionary[kRSSElementKeyLink];
-        self.topicDescription = [self refactorDescription:dictionary[kRSSElementKeyDescription]];
+        self.summary = [self refactorSummary:dictionary[kRSSElementKeyDescription]];
         self.pubDate = [NSDate dateFromString:dictionary[kRSSElementKeyPubDate]
                                    withFormat:kDefaultDateFormat];
         self.imageURL = dictionary[kRSSElementKeyEnclosure];
@@ -25,28 +35,46 @@ static NSString * const kDefaultDateFormat = @"EE, d LLLL yyyy HH:mm:ss Z";
     }
 }
 
-- (NSString *)refactorDescription:(NSString*)description {
-    if ([description hasPrefix:@"<img "]) {
-        NSString *newDescription;
+- (NSString *)refactorSummary:(NSString*)summary {
+    if ([summary hasPrefix:@"<img "]) {
+        NSString *newSummary;
 
-        NSRange range = [description rangeOfString:@" />"];
-        newDescription = [description substringFromIndex:range.location + 3];
+        NSRange range = [summary rangeOfString:@" />"];
+        newSummary = [summary substringFromIndex:range.location + 3];
         
-        range = [newDescription rangeOfString:@"<br"];
-        newDescription = [newDescription substringToIndex:range.location];
+        range = [newSummary rangeOfString:@"<br"];
+        newSummary = [newSummary substringToIndex:range.location];
 
-        return newDescription;
+        return newSummary;
     }
-    return description;
+    return summary;
 }
 
 - (void)dealloc {
     [_title release];
     [_link release];
-    [_topicDescription release];
+    [_summary release];
     [_pubDate release];
     [_imageURL release];
     [super dealloc];
+}
+
+#pragma mark - RSSRTopicItemProtocol
+
+- (NSString *)itemLink {
+    return self.link;
+}
+
+- (NSDate *)itemPubDate {
+    return self.pubDate;
+}
+
+- (NSString *)itemSummary {
+    return self.summary;
+}
+
+- (NSString *)itemTitle {
+    return self.title;
 }
 
 @end

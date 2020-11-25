@@ -6,14 +6,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RSSRTopicItemProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class RSSRTopic;
-
 @interface RSSRTopicTableViewCell : UITableViewCell
 
-- (void)configureWithItem:(RSSRTopic *)topic;
+- (void)configureWithItem:(id<RSSRTopicItemProtocol>)topic;
 
 @end
 

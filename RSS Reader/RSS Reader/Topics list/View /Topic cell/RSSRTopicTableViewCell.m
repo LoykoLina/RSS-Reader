@@ -6,17 +6,17 @@
 //
 
 #import "RSSRTopicTableViewCell.h"
-#import "RSSRTopic.h"
 #import "UIColor+RSSRColor.h"
 #import "NSDate+StringConversion.h"
 
 static NSString * const kTopicDateFormat = @"MMM d, yyyy HH:mm";
+static NSInteger const kCellViewCornerRadius = 10;
 
 @interface RSSRTopicTableViewCell ()
 
 @property (retain, nonatomic) IBOutlet UILabel *title;
 @property (retain, nonatomic) IBOutlet UILabel *pubDate;
-@property (retain, nonatomic) IBOutlet UILabel *topicDescription;
+@property (retain, nonatomic) IBOutlet UILabel *summary;
 @property (retain, nonatomic) IBOutlet UIView *cellView;
 
 @end
@@ -26,7 +26,7 @@ static NSString * const kTopicDateFormat = @"MMM d, yyyy HH:mm";
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    self.cellView.layer.cornerRadius = 10;
+    self.cellView.layer.cornerRadius = kCellViewCornerRadius;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
@@ -50,16 +50,16 @@ static NSString * const kTopicDateFormat = @"MMM d, yyyy HH:mm";
     }
 }
 
-- (void)configureWithItem:(RSSRTopic *)topic {
-    self.title.text = topic.title;
-    self.pubDate.text = [topic.pubDate stringWithFormat:kTopicDateFormat];
-    self.topicDescription.text = topic.topicDescription;
+- (void)configureWithItem:(id<RSSRTopicItemProtocol>)topic {
+    self.title.text = [topic itemTitle];
+    self.pubDate.text = [[topic itemPubDate] stringWithFormat:kTopicDateFormat];
+    self.summary.text = [topic itemSummary];
 }
 
 - (void)dealloc {
     [_title release];
     [_pubDate release];
-    [_topicDescription release];
+    [_summary release];
     [_cellView release];
     [super dealloc];
 }

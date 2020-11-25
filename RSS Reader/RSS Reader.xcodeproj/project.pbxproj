@@ -33,6 +33,7 @@
 		CA554FCE25642E91009F124F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA554FD025642E91009F124F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA554FD125642E91009F124F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CA7EC38E256E8745007CEACB /* RSSRTopicItemProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSRTopicItemProtocol.h; sourceTree = "<group>"; };
 		CAB5FDBF256711A200163CBC /* RSSRNetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRNetworkService.m; sourceTree = "<group>"; };
 		CAB5FDC1256711A200163CBC /* RSSRXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRXMLParser.m; sourceTree = "<group>"; };
 		CAB5FDC2256711A200163CBC /* RSSRXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRXMLParser.h; sourceTree = "<group>"; };
@@ -176,6 +177,7 @@
 		CAB5FDD3256711A200163CBC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CA7EC38E256E8745007CEACB /* RSSRTopicItemProtocol.h */,
 				CAB5FDD5256711A200163CBC /* RSSRTopic.h */,
 				CAB5FDD4256711A200163CBC /* RSSRTopic.m */,
 			);

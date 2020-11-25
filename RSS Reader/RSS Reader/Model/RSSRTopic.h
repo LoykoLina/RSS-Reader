@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RSSRTopicItemProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,13 +18,7 @@ static NSString * const kRSSElementKeyEnclosure = @"enclosure";
 static NSString * const kRSSElementKeyItem = @"item";
 static NSString * const kRSSElementKeyURL = @"url";
 
-@interface RSSRTopic : NSObject
-
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *link;
-@property (nonatomic, copy) NSString *topicDescription;
-@property (nonatomic, retain) NSDate *pubDate;
-@property (nonatomic, copy) NSString *imageURL;
+@interface RSSRTopic : NSObject <RSSRTopicItemProtocol>
 
 - (void)configureWithDictionary:(NSDictionary *)dictionary;
 

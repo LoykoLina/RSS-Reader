@@ -77,7 +77,8 @@ static NSString * const kTitle = @"TUT.by News";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self.presenter getTopics][indexPath.row].link]
+    NSString *link = [[self.presenter getTopics][indexPath.row] itemLink];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: link]
                                        options:@{}
                              completionHandler:nil];
 }
