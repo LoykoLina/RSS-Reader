@@ -10,7 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class RSSRTopicsListPresenter;
+
 @interface RSSRTopicsListTableViewController : UITableViewController <RSSRTopicsListView>
+
+- (instancetype)initWithPresenter:(RSSRTopicsListPresenter *)presenter;
 
 @end
 

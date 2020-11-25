@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class RSSRXMLParser;
 @class RSSRNetworkService;
+@class RSSRTopic;
 
 @interface RSSRTopicsListPresenter : NSObject
 
@@ -20,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithService:(RSSRNetworkService *)service
                          parser:(RSSRXMLParser *)parser;
 - (void)loadTopics;
+- (NSArray<RSSRTopic *> *)getTopics;
 
 @end
 

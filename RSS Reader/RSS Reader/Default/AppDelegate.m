@@ -7,6 +7,9 @@
 
 #import "AppDelegate.h"
 #import "RSSRTopicsListTableViewController.h"
+#import "RSSRNetworkService.h"
+#import "RSSRXMLParser.h"
+#import "RSSRTopicsListPresenter.h"
 
 @interface AppDelegate ()
 
@@ -23,7 +26,11 @@
         self.window = window;
         self.window.backgroundColor = UIColor.whiteColor;
         
-        RSSRTopicsListTableViewController *rootVC = [RSSRTopicsListTableViewController new];
+        RSSRXMLParser *parser = [RSSRXMLParser new];
+        RSSRNetworkService *service = [RSSRNetworkService new];
+        RSSRTopicsListPresenter *presenter = [[RSSRTopicsListPresenter alloc] initWithService:service
+                                                                                       parser:parser];
+        RSSRTopicsListTableViewController *rootVC = [[RSSRTopicsListTableViewController alloc] initWithPresenter:presenter];
 
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootVC];
         
@@ -34,10 +41,12 @@
         [navigationController release];
         [rootVC release];
         [window release];
+        [parser release];
+        [presenter release];
+        [service release];
     }
     return YES;
 }
-
 
 
 #pragma mark - UISceneSession lifecycle

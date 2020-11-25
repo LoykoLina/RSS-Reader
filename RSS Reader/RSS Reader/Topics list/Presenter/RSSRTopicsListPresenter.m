@@ -13,8 +13,9 @@
 
 @interface RSSRTopicsListPresenter ()
 
-@property (nonatomic, retain) RSSRNetworkService *service;
+@property (nonatomic, retain) RSSRNetworkService *networkService;
 @property (nonatomic, retain) RSSRXMLParser *parser;
+@property (nonatomic, retain) NSMutableArray<RSSRTopic *> *dataSource;
 
 @end
 
@@ -25,7 +26,7 @@ static NSString * const baseURLString = @"http://news.tut.by/rss/index.rss";
 - (instancetype)initWithService:(RSSRNetworkService *)service parser:(RSSRXMLParser *)parser {
     self = [super init];
     if (self) {
-        _service = [service retain];
+        _networkService = [service retain];
         _parser = [parser retain];
     }
     return self;
@@ -33,7 +34,7 @@ static NSString * const baseURLString = @"http://news.tut.by/rss/index.rss";
 
 - (void)loadTopics {
     __block typeof(self) weakSelf = self;
-    [self.service loadTopicsFromURL:[NSURL URLWithString:baseURLString]
+    [self.networkService loadDataFromURL:[NSURL URLWithString:baseURLString]
                          completion:^(NSData *data, NSError *error) {
         if (error) {
             [weakSelf showError:error];
@@ -46,11 +47,14 @@ static NSString * const baseURLString = @"http://news.tut.by/rss/index.rss";
 - (void)parseTopicsData:(NSData *)data {
     __block typeof(self) weakSelf = self;
     [self.parser parseTopics:data completion:^(NSMutableArray<RSSRTopic *> *topics, NSError *error) {
-        if (error) {
-            [weakSelf showError:error];
-        } else {
-            [weakSelf.topicsListView setTopics:topics];
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                [weakSelf showError:error];
+            } else {
+                weakSelf.dataSource = topics;
+                [weakSelf.topicsListView reloadData];
+            }
+        });
     }];
 }
 
@@ -58,9 +62,14 @@ static NSString * const baseURLString = @"http://news.tut.by/rss/index.rss";
     [self.topicsListView showAlertControllerWithTitle:@"Error" message:error.localizedDescription];
 }
 
+- (NSArray<RSSRTopic *> *)getTopics {
+    return self.dataSource;
+}
+
 - (void)dealloc {
-    [_service release];
+    [_networkService release];
     [_parser release];
+    [_dataSource release];
     [super dealloc];
 }
 

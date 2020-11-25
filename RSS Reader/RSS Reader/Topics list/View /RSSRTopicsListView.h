@@ -11,9 +11,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class RSSRTopic;
 
-@protocol RSSRTopicsListView
+@protocol RSSRTopicsListView <NSObject>
 
-- (void)setTopics:(NSMutableArray<RSSRTopic *> *)topics;
+- (void)reloadData;
 - (void)showAlertControllerWithTitle:(NSString *)title message:(NSString *)message;
 
 @end

@@ -24,11 +24,9 @@
     return _session;
 }
 
-- (void)loadTopicsFromURL:(NSURL *)url
+- (void)loadDataFromURL:(NSURL *)url
                completion:(void (^)(NSData *data, NSError *error))completion {
-    NSURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    
-    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:request
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:url
                                                      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error) {
             completion(nil, error);
@@ -37,8 +35,6 @@
         }
     }];
     [dataTask resume];
-    
-    [request release];
 }
 
 - (void)dealloc {

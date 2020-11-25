@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface RSSRXMLParser : NSObject
 
 - (void)parseTopics:(NSData *)data
-         completion:(void (^)(NSMutableArray<RSSRTopic *> *topics, NSError *error))completion;
+         completion:(void (^)(NSMutableArray<RSSRTopic *> * _Nullable topics, NSError * _Nullable error))completion;
 
 @end
 
