@@ -26,7 +26,7 @@ static NSString * const kDefaultDateFormat = @"EE, d LLLL yyyy HH:mm:ss Z";
     if (dictionary && dictionary.count > 0) {
         self.title = dictionary[kRSSElementKeyTitle];
         self.link = dictionary[kRSSElementKeyLink];
-        self.summary = [self refactorSummary:dictionary[kRSSElementKeyDescription]];
+        self.summary = [self extractKeyPartOfDescription:dictionary[kRSSElementKeyDescription]];
         self.pubDate = [NSDate dateFromString:dictionary[kRSSElementKeyPubDate]
                                    withFormat:kDefaultDateFormat];
         self.imageURL = dictionary[kRSSElementKeyEnclosure];
@@ -35,19 +35,19 @@ static NSString * const kDefaultDateFormat = @"EE, d LLLL yyyy HH:mm:ss Z";
     }
 }
 
-- (NSString *)refactorSummary:(NSString*)summary {
-    if ([summary hasPrefix:@"<img "]) {
-        NSString *newSummary;
+- (NSString *)extractKeyPartOfDescription:(NSString*)description {
+    if ([description hasPrefix:@"<img "]) {
+        NSString *newDescription;
 
-        NSRange range = [summary rangeOfString:@" />"];
-        newSummary = [summary substringFromIndex:range.location + 3];
+        NSRange range = [description rangeOfString:@" />"];
+        newDescription = [description substringFromIndex:range.location + 3];
         
-        range = [newSummary rangeOfString:@"<br"];
-        newSummary = [newSummary substringToIndex:range.location];
+        range = [newDescription rangeOfString:@"<br"];
+        newDescription = [newDescription substringToIndex:range.location];
 
-        return newSummary;
+        return newDescription;
     }
-    return summary;
+    return description;
 }
 
 - (void)dealloc {
