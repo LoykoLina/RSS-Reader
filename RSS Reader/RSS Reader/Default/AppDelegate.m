@@ -22,7 +22,7 @@
     if (@available(iOS 13.0, *)) {
         
     } else {
-        UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        UIWindow *window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
         self.window = window;
         self.window.backgroundColor = UIColor.whiteColor;
         

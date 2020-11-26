@@ -15,7 +15,7 @@
     return [formatter stringFromDate:self];
 }
 
-+ (instancetype)dateFromString:(NSString *)dateString withFormat:(NSString *)format {
++ (NSDate *)dateFromString:(NSString *)dateString withFormat:(NSString *)format {
     NSDateFormatter *formatter = [[NSDateFormatter new] autorelease];
     [formatter setDateFormat:format];
     return [formatter dateFromString:dateString];

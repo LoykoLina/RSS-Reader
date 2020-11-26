@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSDate (StringConversion)
 
 - (NSString *)stringWithFormat:(NSString *)format;
-+ (instancetype)dateFromString:(NSString *)dateString withFormat:(NSString *)format;
++ (NSDate *)dateFromString:(NSString *)dateString withFormat:(NSString *)format;
 
 @end
 

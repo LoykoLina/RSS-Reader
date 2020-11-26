@@ -111,6 +111,7 @@
 		CAB5FDBD256711A200163CBC /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CAB5FDC0256711A200163CBC /* Parser */,
 				CAB5FDBE256711A200163CBC /* Network service */,
 			);
 			path = Services;
@@ -119,7 +120,6 @@
 		CAB5FDBE256711A200163CBC /* Network service */ = {
 			isa = PBXGroup;
 			children = (
-				CAB5FDC0256711A200163CBC /* Parser */,
 				CAB5FDC3256711A200163CBC /* RSSRNetworkService.h */,
 				CAB5FDBF256711A200163CBC /* RSSRNetworkService.m */,
 			);
