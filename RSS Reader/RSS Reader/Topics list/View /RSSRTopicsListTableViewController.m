@@ -55,11 +55,7 @@ static NSString * const kTitle = @"TUT.by News";
 }
 
 - (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
-    if (self.navigationController.navigationBarHidden) {
-        return UIStatusBarAnimationSlide;
-    } else {
-        return UIStatusBarAnimationFade;
-    }
+    return self.navigationController.navigationBarHidden ? UIStatusBarAnimationSlide : UIStatusBarAnimationFade;
 }
 
 
@@ -90,7 +86,7 @@ static NSString * const kTitle = @"TUT.by News";
     [self.tableView reloadData];
 }
 
-- (void)showAlertControllerWithTitle:(NSString *)title message:(NSString *)message; {
+- (void)showAlertControllerWithTitle:(NSString *)title message:(NSString *)message {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
                                                                              message:message
                                                                       preferredStyle:UIAlertControllerStyleAlert];
