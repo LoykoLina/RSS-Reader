@@ -9,11 +9,11 @@
 
 @implementation UIColor (RSSRColor)
 
-+ (UIColor*)RSSRWhite {
++ (UIColor *)RSSRWhite {
     return [UIColor colorNamed:@"White color"];
 }
 
-+ (UIColor*)RSSRGray {
++ (UIColor *)RSSRGray {
     return [UIColor colorNamed:@"Gray color"];
 }
 
