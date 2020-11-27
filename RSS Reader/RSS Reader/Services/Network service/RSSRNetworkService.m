@@ -19,7 +19,7 @@
 - (NSURLSession *)session {
     if (!_session) {
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-        _session = [NSURLSession sessionWithConfiguration:configuration];
+        _session = [[NSURLSession sessionWithConfiguration:configuration] retain];
     }
     return _session;
 }
