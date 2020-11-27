@@ -15,12 +15,13 @@
 		CAB5FDD6256711A200163CBC /* RSSRNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDBF256711A200163CBC /* RSSRNetworkService.m */; };
 		CAB5FDD7256711A200163CBC /* RSSRXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDC1256711A200163CBC /* RSSRXMLParser.m */; };
 		CAB5FDD9256711A200163CBC /* RSSRTopicsListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDCA256711A200163CBC /* RSSRTopicsListPresenter.m */; };
-		CAB5FDDA256711A200163CBC /* RSSRTopicsListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDCE256711A200163CBC /* RSSRTopicsListTableViewController.m */; };
+		CAB5FDDA256711A200163CBC /* RSSRTopicsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDCE256711A200163CBC /* RSSRTopicsListViewController.m */; };
 		CAB5FDDB256711A200163CBC /* RSSRTopicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDD0256711A200163CBC /* RSSRTopicTableViewCell.m */; };
 		CAB5FDDC256711A200163CBC /* RSSRTopicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAB5FDD2256711A200163CBC /* RSSRTopicTableViewCell.xib */; };
 		CAB5FDDD256711A200163CBC /* RSSRTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDD4256711A200163CBC /* RSSRTopic.m */; };
 		CAB5FDE525671B1900163CBC /* UIColor+RSSRColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDE425671B1900163CBC /* UIColor+RSSRColor.m */; };
 		CAD3D8EB256D9C6100BCDD49 /* NSDate+StringConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = CAD3D8EA256D9C6100BCDD49 /* NSDate+StringConversion.m */; };
+		CAFB3C412571128500440354 /* UIViewController+AlertPresentable.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFB3C402571128500440354 /* UIViewController+AlertPresentable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,9 +41,9 @@
 		CAB5FDC3256711A200163CBC /* RSSRNetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRNetworkService.h; sourceTree = "<group>"; };
 		CAB5FDC9256711A200163CBC /* RSSRTopicsListPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRTopicsListPresenter.h; sourceTree = "<group>"; };
 		CAB5FDCA256711A200163CBC /* RSSRTopicsListPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRTopicsListPresenter.m; sourceTree = "<group>"; };
-		CAB5FDCC256711A200163CBC /* RSSRTopicsListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRTopicsListTableViewController.h; sourceTree = "<group>"; };
-		CAB5FDCD256711A200163CBC /* RSSRTopicsListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRTopicsListView.h; sourceTree = "<group>"; };
-		CAB5FDCE256711A200163CBC /* RSSRTopicsListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRTopicsListTableViewController.m; sourceTree = "<group>"; };
+		CAB5FDCC256711A200163CBC /* RSSRTopicsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRTopicsListViewController.h; sourceTree = "<group>"; };
+		CAB5FDCD256711A200163CBC /* RSSFeedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSFeedView.h; sourceTree = "<group>"; };
+		CAB5FDCE256711A200163CBC /* RSSRTopicsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRTopicsListViewController.m; sourceTree = "<group>"; };
 		CAB5FDD0256711A200163CBC /* RSSRTopicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRTopicTableViewCell.m; sourceTree = "<group>"; };
 		CAB5FDD1256711A200163CBC /* RSSRTopicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRTopicTableViewCell.h; sourceTree = "<group>"; };
 		CAB5FDD2256711A200163CBC /* RSSRTopicTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RSSRTopicTableViewCell.xib; sourceTree = "<group>"; };
@@ -52,6 +53,10 @@
 		CAB5FDE425671B1900163CBC /* UIColor+RSSRColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RSSRColor.m"; sourceTree = "<group>"; };
 		CAD3D8E9256D9C6100BCDD49 /* NSDate+StringConversion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+StringConversion.h"; sourceTree = "<group>"; };
 		CAD3D8EA256D9C6100BCDD49 /* NSDate+StringConversion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+StringConversion.m"; sourceTree = "<group>"; };
+		CAFB3C3B2571067E00440354 /* RSSFeedPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSFeedPresenter.h; sourceTree = "<group>"; };
+		CAFB3C3E2571125200440354 /* AlertPresentable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertPresentable.h; sourceTree = "<group>"; };
+		CAFB3C3F2571128500440354 /* UIViewController+AlertPresentable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AlertPresentable.h"; sourceTree = "<group>"; };
+		CAFB3C402571128500440354 /* UIViewController+AlertPresentable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AlertPresentable.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +92,7 @@
 				CAB5FDC7256711A200163CBC /* Topics list */,
 				CAB5FDBD256711A200163CBC /* Services */,
 				CAB5FDD3256711A200163CBC /* Model */,
-				CAB5FDE125671AC700163CBC /* Category */,
+				CAB5FDE125671AC700163CBC /* Categories */,
 				CA554FDA25642EEF009F124F /* Default */,
 				CA554FCB25642E91009F124F /* Assets.xcassets */,
 				CA554FD025642E91009F124F /* Info.plist */,
@@ -138,6 +143,7 @@
 		CAB5FDC7256711A200163CBC /* Topics list */ = {
 			isa = PBXGroup;
 			children = (
+				CAFB3C3A2571064B00440354 /* Protocols */,
 				CAB5FDC8256711A200163CBC /* Presenter */,
 				CAB5FDCB256711A200163CBC /* View  */,
 			);
@@ -156,10 +162,9 @@
 		CAB5FDCB256711A200163CBC /* View  */ = {
 			isa = PBXGroup;
 			children = (
-				CAB5FDCD256711A200163CBC /* RSSRTopicsListView.h */,
 				CAB5FDCF256711A200163CBC /* Topic cell */,
-				CAB5FDCC256711A200163CBC /* RSSRTopicsListTableViewController.h */,
-				CAB5FDCE256711A200163CBC /* RSSRTopicsListTableViewController.m */,
+				CAB5FDCC256711A200163CBC /* RSSRTopicsListViewController.h */,
+				CAB5FDCE256711A200163CBC /* RSSRTopicsListViewController.m */,
 			);
 			path = "View ";
 			sourceTree = "<group>";
@@ -184,13 +189,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		CAB5FDE125671AC700163CBC /* Category */ = {
+		CAB5FDE125671AC700163CBC /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				CAFB3C3D25710CB000440354 /* UIViewController */,
 				CAD3D8E8256D9BA000BCDD49 /* NSDate */,
 				CAD3D8E6256D9B8B00BCDD49 /* UIColor */,
 			);
-			path = Category;
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		CAD3D8E6256D9B8B00BCDD49 /* UIColor */ = {
@@ -209,6 +215,25 @@
 				CAD3D8EA256D9C6100BCDD49 /* NSDate+StringConversion.m */,
 			);
 			path = NSDate;
+			sourceTree = "<group>";
+		};
+		CAFB3C3A2571064B00440354 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CAB5FDCD256711A200163CBC /* RSSFeedView.h */,
+				CAFB3C3B2571067E00440354 /* RSSFeedPresenter.h */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		CAFB3C3D25710CB000440354 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CAFB3C3E2571125200440354 /* AlertPresentable.h */,
+				CAFB3C3F2571128500440354 /* UIViewController+AlertPresentable.h */,
+				CAFB3C402571128500440354 /* UIViewController+AlertPresentable.m */,
+			);
+			path = UIViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,10 +308,11 @@
 				CA554FC125642E8E009F124F /* AppDelegate.m in Sources */,
 				CA554FD225642E91009F124F /* main.m in Sources */,
 				CAB5FDE525671B1900163CBC /* UIColor+RSSRColor.m in Sources */,
+				CAFB3C412571128500440354 /* UIViewController+AlertPresentable.m in Sources */,
 				CAB5FDD6256711A200163CBC /* RSSRNetworkService.m in Sources */,
 				CAB5FDD9256711A200163CBC /* RSSRTopicsListPresenter.m in Sources */,
 				CAB5FDDB256711A200163CBC /* RSSRTopicTableViewCell.m in Sources */,
-				CAB5FDDA256711A200163CBC /* RSSRTopicsListTableViewController.m in Sources */,
+				CAB5FDDA256711A200163CBC /* RSSRTopicsListViewController.m in Sources */,
 				CAB5FDD7256711A200163CBC /* RSSRXMLParser.m in Sources */,
 				CA554FC425642E8E009F124F /* SceneDelegate.m in Sources */,
 				CAB5FDDD256711A200163CBC /* RSSRTopic.m in Sources */,

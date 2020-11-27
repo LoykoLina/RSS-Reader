@@ -1,5 +1,5 @@
 //
-//  RSSRTopicsListView.h
+//  RSSFeedView.h
 //  RSS Reader
 //
 //  Created by Lina Loyko on 11/18/20.
@@ -11,10 +11,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class RSSRTopic;
 
-@protocol RSSRTopicsListView <NSObject>
+@protocol RSSFeedView <NSObject>
 
 - (void)reloadData;
-- (void)showAlertControllerWithTitle:(NSString *)title message:(NSString *)message;
 
 @end
 

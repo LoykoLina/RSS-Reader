@@ -6,7 +6,7 @@
 //
 
 #import "SceneDelegate.h"
-#import "RSSRTopicsListTableViewController.h"
+#import "RSSRTopicsListViewController.h"
 #import "RSSRNetworkService.h"
 #import "RSSRXMLParser.h"
 #import "RSSRTopicsListPresenter.h"
@@ -27,8 +27,8 @@
     RSSRNetworkService *service = [RSSRNetworkService new];
     RSSRTopicsListPresenter *presenter = [[RSSRTopicsListPresenter alloc] initWithService:service
                                                                                    parser:parser];
-    RSSRTopicsListTableViewController *rootVC = [[RSSRTopicsListTableViewController alloc] initWithPresenter:presenter];
-
+    RSSRTopicsListViewController *rootVC = [[RSSRTopicsListViewController alloc] initWithPresenter:presenter];
+    
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootVC];
     
     [self.window setRootViewController:navigationController];

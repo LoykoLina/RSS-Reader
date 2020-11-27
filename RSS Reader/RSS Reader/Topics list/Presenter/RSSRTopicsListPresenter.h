@@ -6,7 +6,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RSSRTopicsListView.h"
+#import "RSSFeedView.h"
+#import "RSSFeedPresenter.h"
+#import "AlertPresentable.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,14 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 @class RSSRNetworkService;
 @class RSSRTopic;
 
-@interface RSSRTopicsListPresenter : NSObject
-
-@property (nonatomic, assign) id<RSSRTopicsListView> topicsListView;
+@interface RSSRTopicsListPresenter : NSObject <RSSFeedPresenter>
 
 - (instancetype)initWithService:(RSSRNetworkService *)service
                          parser:(RSSRXMLParser *)parser;
-- (void)loadTopics;
-- (NSArray<RSSRTopic *> *)getTopics;
 
 @end
 
