@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RSSRTopicsListViewController : UIViewController <RSSFeedView, UITableViewDataSource>
+@interface RSSRTopicsListViewController : UIViewController <RSSFeedView>
 
 - (instancetype)initWithPresenter:(id<RSSFeedPresenter>)presenter;
 

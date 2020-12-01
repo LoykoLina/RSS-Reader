@@ -44,19 +44,21 @@ static NSString * const baseURLString = @"http://news.tut.by/rss/index.rss";
 - (void)parseTopicsData:(NSData *)data {
     __block typeof(self) weakSelf = self;
     [self.parser parseTopics:data completion:^(NSMutableArray<RSSRTopic *> *topics, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (error) {
-                [weakSelf showError:error];
-            } else {
-                weakSelf.dataSource = topics;
-                [weakSelf.feedView reloadData];
-            }
-        });
+        if (error) {
+            [weakSelf showError:error];
+        } else {
+            weakSelf.dataSource = topics;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.feedView reloadData];
+            });
+        }
     }];
 }
 
 - (void)showError:(NSError *)error {
-    [self.feedView showAlertWithTitle:@"Error" message:error.localizedDescription];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.feedView showAlertWithTitle:@"Error" message:error.localizedDescription];
+    });
 }
 
 

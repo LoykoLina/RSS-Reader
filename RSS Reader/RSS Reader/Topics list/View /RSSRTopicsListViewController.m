@@ -15,7 +15,7 @@
 static NSString * const kReuseIdentifier = @"RSSRTopicTableViewCell";
 static NSString * const kTitle = @"TUT.by News";
 
-@interface RSSRTopicsListViewController ()
+@interface RSSRTopicsListViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, retain) id<RSSFeedPresenter> presenter;
 @property (nonatomic, retain) UITableView *tableView;
@@ -30,6 +30,7 @@ static NSString * const kTitle = @"TUT.by News";
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = UIColor.whiteColor;
         _tableView.dataSource = self;
+        _tableView.delegate = self;
         
         [_tableView registerNib:[UINib nibWithNibName:kReuseIdentifier bundle:nil] forCellReuseIdentifier:kReuseIdentifier];
         
@@ -42,6 +43,7 @@ static NSString * const kTitle = @"TUT.by News";
     self = [super init];
     if (self) {
         _presenter = [presenter retain];
+        [_presenter attachView:self];
     }
     return self;
 }
@@ -56,15 +58,16 @@ static NSString * const kTitle = @"TUT.by News";
     [super viewDidLoad];
     
     [self setupConstraints];
-    
-    [self.presenter attachView:self];
-    
+    [self setupNavigationController];
+
+    [self.presenter loadTopics];
+}
+
+- (void)setupNavigationController {
     self.title = kTitle;
     self.navigationController.title = self.title;
     self.navigationController.navigationBar.translucent = NO;
     [self.navigationController setHidesBarsOnSwipe:YES];
-
-    [self.presenter loadTopics];
 }
 
 - (void)setupConstraints {
@@ -100,6 +103,9 @@ static NSString * const kTitle = @"TUT.by News";
     [cell configureWithItem:[self.presenter topics][indexPath.row]];
     return cell;
 }
+
+
+#pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
