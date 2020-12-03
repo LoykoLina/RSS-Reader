@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA3025542579A65C00BFEF5A /* NSString+XMLTagsRemover.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3025532579A65C00BFEF5A /* NSString+XMLTagsRemover.m */; };
 		CA554FC125642E8E009F124F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA554FC025642E8E009F124F /* AppDelegate.m */; };
 		CA554FC425642E8E009F124F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA554FC325642E8E009F124F /* SceneDelegate.m */; };
 		CA554FCC25642E91009F124F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA554FCB25642E91009F124F /* Assets.xcassets */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA3025522579A65C00BFEF5A /* NSString+XMLTagsRemover.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+XMLTagsRemover.h"; sourceTree = "<group>"; };
+		CA3025532579A65C00BFEF5A /* NSString+XMLTagsRemover.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLTagsRemover.m"; sourceTree = "<group>"; };
 		CA554FBC25642E8E009F124F /* RSS Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RSS Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA554FBF25642E8E009F124F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CA554FC025642E8E009F124F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -70,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA3025512579A3F400BFEF5A /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				CA3025522579A65C00BFEF5A /* NSString+XMLTagsRemover.h */,
+				CA3025532579A65C00BFEF5A /* NSString+XMLTagsRemover.m */,
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
 		CA554FB325642E8E009F124F = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +204,7 @@
 		CAB5FDE125671AC700163CBC /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				CA3025512579A3F400BFEF5A /* NSString */,
 				CAFB3C3D25710CB000440354 /* UIViewController */,
 				CAD3D8E8256D9BA000BCDD49 /* NSDate */,
 				CAD3D8E6256D9B8B00BCDD49 /* UIColor */,
@@ -317,6 +330,7 @@
 				CA554FC425642E8E009F124F /* SceneDelegate.m in Sources */,
 				CAB5FDDD256711A200163CBC /* RSSRTopic.m in Sources */,
 				CAD3D8EB256D9C6100BCDD49 /* NSDate+StringConversion.m in Sources */,
+				CA3025542579A65C00BFEF5A /* NSString+XMLTagsRemover.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

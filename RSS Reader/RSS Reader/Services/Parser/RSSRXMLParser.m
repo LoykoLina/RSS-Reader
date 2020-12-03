@@ -27,7 +27,6 @@
     parser.delegate = self;
     [parser parse];
     [parser release];
-    
 }
 
 - (void)dealloc {
@@ -40,9 +39,7 @@
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
-    if (self.completion) {
-        self.completion(nil, parseError);
-    }
+    self.completion(nil, parseError);
 }
 
 - (void)parserDidStartDocument:(NSXMLParser *)parser {
@@ -94,9 +91,7 @@
 }
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
-    if (self.completion) {
-        self.completion(self.items, nil);
-    }
+    self.completion(self.items, nil);
 }
 
 

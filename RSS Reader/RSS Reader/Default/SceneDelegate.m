@@ -19,27 +19,19 @@
 
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions API_AVAILABLE(ios(13.0)){
-    UIWindow *window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene *)scene];
+    UIWindow *window = [[[UIWindow alloc] initWithWindowScene:(UIWindowScene *)scene] autorelease];
     self.window = window;
     self.window.backgroundColor = UIColor.whiteColor;
     
-    RSSRXMLParser *parser = [RSSRXMLParser new];
-    RSSRNetworkService *service = [RSSRNetworkService new];
-    RSSRTopicsListPresenter *presenter = [[RSSRTopicsListPresenter alloc] initWithService:service
-                                                                                   parser:parser];
-    RSSRTopicsListViewController *rootVC = [[RSSRTopicsListViewController alloc] initWithPresenter:presenter];
-    
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootVC];
+    RSSRXMLParser *parser = [[RSSRXMLParser new] autorelease];
+    RSSRNetworkService *service = [[RSSRNetworkService new] autorelease];
+    RSSRTopicsListPresenter *presenter = [[[RSSRTopicsListPresenter alloc] initWithService:service
+                                                                                    parser:parser] autorelease];
+    RSSRTopicsListViewController *rootVC = [[[RSSRTopicsListViewController alloc] initWithPresenter:presenter] autorelease];
+    UINavigationController *navigationController = [[[UINavigationController alloc] initWithRootViewController:rootVC] autorelease];
     
     [self.window setRootViewController:navigationController];
     [self.window makeKeyAndVisible];
-    
-    [navigationController release];
-    [rootVC release];
-    [window release];
-    [parser release];
-    [presenter release];
-    [service release];
 }
 
 - (void)dealloc {

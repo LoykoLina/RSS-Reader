@@ -7,8 +7,10 @@
 
 #import "RSSRTopic.h"
 #import "NSDate+StringConversion.h"
+#import "NSString+XMLTagsRemover.h"
 
 static NSString * const kDefaultDateFormat = @"EE, d LLLL yyyy HH:mm:ss Z";
+static NSString * const kNilDictionaryMessage = @"Dictionary argument must not be nil or empty!";
 
 @interface RSSRTopic ()
 
@@ -26,28 +28,13 @@ static NSString * const kDefaultDateFormat = @"EE, d LLLL yyyy HH:mm:ss Z";
     if (dictionary && dictionary.count > 0) {
         self.title = dictionary[kRSSElementKeyTitle];
         self.link = dictionary[kRSSElementKeyLink];
-        self.summary = [self extractKeyPartOfDescription:dictionary[kRSSElementKeyDescription]];
+        self.summary = [dictionary[kRSSElementKeyDescription] extractKeyPart];
         self.pubDate = [NSDate dateFromString:dictionary[kRSSElementKeyPubDate]
                                    withFormat:kDefaultDateFormat];
         self.imageURL = dictionary[kRSSElementKeyEnclosure];
     } else {
-        [NSException raise:NSInvalidArgumentException format:@"Dictionary argument must not be nil or empty!"];
+        [NSException raise:NSInvalidArgumentException format:kNilDictionaryMessage];
     }
-}
-
-- (NSString *)extractKeyPartOfDescription:(NSString*)description {
-    if ([description hasPrefix:@"<img "]) {
-        NSString *newDescription;
-
-        NSRange range = [description rangeOfString:@" />"];
-        newDescription = [description substringFromIndex:range.location + 3];
-        
-        range = [newDescription rangeOfString:@"<br"];
-        newDescription = [newDescription substringToIndex:range.location];
-
-        return newDescription;
-    }
-    return description;
 }
 
 - (void)dealloc {

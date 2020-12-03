@@ -22,28 +22,20 @@
     if (@available(iOS 13.0, *)) {
         
     } else {
-        UIWindow *window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+        UIWindow *window = [[[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds] autorelease];
         self.window = window;
         self.window.backgroundColor = UIColor.whiteColor;
         
-        RSSRXMLParser *parser = [RSSRXMLParser new];
-        RSSRNetworkService *service = [RSSRNetworkService new];
-        RSSRTopicsListPresenter *presenter = [[RSSRTopicsListPresenter alloc] initWithService:service
-                                                                                       parser:parser];
-        RSSRTopicsListViewController *rootVC = [[RSSRTopicsListViewController alloc] initWithPresenter:presenter];
-
-        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootVC];
+        RSSRXMLParser *parser = [[RSSRXMLParser new] autorelease];
+        RSSRNetworkService *service = [[RSSRNetworkService new] autorelease];
+        RSSRTopicsListPresenter *presenter = [[[RSSRTopicsListPresenter alloc] initWithService:service
+                                                                                        parser:parser] autorelease];
+        RSSRTopicsListViewController *rootVC = [[[RSSRTopicsListViewController alloc] initWithPresenter:presenter] autorelease];
+        UINavigationController *navigationController = [[[UINavigationController alloc] initWithRootViewController:rootVC] autorelease];
         
         [self.window setRootViewController:navigationController];
         self.window.backgroundColor = UIColor.whiteColor;
         [self.window makeKeyAndVisible];
-        
-        [navigationController release];
-        [rootVC release];
-        [window release];
-        [parser release];
-        [presenter release];
-        [service release];
     }
     return YES;
 }
