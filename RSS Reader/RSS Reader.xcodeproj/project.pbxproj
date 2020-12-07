@@ -13,6 +13,7 @@
 		CA554FCC25642E91009F124F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA554FCB25642E91009F124F /* Assets.xcassets */; };
 		CA554FCF25642E91009F124F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA554FCD25642E91009F124F /* LaunchScreen.storyboard */; };
 		CA554FD225642E91009F124F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA554FD125642E91009F124F /* main.m */; };
+		CA85149F257E45FC00908C5A /* NSError+UserFriendlyError.m in Sources */ = {isa = PBXBuildFile; fileRef = CA85149E257E45FC00908C5A /* NSError+UserFriendlyError.m */; };
 		CAB5FDD6256711A200163CBC /* RSSRNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDBF256711A200163CBC /* RSSRNetworkService.m */; };
 		CAB5FDD7256711A200163CBC /* RSSRXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDC1256711A200163CBC /* RSSRXMLParser.m */; };
 		CAB5FDD9256711A200163CBC /* RSSRTopicsListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDCA256711A200163CBC /* RSSRTopicsListPresenter.m */; };
@@ -38,6 +39,8 @@
 		CA554FD025642E91009F124F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA554FD125642E91009F124F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CA7EC38E256E8745007CEACB /* RSSRTopicItemProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSRTopicItemProtocol.h; sourceTree = "<group>"; };
+		CA85149D257E45FC00908C5A /* NSError+UserFriendlyError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSError+UserFriendlyError.h"; sourceTree = "<group>"; };
+		CA85149E257E45FC00908C5A /* NSError+UserFriendlyError.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSError+UserFriendlyError.m"; sourceTree = "<group>"; };
 		CAB5FDBF256711A200163CBC /* RSSRNetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRNetworkService.m; sourceTree = "<group>"; };
 		CAB5FDC1256711A200163CBC /* RSSRXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRXMLParser.m; sourceTree = "<group>"; };
 		CAB5FDC2256711A200163CBC /* RSSRXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRXMLParser.h; sourceTree = "<group>"; };
@@ -125,6 +128,15 @@
 			path = Default;
 			sourceTree = "<group>";
 		};
+		CA85149C257E45DF00908C5A /* NSError */ = {
+			isa = PBXGroup;
+			children = (
+				CA85149D257E45FC00908C5A /* NSError+UserFriendlyError.h */,
+				CA85149E257E45FC00908C5A /* NSError+UserFriendlyError.m */,
+			);
+			path = NSError;
+			sourceTree = "<group>";
+		};
 		CAB5FDBD256711A200163CBC /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +216,7 @@
 		CAB5FDE125671AC700163CBC /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				CA85149C257E45DF00908C5A /* NSError */,
 				CA3025512579A3F400BFEF5A /* NSString */,
 				CAFB3C3D25710CB000440354 /* UIViewController */,
 				CAD3D8E8256D9BA000BCDD49 /* NSDate */,
@@ -330,6 +343,7 @@
 				CA554FC425642E8E009F124F /* SceneDelegate.m in Sources */,
 				CAB5FDDD256711A200163CBC /* RSSRTopic.m in Sources */,
 				CAD3D8EB256D9C6100BCDD49 /* NSDate+StringConversion.m in Sources */,
+				CA85149F257E45FC00908C5A /* NSError+UserFriendlyError.m in Sources */,
 				CA3025542579A65C00BFEF5A /* NSString+XMLTagsRemover.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

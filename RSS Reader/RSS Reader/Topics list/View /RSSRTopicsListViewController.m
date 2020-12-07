@@ -52,6 +52,7 @@ static NSString * const kTitle = @"TUT.by News";
 - (void)dealloc {
     [_presenter release];
     [_tableView release];
+    [_activityIndicator release];
     [super dealloc];
 }
 
