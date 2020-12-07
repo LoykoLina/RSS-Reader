@@ -302,8 +302,8 @@
             filePath = "RSS Reader/Topics list/View /RSSRTopicsListViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "-reloadData"
             landmarkType = "7">
          </BreakpointContent>

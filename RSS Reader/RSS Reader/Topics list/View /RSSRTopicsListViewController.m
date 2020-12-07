@@ -19,6 +19,7 @@ static NSString * const kTitle = @"TUT.by News";
 
 @property (nonatomic, retain) id<RSSFeedPresenter> presenter;
 @property (nonatomic, retain) UITableView *tableView;
+@property (nonatomic, retain) UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -59,9 +60,15 @@ static NSString * const kTitle = @"TUT.by News";
     
     [self setupConstraints];
     [self setupNavigationController];
-
+    [self configureRefreshControl];
+    [self configureActivityIndicator];
+    
+    [self.activityIndicator startAnimating];
     [self.presenter loadTopics];
 }
+
+
+#pragma mark - Navigation controller configuration
 
 - (void)setupNavigationController {
     self.title = kTitle;
@@ -69,6 +76,9 @@ static NSString * const kTitle = @"TUT.by News";
     self.navigationController.navigationBar.translucent = NO;
     [self.navigationController setHidesBarsOnSwipe:YES];
 }
+
+
+#pragma mark - Constraints setup
 
 - (void)setupConstraints {
     self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -78,6 +88,30 @@ static NSString * const kTitle = @"TUT.by News";
          [self.tableView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
          [self.tableView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
     ]];
+}
+
+
+#pragma mark - Activity indicator configuration
+
+- (void)configureActivityIndicator {
+    UIActivityIndicatorView *activityIndicator = [UIActivityIndicatorView new];
+    self.activityIndicator = activityIndicator;
+    self.tableView.backgroundView = self.activityIndicator;
+    [activityIndicator release];
+}
+
+
+#pragma mark - Refresh control configuration
+
+- (void)configureRefreshControl {
+    UIRefreshControl *refreshControl = [UIRefreshControl new];
+    [refreshControl addTarget:self.presenter
+                       action:@selector(loadTopics)
+             forControlEvents:UIControlEventValueChanged];
+    refreshControl.layer.zPosition = -1;
+    
+    self.tableView.refreshControl = refreshControl;
+    [refreshControl release];
 }
 
 
@@ -120,6 +154,14 @@ static NSString * const kTitle = @"TUT.by News";
 
 - (void)reloadData {
     [self.tableView reloadData];
+}
+
+- (void)stopActivityIndicator {
+    [self.activityIndicator stopAnimating];
+}
+
+- (void)endRefreshing {
+    [self.tableView.refreshControl endRefreshing];
 }
 
 @end

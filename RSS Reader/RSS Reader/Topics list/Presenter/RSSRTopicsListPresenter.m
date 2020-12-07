@@ -49,6 +49,8 @@ static NSString * const baseURLString = @"http://news.tut.by/rss/index.rss";
         } else {
             weakSelf.dataSource = topics;
             dispatch_async(dispatch_get_main_queue(), ^{
+                [self.feedView endRefreshing];
+                [self.feedView stopActivityIndicator];
                 [self.feedView reloadData];
             });
         }
@@ -57,6 +59,8 @@ static NSString * const baseURLString = @"http://news.tut.by/rss/index.rss";
 
 - (void)showError:(NSError *)error {
     dispatch_async(dispatch_get_main_queue(), ^{
+        [self.feedView endRefreshing];
+        [self.feedView stopActivityIndicator];
         [self.feedView showAlertWithTitle:@"Error" message:error.localizedDescription];
     });
 }
