@@ -30,6 +30,7 @@ static NSString * const kTitle = @"TUT.by News";
         _tableView = [[UITableView alloc] init];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = UIColor.whiteColor;
+        _tableView.backgroundView = self.activityIndicator;
         _tableView.dataSource = self;
         _tableView.delegate = self;
         
@@ -38,6 +39,13 @@ static NSString * const kTitle = @"TUT.by News";
         [self.view addSubview:_tableView];
     }
     return _tableView;
+}
+
+- (UIActivityIndicatorView *)activityIndicator {
+    if (!_activityIndicator) {
+        _activityIndicator = [UIActivityIndicatorView new];
+    }
+    return _activityIndicator;
 }
 
 - (instancetype)initWithPresenter:(id<RSSFeedPresenter>)presenter {
@@ -62,7 +70,6 @@ static NSString * const kTitle = @"TUT.by News";
     [self setupConstraints];
     [self setupNavigationController];
     [self configureRefreshControl];
-    [self configureActivityIndicator];
     
     [self.activityIndicator startAnimating];
     [self.presenter loadTopics];
@@ -89,16 +96,6 @@ static NSString * const kTitle = @"TUT.by News";
          [self.tableView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
          [self.tableView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
     ]];
-}
-
-
-#pragma mark - Activity indicator configuration
-
-- (void)configureActivityIndicator {
-    UIActivityIndicatorView *activityIndicator = [UIActivityIndicatorView new];
-    self.activityIndicator = activityIndicator;
-    self.tableView.backgroundView = self.activityIndicator;
-    [activityIndicator release];
 }
 
 
