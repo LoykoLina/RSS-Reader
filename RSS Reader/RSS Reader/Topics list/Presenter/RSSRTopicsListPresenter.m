@@ -59,7 +59,7 @@ static NSString * const baseURLString = @"http://news.tut.by/rss/index.rss";
 }
 
 - (void)showError:(NSError *)error {
-    [error userFriendlyError:^(NSString *title, NSString *message) {
+    [error userFriendlyErrorWithCompletion:^(NSString *title, NSString *message) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.feedView endRefreshing];
             [self.feedView stopActivityIndicator];

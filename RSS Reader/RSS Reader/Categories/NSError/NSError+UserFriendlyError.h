@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSError (UserFriendlyError)
 
-- (void)userFriendlyError:(void (^)(NSString * _Nonnull title, NSString * _Nonnull message)) completion;
+- (void)userFriendlyErrorWithCompletion:(void (^)(NSString * _Nonnull title, NSString * _Nonnull message)) completion;
 
 @end
 
