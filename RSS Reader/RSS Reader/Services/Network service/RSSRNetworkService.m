@@ -15,11 +15,7 @@
         @autoreleasepool {
             NSError *error;
             NSData *data = [NSData dataWithContentsOfURL:url options:NSDataReadingUncached error:&error];
-            if (error) {
-                completion(nil, error);
-            } else {
-                completion(data, nil);
-            }
+            completion(data, error);
         }
     }];
 }

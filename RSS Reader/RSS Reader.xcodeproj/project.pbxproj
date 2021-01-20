@@ -13,7 +13,9 @@
 		CA554FCC25642E91009F124F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA554FCB25642E91009F124F /* Assets.xcassets */; };
 		CA554FCF25642E91009F124F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA554FCD25642E91009F124F /* LaunchScreen.storyboard */; };
 		CA554FD225642E91009F124F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA554FD125642E91009F124F /* main.m */; };
-		CA85149F257E45FC00908C5A /* NSError+UserFriendlyError.m in Sources */ = {isa = PBXBuildFile; fileRef = CA85149E257E45FC00908C5A /* NSError+UserFriendlyError.m */; };
+		CA6FCAC925B88B46006E4DB7 /* NSError+ErrorParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = CA85149E257E45FC00908C5A /* NSError+ErrorParsing.m */; };
+		CA6FCAD525B898ED006E4DB7 /* NSString+LocalizedString.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6FCAD425B898ED006E4DB7 /* NSString+LocalizedString.m */; };
+		CA6FCAE225B8A5D4006E4DB7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA6FCAE425B8A5D4006E4DB7 /* Localizable.strings */; };
 		CAB5FDD6256711A200163CBC /* RSSRNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDBF256711A200163CBC /* RSSRNetworkService.m */; };
 		CAB5FDD7256711A200163CBC /* RSSRXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDC1256711A200163CBC /* RSSRXMLParser.m */; };
 		CAB5FDD9256711A200163CBC /* RSSRTopicsListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDCA256711A200163CBC /* RSSRTopicsListPresenter.m */; };
@@ -38,9 +40,14 @@
 		CA554FCE25642E91009F124F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA554FD025642E91009F124F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA554FD125642E91009F124F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CA6FCACB25B88BEE006E4DB7 /* ErrorConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErrorConstants.h; sourceTree = "<group>"; };
+		CA6FCAD325B898ED006E4DB7 /* NSString+LocalizedString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+LocalizedString.h"; sourceTree = "<group>"; };
+		CA6FCAD425B898ED006E4DB7 /* NSString+LocalizedString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+LocalizedString.m"; sourceTree = "<group>"; };
+		CA6FCAE325B8A5D4006E4DB7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CA6FCAE625B8A5E1006E4DB7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CA7EC38E256E8745007CEACB /* RSSRTopicItemProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSRTopicItemProtocol.h; sourceTree = "<group>"; };
-		CA85149D257E45FC00908C5A /* NSError+UserFriendlyError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSError+UserFriendlyError.h"; sourceTree = "<group>"; };
-		CA85149E257E45FC00908C5A /* NSError+UserFriendlyError.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSError+UserFriendlyError.m"; sourceTree = "<group>"; };
+		CA85149D257E45FC00908C5A /* NSError+ErrorParsing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSError+ErrorParsing.h"; sourceTree = "<group>"; };
+		CA85149E257E45FC00908C5A /* NSError+ErrorParsing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSError+ErrorParsing.m"; sourceTree = "<group>"; };
 		CAB5FDBF256711A200163CBC /* RSSRNetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRNetworkService.m; sourceTree = "<group>"; };
 		CAB5FDC1256711A200163CBC /* RSSRXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRXMLParser.m; sourceTree = "<group>"; };
 		CAB5FDC2256711A200163CBC /* RSSRXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRXMLParser.h; sourceTree = "<group>"; };
@@ -79,8 +86,8 @@
 		CA3025512579A3F400BFEF5A /* NSString */ = {
 			isa = PBXGroup;
 			children = (
-				CA3025522579A65C00BFEF5A /* NSString+XMLTagsRemover.h */,
-				CA3025532579A65C00BFEF5A /* NSString+XMLTagsRemover.m */,
+				CA6FCAD925B899D5006E4DB7 /* XMLTagRemover */,
+				CA6FCAD225B8988E006E4DB7 /* LocalizedString */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -128,11 +135,39 @@
 			path = Default;
 			sourceTree = "<group>";
 		};
+		CA6FCAAF25B7977A006E4DB7 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				CA6FCAE425B8A5D4006E4DB7 /* Localizable.strings */,
+				CA6FCACB25B88BEE006E4DB7 /* ErrorConstants.h */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		CA6FCAD225B8988E006E4DB7 /* LocalizedString */ = {
+			isa = PBXGroup;
+			children = (
+				CA6FCAD325B898ED006E4DB7 /* NSString+LocalizedString.h */,
+				CA6FCAD425B898ED006E4DB7 /* NSString+LocalizedString.m */,
+			);
+			path = LocalizedString;
+			sourceTree = "<group>";
+		};
+		CA6FCAD925B899D5006E4DB7 /* XMLTagRemover */ = {
+			isa = PBXGroup;
+			children = (
+				CA3025522579A65C00BFEF5A /* NSString+XMLTagsRemover.h */,
+				CA3025532579A65C00BFEF5A /* NSString+XMLTagsRemover.m */,
+			);
+			path = XMLTagRemover;
+			sourceTree = "<group>";
+		};
 		CA85149C257E45DF00908C5A /* NSError */ = {
 			isa = PBXGroup;
 			children = (
-				CA85149D257E45FC00908C5A /* NSError+UserFriendlyError.h */,
-				CA85149E257E45FC00908C5A /* NSError+UserFriendlyError.m */,
+				CA6FCAAF25B7977A006E4DB7 /* Localization */,
+				CA85149D257E45FC00908C5A /* NSError+ErrorParsing.h */,
+				CA85149E257E45FC00908C5A /* NSError+ErrorParsing.m */,
 			);
 			path = NSError;
 			sourceTree = "<group>";
@@ -288,7 +323,7 @@
 		CA554FB425642E8E009F124F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1230;
 				TargetAttributes = {
 					CA554FBB25642E8E009F124F = {
 						CreatedOnToolsVersion = 12.1;
@@ -302,6 +337,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = CA554FB325642E8E009F124F;
 			productRefGroup = CA554FBD25642E8E009F124F /* Products */;
@@ -319,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA554FCF25642E91009F124F /* LaunchScreen.storyboard in Resources */,
+				CA6FCAE225B8A5D4006E4DB7 /* Localizable.strings in Resources */,
 				CAB5FDDC256711A200163CBC /* RSSRTopicTableViewCell.xib in Resources */,
 				CA554FCC25642E91009F124F /* Assets.xcassets in Resources */,
 			);
@@ -337,14 +374,15 @@
 				CAFB3C412571128500440354 /* UIViewController+AlertPresentable.m in Sources */,
 				CAB5FDD6256711A200163CBC /* RSSRNetworkService.m in Sources */,
 				CAB5FDD9256711A200163CBC /* RSSRTopicsListPresenter.m in Sources */,
+				CA6FCAD525B898ED006E4DB7 /* NSString+LocalizedString.m in Sources */,
 				CAB5FDDB256711A200163CBC /* RSSRTopicTableViewCell.m in Sources */,
 				CAB5FDDA256711A200163CBC /* RSSRTopicsListViewController.m in Sources */,
 				CAB5FDD7256711A200163CBC /* RSSRXMLParser.m in Sources */,
 				CA554FC425642E8E009F124F /* SceneDelegate.m in Sources */,
 				CAB5FDDD256711A200163CBC /* RSSRTopic.m in Sources */,
 				CAD3D8EB256D9C6100BCDD49 /* NSDate+StringConversion.m in Sources */,
-				CA85149F257E45FC00908C5A /* NSError+UserFriendlyError.m in Sources */,
 				CA3025542579A65C00BFEF5A /* NSString+XMLTagsRemover.m in Sources */,
+				CA6FCAC925B88B46006E4DB7 /* NSError+ErrorParsing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +397,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		CA6FCAE425B8A5D4006E4DB7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA6FCAE325B8A5D4006E4DB7 /* en */,
+				CA6FCAE625B8A5E1006E4DB7 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -366,6 +413,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -425,6 +473,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -483,7 +532,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X72RL872QP;
 				INFOPLIST_FILE = "RSS Reader/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -503,7 +552,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X72RL872QP;
 				INFOPLIST_FILE = "RSS Reader/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -11,7 +11,7 @@
 #import "RSSRNetworkService.h"
 #import "RSSRXMLParser.h"
 #import "UIViewController+AlertPresentable.h"
-#import "NSError+UserFriendlyError.h"
+#import "NSError+ErrorParsing.h"
 
 @interface RSSRTopicsListPresenter ()
 
@@ -59,7 +59,7 @@ static NSString * const baseURLString = @"http://news.tut.by/rss/index.rss";
 }
 
 - (void)showError:(NSError *)error {
-    [error userFriendlyErrorWithCompletion:^(NSString *title, NSString *message) {
+    [error parseErrorWithCompletion:^(NSString *title, NSString *message) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.feedView endRefreshing];
             [self.feedView stopActivityIndicator];

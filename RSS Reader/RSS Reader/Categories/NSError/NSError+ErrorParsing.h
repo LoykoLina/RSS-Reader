@@ -9,9 +9,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSError (UserFriendlyError)
+@interface NSError (ErrorParsing)
 
-- (void)userFriendlyErrorWithCompletion:(void (^)(NSString * _Nonnull title, NSString * _Nonnull message)) completion;
+- (void)parseErrorWithCompletion:(void (^)(NSString * _Nonnull title, NSString * _Nonnull message)) completion;
 
 @end
 

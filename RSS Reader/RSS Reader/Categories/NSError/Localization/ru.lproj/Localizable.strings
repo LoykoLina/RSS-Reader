@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  RSS Reader
+
+  Created by Lina Loyko on 1/20/21.
+  
+*/
+
+"ParserErrorTitle" = "Ошибка синтаксического анализа";
+"ParserErrorMessage" = "Возникла проблема при получении дынных из ленты";
+
+"DefaultErrorTitle" = "Ошибка";
+"DefaultErrorMessage" = "Что-то пошло не так";
