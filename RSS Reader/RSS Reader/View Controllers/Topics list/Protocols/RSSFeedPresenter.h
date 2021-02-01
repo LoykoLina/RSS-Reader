@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AlertPresentable.h"
+#import "ViewControllerPresentable.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,8 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol RSSFeedPresenter <NSObject>
 
 - (void)loadTopics;
-- (void)attachView:(id<RSSFeedView, AlertPresentable>)view;
 - (NSArray<RSSRTopic *> *)topics;
+
+- (void)attachView:(id<RSSFeedView, ViewControllerPresentable>)view;
+- (void)showTopicAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

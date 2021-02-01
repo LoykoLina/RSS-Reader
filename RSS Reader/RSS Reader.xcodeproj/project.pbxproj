@@ -10,6 +10,10 @@
 		CA3025542579A65C00BFEF5A /* NSString+XMLTagsRemover.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3025532579A65C00BFEF5A /* NSString+XMLTagsRemover.m */; };
 		CA46CEF325C89E3D00057BAA /* RSSRTopicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDD0256711A200163CBC /* RSSRTopicTableViewCell.m */; };
 		CA46CEF625C89F9100057BAA /* RSSRTopicsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDCE256711A200163CBC /* RSSRTopicsListViewController.m */; };
+		CA46CEFC25C8A4DC00057BAA /* RSSRWebBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA46CEFA25C8A4DC00057BAA /* RSSRWebBrowserController.m */; };
+		CA46CEFD25C8A4DC00057BAA /* RSSRWebBrowserController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA46CEFB25C8A4DC00057BAA /* RSSRWebBrowserController.xib */; };
+		CA46CF0225C8A50C00057BAA /* UIImage+RSSRImage.m in Sources */ = {isa = PBXBuildFile; fileRef = CA46CF0025C8A50C00057BAA /* UIImage+RSSRImage.m */; };
+		CA46CF0725C8AF6D00057BAA /* RSSRTopicsListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDCA256711A200163CBC /* RSSRTopicsListPresenter.m */; };
 		CA554FC125642E8E009F124F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA554FC025642E8E009F124F /* AppDelegate.m */; };
 		CA554FC425642E8E009F124F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA554FC325642E8E009F124F /* SceneDelegate.m */; };
 		CA554FCC25642E91009F124F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA554FCB25642E91009F124F /* Assets.xcassets */; };
@@ -20,18 +24,22 @@
 		CA6FCAE225B8A5D4006E4DB7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA6FCAE425B8A5D4006E4DB7 /* Localizable.strings */; };
 		CAB5FDD6256711A200163CBC /* RSSRNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDBF256711A200163CBC /* RSSRNetworkService.m */; };
 		CAB5FDD7256711A200163CBC /* RSSRXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDC1256711A200163CBC /* RSSRXMLParser.m */; };
-		CAB5FDD9256711A200163CBC /* RSSRTopicsListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDCA256711A200163CBC /* RSSRTopicsListPresenter.m */; };
 		CAB5FDDC256711A200163CBC /* RSSRTopicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAB5FDD2256711A200163CBC /* RSSRTopicTableViewCell.xib */; };
 		CAB5FDDD256711A200163CBC /* RSSRTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDD4256711A200163CBC /* RSSRTopic.m */; };
 		CAB5FDE525671B1900163CBC /* UIColor+RSSRColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDE425671B1900163CBC /* UIColor+RSSRColor.m */; };
 		CAD3D8EB256D9C6100BCDD49 /* NSDate+StringConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = CAD3D8EA256D9C6100BCDD49 /* NSDate+StringConversion.m */; };
-		CAFB3C412571128500440354 /* UIViewController+AlertPresentable.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFB3C402571128500440354 /* UIViewController+AlertPresentable.m */; };
+		CAFB3C412571128500440354 /* UIViewController+ViewControllerPresentable.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFB3C402571128500440354 /* UIViewController+ViewControllerPresentable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CA3025522579A65C00BFEF5A /* NSString+XMLTagsRemover.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+XMLTagsRemover.h"; sourceTree = "<group>"; };
 		CA3025532579A65C00BFEF5A /* NSString+XMLTagsRemover.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLTagsRemover.m"; sourceTree = "<group>"; };
 		CA46CEF025C8976A00057BAA /* RSSRTopicCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSRTopicCellDelegate.h; sourceTree = "<group>"; };
+		CA46CEF925C8A4DC00057BAA /* RSSRWebBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRWebBrowserController.h; sourceTree = "<group>"; };
+		CA46CEFA25C8A4DC00057BAA /* RSSRWebBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRWebBrowserController.m; sourceTree = "<group>"; };
+		CA46CEFB25C8A4DC00057BAA /* RSSRWebBrowserController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RSSRWebBrowserController.xib; sourceTree = "<group>"; };
+		CA46CF0025C8A50C00057BAA /* UIImage+RSSRImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RSSRImage.m"; sourceTree = "<group>"; };
+		CA46CF0125C8A50C00057BAA /* UIImage+RSSRImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RSSRImage.h"; sourceTree = "<group>"; };
 		CA554FBC25642E8E009F124F /* RSS Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RSS Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA554FBF25642E8E009F124F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CA554FC025642E8E009F124F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -68,9 +76,9 @@
 		CAD3D8E9256D9C6100BCDD49 /* NSDate+StringConversion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+StringConversion.h"; sourceTree = "<group>"; };
 		CAD3D8EA256D9C6100BCDD49 /* NSDate+StringConversion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+StringConversion.m"; sourceTree = "<group>"; };
 		CAFB3C3B2571067E00440354 /* RSSFeedPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSFeedPresenter.h; sourceTree = "<group>"; };
-		CAFB3C3E2571125200440354 /* AlertPresentable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertPresentable.h; sourceTree = "<group>"; };
-		CAFB3C3F2571128500440354 /* UIViewController+AlertPresentable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AlertPresentable.h"; sourceTree = "<group>"; };
-		CAFB3C402571128500440354 /* UIViewController+AlertPresentable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AlertPresentable.m"; sourceTree = "<group>"; };
+		CAFB3C3E2571125200440354 /* ViewControllerPresentable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerPresentable.h; sourceTree = "<group>"; };
+		CAFB3C3F2571128500440354 /* UIViewController+ViewControllerPresentable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ViewControllerPresentable.h"; sourceTree = "<group>"; };
+		CAFB3C402571128500440354 /* UIViewController+ViewControllerPresentable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ViewControllerPresentable.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,9 +104,29 @@
 		CA46CEEF25C896DC00057BAA /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CA46CEF825C8A4DC00057BAA /* Web Browser */,
 				CAB5FDC7256711A200163CBC /* Topics list */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		CA46CEF825C8A4DC00057BAA /* Web Browser */ = {
+			isa = PBXGroup;
+			children = (
+				CA46CEF925C8A4DC00057BAA /* RSSRWebBrowserController.h */,
+				CA46CEFA25C8A4DC00057BAA /* RSSRWebBrowserController.m */,
+				CA46CEFB25C8A4DC00057BAA /* RSSRWebBrowserController.xib */,
+			);
+			path = "Web Browser";
+			sourceTree = "<group>";
+		};
+		CA46CEFF25C8A50C00057BAA /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				CA46CF0025C8A50C00057BAA /* UIImage+RSSRImage.m */,
+				CA46CF0125C8A50C00057BAA /* UIImage+RSSRImage.h */,
+			);
+			path = UIImage;
 			sourceTree = "<group>";
 		};
 		CA554FB325642E8E009F124F = {
@@ -260,6 +288,7 @@
 		CAB5FDE125671AC700163CBC /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				CA46CEFF25C8A50C00057BAA /* UIImage */,
 				CA85149C257E45DF00908C5A /* NSError */,
 				CA3025512579A3F400BFEF5A /* NSString */,
 				CAFB3C3D25710CB000440354 /* UIViewController */,
@@ -300,9 +329,9 @@
 		CAFB3C3D25710CB000440354 /* UIViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CAFB3C3E2571125200440354 /* AlertPresentable.h */,
-				CAFB3C3F2571128500440354 /* UIViewController+AlertPresentable.h */,
-				CAFB3C402571128500440354 /* UIViewController+AlertPresentable.m */,
+				CAFB3C3E2571125200440354 /* ViewControllerPresentable.h */,
+				CAFB3C3F2571128500440354 /* UIViewController+ViewControllerPresentable.h */,
+				CAFB3C402571128500440354 /* UIViewController+ViewControllerPresentable.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -365,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA554FCF25642E91009F124F /* LaunchScreen.storyboard in Resources */,
+				CA46CEFD25C8A4DC00057BAA /* RSSRWebBrowserController.xib in Resources */,
 				CA6FCAE225B8A5D4006E4DB7 /* Localizable.strings in Resources */,
 				CAB5FDDC256711A200163CBC /* RSSRTopicTableViewCell.xib in Resources */,
 				CA554FCC25642E91009F124F /* Assets.xcassets in Resources */,
@@ -380,17 +410,19 @@
 			files = (
 				CA46CEF625C89F9100057BAA /* RSSRTopicsListViewController.m in Sources */,
 				CA46CEF325C89E3D00057BAA /* RSSRTopicTableViewCell.m in Sources */,
+				CA46CF0225C8A50C00057BAA /* UIImage+RSSRImage.m in Sources */,
 				CA554FC125642E8E009F124F /* AppDelegate.m in Sources */,
 				CA554FD225642E91009F124F /* main.m in Sources */,
 				CAB5FDE525671B1900163CBC /* UIColor+RSSRColor.m in Sources */,
-				CAFB3C412571128500440354 /* UIViewController+AlertPresentable.m in Sources */,
+				CA46CEFC25C8A4DC00057BAA /* RSSRWebBrowserController.m in Sources */,
+				CAFB3C412571128500440354 /* UIViewController+ViewControllerPresentable.m in Sources */,
 				CAB5FDD6256711A200163CBC /* RSSRNetworkService.m in Sources */,
-				CAB5FDD9256711A200163CBC /* RSSRTopicsListPresenter.m in Sources */,
 				CA6FCAD525B898ED006E4DB7 /* NSString+LocalizedString.m in Sources */,
 				CAB5FDD7256711A200163CBC /* RSSRXMLParser.m in Sources */,
 				CA554FC425642E8E009F124F /* SceneDelegate.m in Sources */,
 				CAB5FDDD256711A200163CBC /* RSSRTopic.m in Sources */,
 				CAD3D8EB256D9C6100BCDD49 /* NSDate+StringConversion.m in Sources */,
+				CA46CF0725C8AF6D00057BAA /* RSSRTopicsListPresenter.m in Sources */,
 				CA3025542579A65C00BFEF5A /* NSString+XMLTagsRemover.m in Sources */,
 				CA6FCAC925B88B46006E4DB7 /* NSError+ErrorParsing.m in Sources */,
 			);

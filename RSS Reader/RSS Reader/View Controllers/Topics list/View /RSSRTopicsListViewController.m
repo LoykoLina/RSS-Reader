@@ -10,7 +10,7 @@
 #import "RSSRTopicsListPresenter.h"
 #import "RSSRTopicTableViewCell.h"
 #import "RSSFeedPresenter.h"
-#import "UIViewController+AlertPresentable.h"
+#import "UIViewController+ViewControllerPresentable.h"
 #import "UIColor+RSSRColor.h"
 #import "RSSRTopicCellDelegate.h"
 
@@ -23,9 +23,14 @@ static NSString * const kTitle = @"TUT.by News";
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) UIActivityIndicatorView *activityIndicator;
 
+@property (nonatomic) CGFloat lastContentOffset;
+
 @end
 
 @implementation RSSRTopicsListViewController
+
+
+#pragma mark - Lazy properties
 
 - (UITableView *)tableView {
     if (!_tableView) {
@@ -50,6 +55,9 @@ static NSString * const kTitle = @"TUT.by News";
     return _activityIndicator;
 }
 
+
+#pragma mark - Initialization & Deallocation
+
 - (instancetype)initWithPresenter:(id<RSSFeedPresenter>)presenter {
     self = [super init];
     if (self) {
@@ -66,25 +74,40 @@ static NSString * const kTitle = @"TUT.by News";
     [super dealloc];
 }
 
+
+#pragma mark - View controller life cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.title = kTitle;
+    
     [self setupConstraints];
-    [self setupNavigationController];
     [self configureRefreshControl];
     
     [self.activityIndicator startAnimating];
     [self.presenter loadTopics];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setToolbarHidden:YES];
+}
 
-#pragma mark - Navigation controller configuration
 
-- (void)setupNavigationController {
-    self.title = kTitle;
-    self.navigationController.title = self.title;
-    self.navigationController.navigationBar.translucent = NO;
-    [self.navigationController setHidesBarsOnSwipe:YES];
+#pragma mark - Hide/show navigationbar
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    self.lastContentOffset = scrollView.contentOffset.y;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView.contentOffset.y <= self.lastContentOffset) {
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+    } else if ([self.presenter topics].count) {
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+    }
 }
 
 
@@ -144,10 +167,8 @@ static NSString * const kTitle = @"TUT.by News";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSString *link = [[self.presenter topics][indexPath.row] itemLink];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: link]
-                                       options:@{}
-                             completionHandler:nil];
+    
+    [self.presenter showTopicAtIndexPath:indexPath];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {

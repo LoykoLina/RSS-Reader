@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "RSSFeedView.h"
 #import "RSSFeedPresenter.h"
-#import "AlertPresentable.h"
+#import "ViewControllerPresentable.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
