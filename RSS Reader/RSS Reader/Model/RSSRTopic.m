@@ -24,6 +24,8 @@ static NSString * const kNilDictionaryMessage = @"Dictionary argument must not b
 
 @implementation RSSRTopic
 
+@synthesize showDetails;
+
 - (void)configureWithDictionary:(NSDictionary *)dictionary {
     if (dictionary && dictionary.count > 0) {
         self.title = dictionary[kRSSElementKeyTitle];
@@ -63,5 +65,10 @@ static NSString * const kNilDictionaryMessage = @"Dictionary argument must not b
 - (NSString *)itemTitle {
     return self.title;
 }
+
+- (BOOL)isShowDetails {
+    return self.showDetails;
+}
+
 
 @end

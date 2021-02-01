@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CA3025542579A65C00BFEF5A /* NSString+XMLTagsRemover.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3025532579A65C00BFEF5A /* NSString+XMLTagsRemover.m */; };
+		CA46CEF325C89E3D00057BAA /* RSSRTopicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDD0256711A200163CBC /* RSSRTopicTableViewCell.m */; };
+		CA46CEF625C89F9100057BAA /* RSSRTopicsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDCE256711A200163CBC /* RSSRTopicsListViewController.m */; };
 		CA554FC125642E8E009F124F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA554FC025642E8E009F124F /* AppDelegate.m */; };
 		CA554FC425642E8E009F124F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA554FC325642E8E009F124F /* SceneDelegate.m */; };
 		CA554FCC25642E91009F124F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA554FCB25642E91009F124F /* Assets.xcassets */; };
@@ -19,8 +21,6 @@
 		CAB5FDD6256711A200163CBC /* RSSRNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDBF256711A200163CBC /* RSSRNetworkService.m */; };
 		CAB5FDD7256711A200163CBC /* RSSRXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDC1256711A200163CBC /* RSSRXMLParser.m */; };
 		CAB5FDD9256711A200163CBC /* RSSRTopicsListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDCA256711A200163CBC /* RSSRTopicsListPresenter.m */; };
-		CAB5FDDA256711A200163CBC /* RSSRTopicsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDCE256711A200163CBC /* RSSRTopicsListViewController.m */; };
-		CAB5FDDB256711A200163CBC /* RSSRTopicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDD0256711A200163CBC /* RSSRTopicTableViewCell.m */; };
 		CAB5FDDC256711A200163CBC /* RSSRTopicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAB5FDD2256711A200163CBC /* RSSRTopicTableViewCell.xib */; };
 		CAB5FDDD256711A200163CBC /* RSSRTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDD4256711A200163CBC /* RSSRTopic.m */; };
 		CAB5FDE525671B1900163CBC /* UIColor+RSSRColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDE425671B1900163CBC /* UIColor+RSSRColor.m */; };
@@ -31,6 +31,7 @@
 /* Begin PBXFileReference section */
 		CA3025522579A65C00BFEF5A /* NSString+XMLTagsRemover.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+XMLTagsRemover.h"; sourceTree = "<group>"; };
 		CA3025532579A65C00BFEF5A /* NSString+XMLTagsRemover.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLTagsRemover.m"; sourceTree = "<group>"; };
+		CA46CEF025C8976A00057BAA /* RSSRTopicCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSRTopicCellDelegate.h; sourceTree = "<group>"; };
 		CA554FBC25642E8E009F124F /* RSS Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RSS Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA554FBF25642E8E009F124F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CA554FC025642E8E009F124F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -92,6 +93,14 @@
 			path = NSString;
 			sourceTree = "<group>";
 		};
+		CA46CEEF25C896DC00057BAA /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CAB5FDC7256711A200163CBC /* Topics list */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
 		CA554FB325642E8E009F124F = {
 			isa = PBXGroup;
 			children = (
@@ -111,7 +120,7 @@
 		CA554FBE25642E8E009F124F /* RSS Reader */ = {
 			isa = PBXGroup;
 			children = (
-				CAB5FDC7256711A200163CBC /* Topics list */,
+				CA46CEEF25C896DC00057BAA /* View Controllers */,
 				CAB5FDBD256711A200163CBC /* Services */,
 				CAB5FDD3256711A200163CBC /* Model */,
 				CAB5FDE125671AC700163CBC /* Categories */,
@@ -281,6 +290,7 @@
 		CAFB3C3A2571064B00440354 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				CA46CEF025C8976A00057BAA /* RSSRTopicCellDelegate.h */,
 				CAB5FDCD256711A200163CBC /* RSSFeedView.h */,
 				CAFB3C3B2571067E00440354 /* RSSFeedPresenter.h */,
 			);
@@ -368,6 +378,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA46CEF625C89F9100057BAA /* RSSRTopicsListViewController.m in Sources */,
+				CA46CEF325C89E3D00057BAA /* RSSRTopicTableViewCell.m in Sources */,
 				CA554FC125642E8E009F124F /* AppDelegate.m in Sources */,
 				CA554FD225642E91009F124F /* main.m in Sources */,
 				CAB5FDE525671B1900163CBC /* UIColor+RSSRColor.m in Sources */,
@@ -375,8 +387,6 @@
 				CAB5FDD6256711A200163CBC /* RSSRNetworkService.m in Sources */,
 				CAB5FDD9256711A200163CBC /* RSSRTopicsListPresenter.m in Sources */,
 				CA6FCAD525B898ED006E4DB7 /* NSString+LocalizedString.m in Sources */,
-				CAB5FDDB256711A200163CBC /* RSSRTopicTableViewCell.m in Sources */,
-				CAB5FDDA256711A200163CBC /* RSSRTopicsListViewController.m in Sources */,
 				CAB5FDD7256711A200163CBC /* RSSRXMLParser.m in Sources */,
 				CA554FC425642E8E009F124F /* SceneDelegate.m in Sources */,
 				CAB5FDDD256711A200163CBC /* RSSRTopic.m in Sources */,
