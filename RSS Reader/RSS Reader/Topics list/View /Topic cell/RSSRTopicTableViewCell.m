@@ -33,13 +33,13 @@ static NSInteger const kCellViewCornerRadius = 10;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     
-    self.cellView.backgroundColor = selected ? UIColor.RSSRGray : UIColor.RSSRWhite;
+    self.cellView.backgroundColor = selected ? UIColor.RSSRSelectedStateColor : UIColor.whiteColor;
 }
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
     [super setHighlighted:highlighted animated:animated];
     
-    self.cellView.backgroundColor = highlighted ? UIColor.RSSRGray : UIColor.RSSRWhite;
+    self.cellView.backgroundColor = highlighted ? UIColor.RSSRSelectedStateColor : UIColor.whiteColor;
 }
 
 - (void)configureWithItem:(id<RSSRTopicItemProtocol>)topic {

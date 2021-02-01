@@ -9,12 +9,12 @@
 
 @implementation UIColor (RSSRColor)
 
-+ (UIColor *)RSSRWhite {
-    return [UIColor colorNamed:@"White color"];
++ (UIColor *)RSSRBackgroundColor {
+    return [UIColor colorNamed:@"Background color"];
 }
 
-+ (UIColor *)RSSRGray {
-    return [UIColor colorNamed:@"Gray color"];
++ (UIColor *)RSSRSelectedStateColor {
+    return [UIColor colorNamed:@"Selected state color"];
 }
 
 @end

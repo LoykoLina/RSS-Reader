@@ -11,6 +11,7 @@
 #import "RSSRTopicTableViewCell.h"
 #import "RSSFeedPresenter.h"
 #import "UIViewController+AlertPresentable.h"
+#import "UIColor+RSSRColor.h"
 
 static NSString * const kReuseIdentifier = @"RSSRTopicTableViewCell";
 static NSString * const kTitle = @"TUT.by News";
@@ -29,7 +30,7 @@ static NSString * const kTitle = @"TUT.by News";
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.backgroundColor = UIColor.whiteColor;
+        _tableView.backgroundColor = UIColor.RSSRBackgroundColor;
         _tableView.backgroundView = self.activityIndicator;
         _tableView.dataSource = self;
         _tableView.delegate = self;

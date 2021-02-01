@@ -11,8 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIColor (RSSRColor)
 
-@property (class, nonatomic, readonly) UIColor *RSSRWhite;
-@property (class, nonatomic, readonly) UIColor *RSSRGray;
+@property (class, nonatomic, readonly) UIColor *RSSRBackgroundColor;
+@property (class, nonatomic, readonly) UIColor *RSSRSelectedStateColor;
 
 @end
 
