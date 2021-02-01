@@ -7,39 +7,21 @@
 
 #import "RSSRNetworkService.h"
 
-
-@interface RSSRNetworkService ()
-
-@property (nonatomic, retain) NSURLSession *session;
-
-@end
+static NSString * const kNilCompletionMessage = @"Completion must not be nil!";
 
 @implementation RSSRNetworkService
 
-- (NSURLSession *)session {
-    if (!_session) {
-        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-        _session = [[NSURLSession sessionWithConfiguration:configuration] retain];
-    }
-    return _session;
-}
-
 - (void)loadDataFromURL:(NSURL *)url
-               completion:(void (^)(NSData *data, NSError *error))completion {
-    NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:url
-                                                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (error) {
-            completion(nil, error);
-        } else {
-            completion(data, nil);
+             completion:(void (^)(NSData *data, NSError *error))completion {
+    [NSThread detachNewThreadWithBlock:^{
+        @autoreleasepool {
+            NSAssert(completion, kNilCompletionMessage);
+            
+            NSError *error;
+            NSData *data = [NSData dataWithContentsOfURL:url options:NSDataReadingUncached error:&error];
+            completion(data, error);
         }
     }];
-    [dataTask resume];
-}
-
-- (void)dealloc {
-    [_session release];
-    [super dealloc];
 }
 
 @end

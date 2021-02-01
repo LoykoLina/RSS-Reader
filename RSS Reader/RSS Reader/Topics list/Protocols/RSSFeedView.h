@@ -9,11 +9,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class RSSRTopic;
-
 @protocol RSSFeedView <NSObject>
 
 - (void)reloadData;
+- (void)endRefreshing;
+- (void)stopActivityIndicator;
 
 @end
 
