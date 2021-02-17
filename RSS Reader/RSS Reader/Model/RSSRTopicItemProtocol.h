@@ -18,8 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSDate *)itemPubDate;
 - (NSString *)itemLink;
 
-- (BOOL)isShowDetails;
-- (void)setShowDetails:(BOOL)showDetails;
+- (BOOL)isPossibleToShowDetails;
 
 @end
 

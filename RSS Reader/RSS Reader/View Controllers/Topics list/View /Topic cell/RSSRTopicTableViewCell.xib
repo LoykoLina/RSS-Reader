@@ -21,34 +21,27 @@
                         <rect key="frame" x="15" y="15" width="304" height="120"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOa-Jj-r4N">
-                                <rect key="frame" x="15" y="10" width="274" height="20.5"/>
+                                <rect key="frame" x="15" y="15" width="274" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TiO-sE-Qvm">
-                                <rect key="frame" x="194" y="80" width="100" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="aps-Gj-whu"/>
-                                    <constraint firstAttribute="height" constant="30" id="bA4-Ea-zIY"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
-                                <state key="normal" title="Annotation...">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="clickOnAnnotation:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5mX-ul-02m"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ape-tJ-4y7">
+                                <rect key="frame" x="15" y="45.5" width="274" height="12"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="TiO-sE-Qvm" secondAttribute="bottom" constant="10" id="AsB-A1-YNu"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ape-tJ-4y7" secondAttribute="bottom" constant="15" id="BWU-gj-OOB"/>
+                            <constraint firstItem="ape-tJ-4y7" firstAttribute="top" secondItem="UOa-Jj-r4N" secondAttribute="bottom" constant="10" id="ES9-KC-V0T"/>
                             <constraint firstAttribute="trailing" secondItem="UOa-Jj-r4N" secondAttribute="trailing" constant="15" id="YPb-Qo-n6D"/>
-                            <constraint firstAttribute="trailing" secondItem="TiO-sE-Qvm" secondAttribute="trailing" constant="10" id="gSx-a7-Ubw"/>
                             <constraint firstItem="UOa-Jj-r4N" firstAttribute="leading" secondItem="qSZ-PY-lyG" secondAttribute="leading" constant="15" id="hXr-c4-3AR"/>
-                            <constraint firstItem="TiO-sE-Qvm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="UOa-Jj-r4N" secondAttribute="bottom" constant="10" id="ozL-yd-Ikz"/>
-                            <constraint firstItem="UOa-Jj-r4N" firstAttribute="top" secondItem="qSZ-PY-lyG" secondAttribute="top" constant="10" id="sAk-ic-KOt"/>
+                            <constraint firstItem="ape-tJ-4y7" firstAttribute="leading" secondItem="UOa-Jj-r4N" secondAttribute="leading" id="hxJ-ug-P8u"/>
+                            <constraint firstItem="UOa-Jj-r4N" firstAttribute="top" secondItem="qSZ-PY-lyG" secondAttribute="top" constant="15" id="sAk-ic-KOt"/>
+                            <constraint firstItem="ape-tJ-4y7" firstAttribute="trailing" secondItem="UOa-Jj-r4N" secondAttribute="trailing" id="vBD-2q-0Z5"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -63,8 +56,8 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="annotationButton" destination="TiO-sE-Qvm" id="rA3-c5-xqp"/>
                 <outlet property="cellView" destination="qSZ-PY-lyG" id="CQw-dE-udJ"/>
+                <outlet property="pubDate" destination="ape-tJ-4y7" id="g4f-Ln-zRO"/>
                 <outlet property="title" destination="UOa-Jj-r4N" id="LMQ-Bk-UKS"/>
             </connections>
             <point key="canvasLocation" x="-129" y="68"/>

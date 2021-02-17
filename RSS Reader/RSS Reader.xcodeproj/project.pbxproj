@@ -19,6 +19,8 @@
 		CA554FCC25642E91009F124F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA554FCB25642E91009F124F /* Assets.xcassets */; };
 		CA554FCF25642E91009F124F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA554FCD25642E91009F124F /* LaunchScreen.storyboard */; };
 		CA554FD225642E91009F124F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA554FD125642E91009F124F /* main.m */; };
+		CA589B2B25DC8F3600178E51 /* NSString+WhitespaceString.m in Sources */ = {isa = PBXBuildFile; fileRef = CA589B2A25DC8F3600178E51 /* NSString+WhitespaceString.m */; };
+		CA589B3125DD1BBE00178E51 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA589B3025DD1BBE00178E51 /* WebKit.framework */; };
 		CA6FCAC925B88B46006E4DB7 /* NSError+ErrorParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = CA85149E257E45FC00908C5A /* NSError+ErrorParsing.m */; };
 		CA6FCAD525B898ED006E4DB7 /* NSString+LocalizedString.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6FCAD425B898ED006E4DB7 /* NSString+LocalizedString.m */; };
 		CA6FCAE225B8A5D4006E4DB7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA6FCAE425B8A5D4006E4DB7 /* Localizable.strings */; };
@@ -49,6 +51,9 @@
 		CA554FCE25642E91009F124F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA554FD025642E91009F124F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA554FD125642E91009F124F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CA589B2925DC8F3600178E51 /* NSString+WhitespaceString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+WhitespaceString.h"; sourceTree = "<group>"; };
+		CA589B2A25DC8F3600178E51 /* NSString+WhitespaceString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+WhitespaceString.m"; sourceTree = "<group>"; };
+		CA589B3025DD1BBE00178E51 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		CA6FCACB25B88BEE006E4DB7 /* ErrorConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErrorConstants.h; sourceTree = "<group>"; };
 		CA6FCAD325B898ED006E4DB7 /* NSString+LocalizedString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+LocalizedString.h"; sourceTree = "<group>"; };
 		CA6FCAD425B898ED006E4DB7 /* NSString+LocalizedString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+LocalizedString.m"; sourceTree = "<group>"; };
@@ -86,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA589B3125DD1BBE00178E51 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +101,7 @@
 		CA3025512579A3F400BFEF5A /* NSString */ = {
 			isa = PBXGroup;
 			children = (
+				CA589B2D25DC8F3A00178E51 /* WhitespaceString */,
 				CA6FCAD925B899D5006E4DB7 /* XMLTagRemover */,
 				CA6FCAD225B8988E006E4DB7 /* LocalizedString */,
 			);
@@ -134,6 +141,7 @@
 			children = (
 				CA554FBE25642E8E009F124F /* RSS Reader */,
 				CA554FBD25642E8E009F124F /* Products */,
+				CA589B2F25DD1BBD00178E51 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -170,6 +178,23 @@
 				CA554FD125642E91009F124F /* main.m */,
 			);
 			path = Default;
+			sourceTree = "<group>";
+		};
+		CA589B2D25DC8F3A00178E51 /* WhitespaceString */ = {
+			isa = PBXGroup;
+			children = (
+				CA589B2925DC8F3600178E51 /* NSString+WhitespaceString.h */,
+				CA589B2A25DC8F3600178E51 /* NSString+WhitespaceString.m */,
+			);
+			path = WhitespaceString;
+			sourceTree = "<group>";
+		};
+		CA589B2F25DD1BBD00178E51 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CA589B3025DD1BBE00178E51 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		CA6FCAAF25B7977A006E4DB7 /* Localization */ = {
@@ -417,6 +442,7 @@
 				CA46CEFC25C8A4DC00057BAA /* RSSRWebBrowserController.m in Sources */,
 				CAFB3C412571128500440354 /* UIViewController+ViewControllerPresentable.m in Sources */,
 				CAB5FDD6256711A200163CBC /* RSSRNetworkService.m in Sources */,
+				CA589B2B25DC8F3600178E51 /* NSString+WhitespaceString.m in Sources */,
 				CA6FCAD525B898ED006E4DB7 /* NSString+LocalizedString.m in Sources */,
 				CAB5FDD7256711A200163CBC /* RSSRXMLParser.m in Sources */,
 				CA554FC425642E8E009F124F /* SceneDelegate.m in Sources */,

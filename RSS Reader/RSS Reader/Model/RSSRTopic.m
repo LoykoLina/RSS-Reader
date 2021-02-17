@@ -8,9 +8,9 @@
 #import "RSSRTopic.h"
 #import "NSDate+StringConversion.h"
 #import "NSString+XMLTagsRemover.h"
+#import "NSString+WhitespaceString.h"
 
 static NSString * const kDefaultDateFormat = @"EE, d LLLL yyyy HH:mm:ss Z";
-static NSString * const kNilDictionaryMessage = @"Dictionary argument must not be nil or empty!";
 
 @interface RSSRTopic ()
 
@@ -27,16 +27,12 @@ static NSString * const kNilDictionaryMessage = @"Dictionary argument must not b
 @synthesize showDetails;
 
 - (void)configureWithDictionary:(NSDictionary *)dictionary {
-    if (dictionary && dictionary.count > 0) {
-        self.title = dictionary[kRSSElementKeyTitle];
-        self.link = dictionary[kRSSElementKeyLink];
-        self.summary = [dictionary[kRSSElementKeyDescription] extractKeyPart];
-        self.pubDate = [NSDate dateFromString:dictionary[kRSSElementKeyPubDate]
-                                   withFormat:kDefaultDateFormat];
-        self.imageURL = dictionary[kRSSElementKeyEnclosure];
-    } else {
-        [NSException raise:NSInvalidArgumentException format:kNilDictionaryMessage];
-    }
+    self.title = dictionary[kRSSElementKeyTitle];
+    self.link = dictionary[kRSSElementKeyLink];
+    self.summary = [dictionary[kRSSElementKeyDescription] extractKeyPart];
+    self.pubDate = [NSDate dateFromString:dictionary[kRSSElementKeyPubDate]
+                               withFormat:kDefaultDateFormat];
+    self.imageURL = dictionary[kRSSElementKeyEnclosure];
 }
 
 - (void)dealloc {
@@ -66,9 +62,8 @@ static NSString * const kNilDictionaryMessage = @"Dictionary argument must not b
     return self.title;
 }
 
-- (BOOL)isShowDetails {
-    return self.showDetails;
+- (BOOL)isPossibleToShowDetails {
+    return self.summary && ![self.summary isWhitespaceString] ? YES : NO;
 }
-
 
 @end

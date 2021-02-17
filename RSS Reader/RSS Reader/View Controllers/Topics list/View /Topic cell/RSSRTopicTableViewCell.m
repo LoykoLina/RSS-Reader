@@ -11,14 +11,16 @@
 
 static NSString * const kTopicDateFormat = @"MMM d, yyyy HH:mm";
 static NSInteger const kCellViewCornerRadius = 10;
+static NSString * const kShowMore = @"Show More";
+static NSString * const kShowLess = @"Show Less";
 
 @interface RSSRTopicTableViewCell ()
 
 @property (retain, nonatomic) IBOutlet UILabel *title;
-@property (retain, nonatomic) UILabel *pubDate;
+@property (retain, nonatomic) IBOutlet UILabel *pubDate;
 @property (retain, nonatomic) UILabel *summary;
 @property (retain, nonatomic) IBOutlet UIView *cellView;
-@property (retain, nonatomic) IBOutlet UIButton *annotationButton;
+@property (retain, nonatomic) UIButton *annotationButton;
 
 @property (nonatomic, retain) id<RSSRTopicItemProtocol> topic;
 @property (assign, nonatomic) id<RSSRTopicCellDelegate> delegate;
@@ -27,13 +29,17 @@ static NSInteger const kCellViewCornerRadius = 10;
 
 @implementation RSSRTopicTableViewCell
 
-- (UILabel *)pubDate {
-    if(!_pubDate) {
-        _pubDate = [UILabel new];
-        [_pubDate setFont:[UIFont systemFontOfSize:10 weight:UIFontWeightLight]];
-        [_pubDate setTextColor:UIColor.darkGrayColor];
+
+- (UIButton *)annotationButton {
+    if (!_annotationButton) {
+        _annotationButton = [[UIButton buttonWithType:UIButtonTypeSystem] retain];
+        [_annotationButton.titleLabel setFont:[UIFont systemFontOfSize:13 weight:UIFontWeightLight]];
+        [_annotationButton setTitleColor:UIColor.lightGrayColor forState:UIControlStateNormal];
+        [_annotationButton addTarget:self
+                              action:@selector(clickOnAnnotation)
+                    forControlEvents:UIControlEventTouchUpInside];
     }
-    return _pubDate;
+    return _annotationButton;
 }
 
 - (UILabel *)summary {
@@ -51,6 +57,7 @@ static NSInteger const kCellViewCornerRadius = 10;
     
     self.cellView.layer.cornerRadius = kCellViewCornerRadius;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.contentView.userInteractionEnabled = YES;
 }
 
 - (void)dealloc {
@@ -78,27 +85,23 @@ static NSInteger const kCellViewCornerRadius = 10;
 
 
 - (void)showDetails {
-    [self.cellView addSubview:self.pubDate];
+    [self.annotationButton setTitle:kShowLess forState:UIControlStateNormal];
+    
+    self.summary.text = [self.topic itemSummary];
     [self.cellView addSubview:self.summary];
     
-    self.pubDate.translatesAutoresizingMaskIntoConstraints = NO;
     self.summary.translatesAutoresizingMaskIntoConstraints = NO;
-    
     [NSLayoutConstraint activateConstraints:@[
-        [self.pubDate.topAnchor constraintEqualToAnchor:self.title.bottomAnchor constant:5],
-        [self.pubDate.leadingAnchor constraintEqualToAnchor:self.title.leadingAnchor],
-        [self.pubDate.trailingAnchor constraintEqualToAnchor:self.title.trailingAnchor],
-        
-        [self.summary.topAnchor constraintEqualToAnchor:self.pubDate.bottomAnchor constant:10],
+        [self.summary.topAnchor constraintEqualToAnchor:self.pubDate.bottomAnchor constant:15],
         [self.summary.leadingAnchor constraintEqualToAnchor:self.title.leadingAnchor],
         [self.summary.trailingAnchor constraintEqualToAnchor:self.title.trailingAnchor],
         
-        [self.annotationButton.topAnchor constraintEqualToAnchor:self.summary.bottomAnchor constant:5],
+        [self.annotationButton.topAnchor constraintEqualToAnchor:self.summary.bottomAnchor constant:10],
     ]];
 }
 
 - (void)hideDetails {
-    [self.pubDate removeFromSuperview];
+    [self.annotationButton setTitle:kShowMore forState:UIControlStateNormal];
     [self.summary removeFromSuperview];
 }
 
@@ -108,23 +111,39 @@ static NSInteger const kCellViewCornerRadius = 10;
     self.topic = topic;
     self.title.text = [self.topic itemTitle];
     self.pubDate.text = [[self.topic itemPubDate] stringWithFormat:kTopicDateFormat];
-    self.summary.text = [self.topic itemSummary];
     
-    if (self.topic.showDetails) {
-        [self showDetails];
+    if ([self.topic isPossibleToShowDetails]) {
+        [self configureAnnotationButtonLayout];
+        
+        if (self.topic.showDetails) {
+            [self showDetails];
+        } else {
+            [self hideDetails];
+        }
+        
+        [self setNeedsLayout];
+    } else {
+        [self.annotationButton removeFromSuperview];
     }
-    else {
-        [self hideDetails];
-    }
-    
-    [self setNeedsLayout];
 }
 
-- (IBAction)clickOnAnnotation:(id)sender {
+- (void)configureAnnotationButtonLayout {
+    [self.cellView addSubview:self.annotationButton];
+    
+    self.annotationButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [NSLayoutConstraint activateConstraints:@[
+        [self.annotationButton.heightAnchor constraintEqualToConstant:20],
+        [self.annotationButton.widthAnchor constraintEqualToConstant:100],
+        [self.annotationButton.topAnchor constraintGreaterThanOrEqualToAnchor:self.pubDate.bottomAnchor constant:10],
+        [self.annotationButton.bottomAnchor constraintEqualToAnchor:self.cellView.bottomAnchor constant:-15],
+        [self.annotationButton.trailingAnchor constraintEqualToAnchor:self.title.trailingAnchor],
+    ]];
+}
+
+- (void)clickOnAnnotation {
     self.topic.showDetails = !self.topic.showDetails;
     [self.delegate reloadCellWithTopic:self.topic];
 }
-
 
 
 @end
