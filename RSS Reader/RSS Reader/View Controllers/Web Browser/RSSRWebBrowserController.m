@@ -158,21 +158,17 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView.contentOffset.y <= self.lastContentOffset) {
-        [self.navigationController setToolbarHidden:NO animated:YES];
-        [self.navigationController setNavigationBarHidden:NO animated:YES];
-    } else {
-        [self.navigationController setToolbarHidden:YES animated:YES];
-        [self.navigationController setNavigationBarHidden:YES animated:YES];
-    }
+    BOOL didScroll = scrollView.contentOffset.y <= self.lastContentOffset;
+    [self.navigationController setToolbarHidden:!didScroll animated:YES];
+    [self.navigationController setNavigationBarHidden:!didScroll animated:YES];
 }
 
 
 #pragma mark - WKNavigationDelegate
 
 - (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
-    self.backButton.enabled = [self.webView canGoBack] ? YES : NO;
-    self.forwardButton.enabled = [self.webView canGoForward] ? YES : NO;
+    self.backButton.enabled = [self.webView canGoBack];
+    self.forwardButton.enabled = [self.webView canGoForward];
     self.stopButton.enabled = YES;
     self.reloadButton.enabled = NO;
 }

@@ -63,7 +63,7 @@ static NSString * const kDefaultDateFormat = @"EE, d LLLL yyyy HH:mm:ss Z";
 }
 
 - (BOOL)isPossibleToShowDetails {
-    return self.summary && ![self.summary isWhitespaceString] ? YES : NO;
+    return self.summary && ![self.summary isWhitespaceString];
 }
 
 @end
