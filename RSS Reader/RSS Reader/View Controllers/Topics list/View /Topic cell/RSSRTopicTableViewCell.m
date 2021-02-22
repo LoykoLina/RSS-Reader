@@ -8,6 +8,7 @@
 #import "RSSRTopicTableViewCell.h"
 #import "UIColor+RSSRColor.h"
 #import "NSDate+StringConversion.h"
+#import "RSSRAnnotationButton.h"
 
 static NSString * const kTopicDateFormat = @"MMM d, yyyy HH:mm";
 static NSInteger const kCellViewCornerRadius = 10;
@@ -20,7 +21,7 @@ static NSString * const kShowLess = @"Show Less";
 @property (retain, nonatomic) IBOutlet UILabel *pubDate;
 @property (retain, nonatomic) UILabel *summary;
 @property (retain, nonatomic) IBOutlet UIView *cellView;
-@property (retain, nonatomic) UIButton *annotationButton;
+@property (retain, nonatomic) RSSRAnnotationButton *annotationButton;
 
 @property (nonatomic, retain) id<RSSRTopicItemProtocol> topic;
 @property (assign, nonatomic) id<RSSRTopicCellDelegate> delegate;
@@ -32,12 +33,11 @@ static NSString * const kShowLess = @"Show Less";
 
 - (UIButton *)annotationButton {
     if (!_annotationButton) {
-        _annotationButton = [[UIButton buttonWithType:UIButtonTypeSystem] retain];
-        [_annotationButton.titleLabel setFont:[UIFont systemFontOfSize:13 weight:UIFontWeightLight]];
-        [_annotationButton setTitleColor:UIColor.lightGrayColor forState:UIControlStateNormal];
-        [_annotationButton addTarget:self
-                              action:@selector(clickOnAnnotation)
-                    forControlEvents:UIControlEventTouchUpInside];
+        __block typeof(self) weakSelf = self;
+        _annotationButton = [[RSSRAnnotationButton alloc] initWithActionBlock:^{
+            weakSelf.topic.showDetails = !weakSelf.topic.showDetails;
+            [weakSelf.delegate reloadCellWithTopic:weakSelf.topic];
+        }];
     }
     return _annotationButton;
 }
@@ -139,11 +139,5 @@ static NSString * const kShowLess = @"Show Less";
         [self.annotationButton.trailingAnchor constraintEqualToAnchor:self.title.trailingAnchor],
     ]];
 }
-
-- (void)clickOnAnnotation {
-    self.topic.showDetails = !self.topic.showDetails;
-    [self.delegate reloadCellWithTopic:self.topic];
-}
-
 
 @end

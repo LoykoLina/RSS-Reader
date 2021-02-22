@@ -29,6 +29,7 @@
 		CAB5FDDC256711A200163CBC /* RSSRTopicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAB5FDD2256711A200163CBC /* RSSRTopicTableViewCell.xib */; };
 		CAB5FDDD256711A200163CBC /* RSSRTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDD4256711A200163CBC /* RSSRTopic.m */; };
 		CAB5FDE525671B1900163CBC /* UIColor+RSSRColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDE425671B1900163CBC /* UIColor+RSSRColor.m */; };
+		CAD0D96625E3B85800457435 /* RSSRAnnotationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CAD0D96525E3B85800457435 /* RSSRAnnotationButton.m */; };
 		CAD3D8EB256D9C6100BCDD49 /* NSDate+StringConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = CAD3D8EA256D9C6100BCDD49 /* NSDate+StringConversion.m */; };
 		CAFB3C412571128500440354 /* UIViewController+ViewControllerPresentable.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFB3C402571128500440354 /* UIViewController+ViewControllerPresentable.m */; };
 /* End PBXBuildFile section */
@@ -78,6 +79,8 @@
 		CAB5FDD5256711A200163CBC /* RSSRTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRTopic.h; sourceTree = "<group>"; };
 		CAB5FDE325671B1900163CBC /* UIColor+RSSRColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+RSSRColor.h"; sourceTree = "<group>"; };
 		CAB5FDE425671B1900163CBC /* UIColor+RSSRColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RSSRColor.m"; sourceTree = "<group>"; };
+		CAD0D96425E3B85800457435 /* RSSRAnnotationButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSRAnnotationButton.h; sourceTree = "<group>"; };
+		CAD0D96525E3B85800457435 /* RSSRAnnotationButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSSRAnnotationButton.m; sourceTree = "<group>"; };
 		CAD3D8E9256D9C6100BCDD49 /* NSDate+StringConversion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+StringConversion.h"; sourceTree = "<group>"; };
 		CAD3D8EA256D9C6100BCDD49 /* NSDate+StringConversion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+StringConversion.m"; sourceTree = "<group>"; };
 		CAFB3C3B2571067E00440354 /* RSSFeedPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSFeedPresenter.h; sourceTree = "<group>"; };
@@ -293,6 +296,7 @@
 		CAB5FDCF256711A200163CBC /* Topic cell */ = {
 			isa = PBXGroup;
 			children = (
+				CAD0D96325E3B83A00457435 /* Annotation Button */,
 				CAB5FDD1256711A200163CBC /* RSSRTopicTableViewCell.h */,
 				CAB5FDD0256711A200163CBC /* RSSRTopicTableViewCell.m */,
 				CAB5FDD2256711A200163CBC /* RSSRTopicTableViewCell.xib */,
@@ -321,6 +325,15 @@
 				CAD3D8E6256D9B8B00BCDD49 /* UIColor */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		CAD0D96325E3B83A00457435 /* Annotation Button */ = {
+			isa = PBXGroup;
+			children = (
+				CAD0D96425E3B85800457435 /* RSSRAnnotationButton.h */,
+				CAD0D96525E3B85800457435 /* RSSRAnnotationButton.m */,
+			);
+			path = "Annotation Button";
 			sourceTree = "<group>";
 		};
 		CAD3D8E6256D9B8B00BCDD49 /* UIColor */ = {
@@ -446,6 +459,7 @@
 				CA6FCAD525B898ED006E4DB7 /* NSString+LocalizedString.m in Sources */,
 				CAB5FDD7256711A200163CBC /* RSSRXMLParser.m in Sources */,
 				CA554FC425642E8E009F124F /* SceneDelegate.m in Sources */,
+				CAD0D96625E3B85800457435 /* RSSRAnnotationButton.m in Sources */,
 				CAB5FDDD256711A200163CBC /* RSSRTopic.m in Sources */,
 				CAD3D8EB256D9C6100BCDD49 /* NSDate+StringConversion.m in Sources */,
 				CA46CF0725C8AF6D00057BAA /* RSSRTopicsListPresenter.m in Sources */,
