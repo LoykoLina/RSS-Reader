@@ -6,8 +6,11 @@
   
 */
 
-"ParserErrorTitle" = "Parse error";
+"ParserErrorTitle" = "Parse Error";
 "ParserErrorMessage" = "There was a problem while getting data from feed";
+
+"NoInternetConnectionErrorTitle" = "No Internet Connection";
+"NoInternetConnectionErrorMessage" = "Make sure your device is connected to the internet";
 
 "DefaultErrorTitle" = "Error";
 "DefaultErrorMessage" = "Something went wrong";

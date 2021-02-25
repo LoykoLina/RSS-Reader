@@ -9,5 +9,8 @@
 "ParserErrorTitle" = "Ошибка синтаксического анализа";
 "ParserErrorMessage" = "Возникла проблема при получении дынных из ленты";
 
+"NoInternetConnectionErrorTitle" = "Нет подключения к Интернету";
+"NoInternetConnectionErrorMessage" = "Убедитесь, что ваше устройство подключено к Интернету";
+
 "DefaultErrorTitle" = "Ошибка";
 "DefaultErrorMessage" = "Что-то пошло не так";

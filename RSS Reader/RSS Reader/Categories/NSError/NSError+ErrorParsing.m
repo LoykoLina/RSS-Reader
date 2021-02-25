@@ -16,6 +16,8 @@
         case NSXMLParserInternalError:
             completion([kParserErrorTitle localize], [kParserErrorMessage localize]);
             break;
+        case NSURLErrorNotConnectedToInternet:
+            completion([kNoInternetConnectionErrorTitle localize], [kNoInternetConnectionErrorMessage localize]);
         default:
             completion([kDefaultErrorTitle localize], [kDefaultErrorMessage localize]);
             break; 

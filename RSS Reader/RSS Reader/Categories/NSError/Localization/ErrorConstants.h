@@ -14,5 +14,7 @@ static NSString * const kParserErrorMessage = @"ParserErrorMessage";
 static NSString * const kDefaultErrorTitle = @"DefaultErrorTitle";
 static NSString * const kDefaultErrorMessage = @"DefaultErrorMessage";
 
+static NSString * const kNoInternetConnectionErrorTitle = @"NoInternetConnectionErrorTitle";
+static NSString * const kNoInternetConnectionErrorMessage = @"NoInternetConnectionErrorMessage";
 
 #endif /* ErrorConstants_h */
