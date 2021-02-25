@@ -9,9 +9,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol AlertPresentable <NSObject>
+@protocol ViewControllerPresentable <NSObject>
 
 - (void)showAlertWithTitle:(NSString *)title message:(NSString *)message;
+- (void)pushViewController:(UIViewController *)viewController;
 
 @end
 

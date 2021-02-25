@@ -10,12 +10,13 @@
 #import "RSSRTopic.h"
 #import "RSSRNetworkService.h"
 #import "RSSRXMLParser.h"
-#import "UIViewController+AlertPresentable.h"
+#import "UIViewController+ViewControllerPresentable.h"
 #import "NSError+ErrorParsing.h"
+#import "RSSRWebBrowserController.h"
 
 @interface RSSRTopicsListPresenter ()
 
-@property (nonatomic, assign) id<RSSFeedView, AlertPresentable> feedView;
+@property (nonatomic, assign) id<RSSFeedView, ViewControllerPresentable> feedView;
 @property (nonatomic, retain) RSSRNetworkService *networkService;
 @property (nonatomic, retain) RSSRXMLParser *parser;
 @property (nonatomic, retain) NSArray<RSSRTopic *> *dataSource;
@@ -87,8 +88,17 @@ static NSString * const baseURLString = @"http://news.tut.by/rss/index.rss";
     return self.dataSource;
 }
 
-- (void)attachView:(id<RSSFeedView, AlertPresentable>)view {
+- (void)attachView:(id<RSSFeedView, ViewControllerPresentable>)view {
     self.feedView = view;
+}
+
+- (void)showTopicAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    NSString *link = [self.dataSource[indexPath.row] itemLink];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:link]];
+    
+    RSSRWebBrowserController *webBrowser = [[RSSRWebBrowserController alloc] initWithURLRequest:request];
+    [self.feedView pushViewController:webBrowser];
+    [webBrowser release];
 }
 
 @end

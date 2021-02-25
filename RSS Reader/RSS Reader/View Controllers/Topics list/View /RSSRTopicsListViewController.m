@@ -10,26 +10,33 @@
 #import "RSSRTopicsListPresenter.h"
 #import "RSSRTopicTableViewCell.h"
 #import "RSSFeedPresenter.h"
-#import "UIViewController+AlertPresentable.h"
+#import "UIViewController+ViewControllerPresentable.h"
+#import "UIColor+RSSRColor.h"
+#import "RSSRTopicCellDelegate.h"
 
 static NSString * const kReuseIdentifier = @"RSSRTopicTableViewCell";
 static NSString * const kTitle = @"TUT.by News";
 
-@interface RSSRTopicsListViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface RSSRTopicsListViewController () <UITableViewDataSource, UITableViewDelegate, RSSRTopicCellDelegate>
 
 @property (nonatomic, retain) id<RSSFeedPresenter> presenter;
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) UIActivityIndicatorView *activityIndicator;
 
+@property (nonatomic) CGFloat lastContentOffset;
+
 @end
 
 @implementation RSSRTopicsListViewController
+
+
+#pragma mark - Lazy properties
 
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.backgroundColor = UIColor.whiteColor;
+        _tableView.backgroundColor = UIColor.RSSRBackgroundColor;
         _tableView.backgroundView = self.activityIndicator;
         _tableView.dataSource = self;
         _tableView.delegate = self;
@@ -48,6 +55,9 @@ static NSString * const kTitle = @"TUT.by News";
     return _activityIndicator;
 }
 
+
+#pragma mark - Initialization & Deallocation
+
 - (instancetype)initWithPresenter:(id<RSSFeedPresenter>)presenter {
     self = [super init];
     if (self) {
@@ -64,25 +74,40 @@ static NSString * const kTitle = @"TUT.by News";
     [super dealloc];
 }
 
+
+#pragma mark - View controller life cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.title = kTitle;
+    
     [self setupConstraints];
-    [self setupNavigationController];
     [self configureRefreshControl];
     
     [self.activityIndicator startAnimating];
     [self.presenter loadTopics];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setToolbarHidden:YES];
+}
 
-#pragma mark - Navigation controller configuration
 
-- (void)setupNavigationController {
-    self.title = kTitle;
-    self.navigationController.title = self.title;
-    self.navigationController.navigationBar.translucent = NO;
-    [self.navigationController setHidesBarsOnSwipe:YES];
+#pragma mark - Hide/show navigationbar
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    self.lastContentOffset = scrollView.contentOffset.y;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView.contentOffset.y <= self.lastContentOffset) {
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+    } else if ([self.presenter topics].count) {
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+    }
 }
 
 
@@ -132,7 +157,8 @@ static NSString * const kTitle = @"TUT.by News";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RSSRTopicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kReuseIdentifier forIndexPath:indexPath];
-    [cell configureWithItem:[self.presenter topics][indexPath.row]];
+    [cell configureWithItem:[self.presenter topics][indexPath.row]
+                   delegate:self];
     return cell;
 }
 
@@ -141,10 +167,16 @@ static NSString * const kTitle = @"TUT.by News";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSString *link = [[self.presenter topics][indexPath.row] itemLink];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: link]
-                                       options:@{}
-                             completionHandler:nil];
+    
+    [self.presenter showTopicAtIndexPath:indexPath];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewAutomaticDimension;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewAutomaticDimension;
 }
 
 
@@ -160,6 +192,18 @@ static NSString * const kTitle = @"TUT.by News";
 
 - (void)endRefreshing {
     [self.tableView.refreshControl endRefreshing];
+}
+
+
+#pragma mark - RSSRTopicCellDelegate Protocol
+
+- (void)reloadCellWithTopic:(id<RSSRTopicItemProtocol>)topic {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[[self.presenter topics] indexOfObject:topic] inSection:0];
+    
+    [UIView performWithoutAnimation:^{
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath]
+                          withRowAnimation:UITableViewRowAnimationNone];
+    }];
 }
 
 @end

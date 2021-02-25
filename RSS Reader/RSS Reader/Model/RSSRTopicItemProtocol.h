@@ -11,10 +11,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol RSSRTopicItemProtocol <NSObject>
 
+@property (nonatomic, assign) BOOL showDetails;
+
 - (NSString *)itemTitle;
 - (NSString *)itemSummary;
 - (NSDate *)itemPubDate;
 - (NSString *)itemLink;
+
+- (BOOL)isPossibleToShowDetails;
 
 @end
 
