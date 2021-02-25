@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA15A35F25E86561007D2959 /* RSSRChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = CA15A35D25E86561007D2959 /* RSSRChannel.m */; };
 		CA3025542579A65C00BFEF5A /* NSString+XMLTagsRemover.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3025532579A65C00BFEF5A /* NSString+XMLTagsRemover.m */; };
 		CA46CEF325C89E3D00057BAA /* RSSRTopicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDD0256711A200163CBC /* RSSRTopicTableViewCell.m */; };
 		CA46CEF625C89F9100057BAA /* RSSRTopicsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDCE256711A200163CBC /* RSSRTopicsListViewController.m */; };
@@ -35,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA15A35D25E86561007D2959 /* RSSRChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRChannel.m; sourceTree = "<group>"; };
+		CA15A35E25E86561007D2959 /* RSSRChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRChannel.h; sourceTree = "<group>"; };
 		CA3025522579A65C00BFEF5A /* NSString+XMLTagsRemover.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+XMLTagsRemover.h"; sourceTree = "<group>"; };
 		CA3025532579A65C00BFEF5A /* NSString+XMLTagsRemover.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLTagsRemover.m"; sourceTree = "<group>"; };
 		CA46CEF025C8976A00057BAA /* RSSRTopicCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSRTopicCellDelegate.h; sourceTree = "<group>"; };
@@ -101,6 +104,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA15A35B25E86546007D2959 /* Topic */ = {
+			isa = PBXGroup;
+			children = (
+				CA7EC38E256E8745007CEACB /* RSSRTopicItemProtocol.h */,
+				CAB5FDD5256711A200163CBC /* RSSRTopic.h */,
+				CAB5FDD4256711A200163CBC /* RSSRTopic.m */,
+			);
+			path = Topic;
+			sourceTree = "<group>";
+		};
+		CA15A35C25E86561007D2959 /* Channel */ = {
+			isa = PBXGroup;
+			children = (
+				CA15A35E25E86561007D2959 /* RSSRChannel.h */,
+				CA15A35D25E86561007D2959 /* RSSRChannel.m */,
+			);
+			path = Channel;
+			sourceTree = "<group>";
+		};
 		CA3025512579A3F400BFEF5A /* NSString */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,9 +329,8 @@
 		CAB5FDD3256711A200163CBC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CA7EC38E256E8745007CEACB /* RSSRTopicItemProtocol.h */,
-				CAB5FDD5256711A200163CBC /* RSSRTopic.h */,
-				CAB5FDD4256711A200163CBC /* RSSRTopic.m */,
+				CA15A35C25E86561007D2959 /* Channel */,
+				CA15A35B25E86546007D2959 /* Topic */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -465,6 +486,7 @@
 				CA46CF0725C8AF6D00057BAA /* RSSRTopicsListPresenter.m in Sources */,
 				CA3025542579A65C00BFEF5A /* NSString+XMLTagsRemover.m in Sources */,
 				CA6FCAC925B88B46006E4DB7 /* NSError+ErrorParsing.m in Sources */,
+				CA15A35F25E86561007D2959 /* RSSRChannel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
