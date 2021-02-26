@@ -10,6 +10,14 @@
 		CA15A35F25E86561007D2959 /* RSSRChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = CA15A35D25E86561007D2959 /* RSSRChannel.m */; };
 		CA15A36425E86676007D2959 /* RSSRFeedService.m in Sources */ = {isa = PBXBuildFile; fileRef = CA15A36325E86676007D2959 /* RSSRFeedService.m */; };
 		CA15A36925E952E6007D2959 /* RSSRFileService.m in Sources */ = {isa = PBXBuildFile; fileRef = CA15A36825E952E6007D2959 /* RSSRFileService.m */; };
+		CA15A38525E9572C007D2959 /* RSSRSettingsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CA15A37125E9572C007D2959 /* RSSRSettingsPresenter.m */; };
+		CA15A38625E9572C007D2959 /* RSSRSettingsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA15A37425E9572C007D2959 /* RSSRSettingsController.xib */; };
+		CA15A38725E9572C007D2959 /* RSSRChannelOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA15A37725E9572C007D2959 /* RSSRChannelOptionCell.m */; };
+		CA15A38825E9572C007D2959 /* RSSRChannelOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA15A37825E9572C007D2959 /* RSSRChannelOptionCell.xib */; };
+		CA15A38925E9572C007D2959 /* RSSRChannelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA15A37C25E9572C007D2959 /* RSSRChannelCell.xib */; };
+		CA15A38A25E9572C007D2959 /* RSSRChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA15A37D25E9572C007D2959 /* RSSRChannelCell.m */; };
+		CA15A38B25E9572C007D2959 /* RSSRSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA15A37E25E9572C007D2959 /* RSSRSettingsController.m */; };
+		CA15A38C25E9572C007D2959 /* RSSRSelfResizedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA15A38125E9572C007D2959 /* RSSRSelfResizedTableView.m */; };
 		CA3025542579A65C00BFEF5A /* NSString+XMLTagsRemover.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3025532579A65C00BFEF5A /* NSString+XMLTagsRemover.m */; };
 		CA46CEF325C89E3D00057BAA /* RSSRTopicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDD0256711A200163CBC /* RSSRTopicTableViewCell.m */; };
 		CA46CEF625C89F9100057BAA /* RSSRTopicsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDCE256711A200163CBC /* RSSRTopicsListViewController.m */; };
@@ -28,7 +36,7 @@
 		CA6FCAD525B898ED006E4DB7 /* NSString+LocalizedString.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6FCAD425B898ED006E4DB7 /* NSString+LocalizedString.m */; };
 		CA6FCAE225B8A5D4006E4DB7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA6FCAE425B8A5D4006E4DB7 /* Localizable.strings */; };
 		CAB5FDD6256711A200163CBC /* RSSRNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDBF256711A200163CBC /* RSSRNetworkService.m */; };
-		CAB5FDD7256711A200163CBC /* RSSRXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDC1256711A200163CBC /* RSSRXMLParser.m */; };
+		CAB5FDD7256711A200163CBC /* RSSRFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDC1256711A200163CBC /* RSSRFeedParser.m */; };
 		CAB5FDDC256711A200163CBC /* RSSRTopicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAB5FDD2256711A200163CBC /* RSSRTopicTableViewCell.xib */; };
 		CAB5FDDD256711A200163CBC /* RSSRTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDD4256711A200163CBC /* RSSRTopic.m */; };
 		CAB5FDE525671B1900163CBC /* UIColor+RSSRColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDE425671B1900163CBC /* UIColor+RSSRColor.m */; };
@@ -44,9 +52,23 @@
 		CA15A36325E86676007D2959 /* RSSRFeedService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRFeedService.m; sourceTree = "<group>"; };
 		CA15A36725E952E6007D2959 /* RSSRFileService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRFileService.h; sourceTree = "<group>"; };
 		CA15A36825E952E6007D2959 /* RSSRFileService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRFileService.m; sourceTree = "<group>"; };
+		CA15A37125E9572C007D2959 /* RSSRSettingsPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRSettingsPresenter.m; sourceTree = "<group>"; };
+		CA15A37225E9572C007D2959 /* RSSRSettingsPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRSettingsPresenter.h; sourceTree = "<group>"; };
+		CA15A37425E9572C007D2959 /* RSSRSettingsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RSSRSettingsController.xib; sourceTree = "<group>"; };
+		CA15A37525E9572C007D2959 /* RSSRSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRSettingsController.h; sourceTree = "<group>"; };
+		CA15A37725E9572C007D2959 /* RSSRChannelOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRChannelOptionCell.m; sourceTree = "<group>"; };
+		CA15A37825E9572C007D2959 /* RSSRChannelOptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RSSRChannelOptionCell.xib; sourceTree = "<group>"; };
+		CA15A37925E9572C007D2959 /* RSSRChannelOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRChannelOptionCell.h; sourceTree = "<group>"; };
+		CA15A37B25E9572C007D2959 /* RSSRChannelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRChannelCell.h; sourceTree = "<group>"; };
+		CA15A37C25E9572C007D2959 /* RSSRChannelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RSSRChannelCell.xib; sourceTree = "<group>"; };
+		CA15A37D25E9572C007D2959 /* RSSRChannelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRChannelCell.m; sourceTree = "<group>"; };
+		CA15A37E25E9572C007D2959 /* RSSRSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRSettingsController.m; sourceTree = "<group>"; };
+		CA15A38025E9572C007D2959 /* RSSRSelfResizedTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRSelfResizedTableView.h; sourceTree = "<group>"; };
+		CA15A38125E9572C007D2959 /* RSSRSelfResizedTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRSelfResizedTableView.m; sourceTree = "<group>"; };
+		CA15A38325E9572C007D2959 /* RSSFeedsSettingsPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSFeedsSettingsPresenter.h; sourceTree = "<group>"; };
+		CA15A38425E9572C007D2959 /* RSSFeedsSettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSFeedsSettingsView.h; sourceTree = "<group>"; };
 		CA3025522579A65C00BFEF5A /* NSString+XMLTagsRemover.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+XMLTagsRemover.h"; sourceTree = "<group>"; };
 		CA3025532579A65C00BFEF5A /* NSString+XMLTagsRemover.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLTagsRemover.m"; sourceTree = "<group>"; };
-		CA46CEF025C8976A00057BAA /* RSSRTopicCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSRTopicCellDelegate.h; sourceTree = "<group>"; };
 		CA46CEF925C8A4DC00057BAA /* RSSRWebBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRWebBrowserController.h; sourceTree = "<group>"; };
 		CA46CEFA25C8A4DC00057BAA /* RSSRWebBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRWebBrowserController.m; sourceTree = "<group>"; };
 		CA46CEFB25C8A4DC00057BAA /* RSSRWebBrowserController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RSSRWebBrowserController.xib; sourceTree = "<group>"; };
@@ -73,8 +95,8 @@
 		CA85149D257E45FC00908C5A /* NSError+ErrorParsing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSError+ErrorParsing.h"; sourceTree = "<group>"; };
 		CA85149E257E45FC00908C5A /* NSError+ErrorParsing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSError+ErrorParsing.m"; sourceTree = "<group>"; };
 		CAB5FDBF256711A200163CBC /* RSSRNetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRNetworkService.m; sourceTree = "<group>"; };
-		CAB5FDC1256711A200163CBC /* RSSRXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRXMLParser.m; sourceTree = "<group>"; };
-		CAB5FDC2256711A200163CBC /* RSSRXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRXMLParser.h; sourceTree = "<group>"; };
+		CAB5FDC1256711A200163CBC /* RSSRFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRFeedParser.m; sourceTree = "<group>"; };
+		CAB5FDC2256711A200163CBC /* RSSRFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRFeedParser.h; sourceTree = "<group>"; };
 		CAB5FDC3256711A200163CBC /* RSSRNetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRNetworkService.h; sourceTree = "<group>"; };
 		CAB5FDC9256711A200163CBC /* RSSRTopicsListPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRTopicsListPresenter.h; sourceTree = "<group>"; };
 		CAB5FDCA256711A200163CBC /* RSSRTopicsListPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRTopicsListPresenter.m; sourceTree = "<group>"; };
@@ -147,6 +169,76 @@
 			path = "File Service";
 			sourceTree = "<group>";
 		};
+		CA15A36F25E9572C007D2959 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				CA15A38225E9572C007D2959 /* Protocols */,
+				CA15A37025E9572C007D2959 /* Presenter */,
+				CA15A37325E9572C007D2959 /* View */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		CA15A37025E9572C007D2959 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				CA15A37225E9572C007D2959 /* RSSRSettingsPresenter.h */,
+				CA15A37125E9572C007D2959 /* RSSRSettingsPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		CA15A37325E9572C007D2959 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CA15A37F25E9572C007D2959 /* Resized Tableview */,
+				CA15A37625E9572C007D2959 /* Channel option cell */,
+				CA15A37A25E9572C007D2959 /* Channel Cell */,
+				CA15A37525E9572C007D2959 /* RSSRSettingsController.h */,
+				CA15A37E25E9572C007D2959 /* RSSRSettingsController.m */,
+				CA15A37425E9572C007D2959 /* RSSRSettingsController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CA15A37625E9572C007D2959 /* Channel option cell */ = {
+			isa = PBXGroup;
+			children = (
+				CA15A37925E9572C007D2959 /* RSSRChannelOptionCell.h */,
+				CA15A37725E9572C007D2959 /* RSSRChannelOptionCell.m */,
+				CA15A37825E9572C007D2959 /* RSSRChannelOptionCell.xib */,
+			);
+			path = "Channel option cell";
+			sourceTree = "<group>";
+		};
+		CA15A37A25E9572C007D2959 /* Channel Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CA15A37B25E9572C007D2959 /* RSSRChannelCell.h */,
+				CA15A37D25E9572C007D2959 /* RSSRChannelCell.m */,
+				CA15A37C25E9572C007D2959 /* RSSRChannelCell.xib */,
+			);
+			path = "Channel Cell";
+			sourceTree = "<group>";
+		};
+		CA15A37F25E9572C007D2959 /* Resized Tableview */ = {
+			isa = PBXGroup;
+			children = (
+				CA15A38025E9572C007D2959 /* RSSRSelfResizedTableView.h */,
+				CA15A38125E9572C007D2959 /* RSSRSelfResizedTableView.m */,
+			);
+			path = "Resized Tableview";
+			sourceTree = "<group>";
+		};
+		CA15A38225E9572C007D2959 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CA15A38325E9572C007D2959 /* RSSFeedsSettingsPresenter.h */,
+				CA15A38425E9572C007D2959 /* RSSFeedsSettingsView.h */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		CA3025512579A3F400BFEF5A /* NSString */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +252,7 @@
 		CA46CEEF25C896DC00057BAA /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CA15A36F25E9572C007D2959 /* Settings */,
 				CA46CEF825C8A4DC00057BAA /* Web Browser */,
 				CAB5FDC7256711A200163CBC /* Topics list */,
 			);
@@ -179,8 +272,8 @@
 		CA46CEFF25C8A50C00057BAA /* UIImage */ = {
 			isa = PBXGroup;
 			children = (
-				CA46CF0025C8A50C00057BAA /* UIImage+RSSRImage.m */,
 				CA46CF0125C8A50C00057BAA /* UIImage+RSSRImage.h */,
+				CA46CF0025C8A50C00057BAA /* UIImage+RSSRImage.m */,
 			);
 			path = UIImage;
 			sourceTree = "<group>";
@@ -306,8 +399,8 @@
 		CAB5FDC0256711A200163CBC /* Parser */ = {
 			isa = PBXGroup;
 			children = (
-				CAB5FDC2256711A200163CBC /* RSSRXMLParser.h */,
-				CAB5FDC1256711A200163CBC /* RSSRXMLParser.m */,
+				CAB5FDC2256711A200163CBC /* RSSRFeedParser.h */,
+				CAB5FDC1256711A200163CBC /* RSSRFeedParser.m */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -404,7 +497,6 @@
 		CAFB3C3A2571064B00440354 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				CA46CEF025C8976A00057BAA /* RSSRTopicCellDelegate.h */,
 				CAB5FDCD256711A200163CBC /* RSSFeedView.h */,
 				CAFB3C3B2571067E00440354 /* RSSFeedPresenter.h */,
 			);
@@ -478,11 +570,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA15A38825E9572C007D2959 /* RSSRChannelOptionCell.xib in Resources */,
+				CA15A38625E9572C007D2959 /* RSSRSettingsController.xib in Resources */,
 				CA554FCF25642E91009F124F /* LaunchScreen.storyboard in Resources */,
 				CA46CEFD25C8A4DC00057BAA /* RSSRWebBrowserController.xib in Resources */,
 				CA6FCAE225B8A5D4006E4DB7 /* Localizable.strings in Resources */,
 				CAB5FDDC256711A200163CBC /* RSSRTopicTableViewCell.xib in Resources */,
 				CA554FCC25642E91009F124F /* Assets.xcassets in Resources */,
+				CA15A38925E9572C007D2959 /* RSSRChannelCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,21 +594,26 @@
 				CA46CF0225C8A50C00057BAA /* UIImage+RSSRImage.m in Sources */,
 				CA554FC125642E8E009F124F /* AppDelegate.m in Sources */,
 				CA554FD225642E91009F124F /* main.m in Sources */,
+				CA15A38525E9572C007D2959 /* RSSRSettingsPresenter.m in Sources */,
 				CAB5FDE525671B1900163CBC /* UIColor+RSSRColor.m in Sources */,
 				CA46CEFC25C8A4DC00057BAA /* RSSRWebBrowserController.m in Sources */,
 				CAFB3C412571128500440354 /* UIViewController+ViewControllerPresentable.m in Sources */,
 				CAB5FDD6256711A200163CBC /* RSSRNetworkService.m in Sources */,
 				CA589B2B25DC8F3600178E51 /* NSString+WhitespaceString.m in Sources */,
+				CA15A38B25E9572C007D2959 /* RSSRSettingsController.m in Sources */,
 				CA6FCAD525B898ED006E4DB7 /* NSString+LocalizedString.m in Sources */,
-				CAB5FDD7256711A200163CBC /* RSSRXMLParser.m in Sources */,
+				CAB5FDD7256711A200163CBC /* RSSRFeedParser.m in Sources */,
+				CA15A38725E9572C007D2959 /* RSSRChannelOptionCell.m in Sources */,
 				CA554FC425642E8E009F124F /* SceneDelegate.m in Sources */,
 				CA15A36425E86676007D2959 /* RSSRFeedService.m in Sources */,
 				CAD0D96625E3B85800457435 /* RSSRAnnotationButton.m in Sources */,
 				CAB5FDDD256711A200163CBC /* RSSRTopic.m in Sources */,
+				CA15A38C25E9572C007D2959 /* RSSRSelfResizedTableView.m in Sources */,
 				CAD3D8EB256D9C6100BCDD49 /* NSDate+StringConversion.m in Sources */,
 				CA46CF0725C8AF6D00057BAA /* RSSRTopicsListPresenter.m in Sources */,
 				CA3025542579A65C00BFEF5A /* NSString+XMLTagsRemover.m in Sources */,
 				CA6FCAC925B88B46006E4DB7 /* NSError+ErrorParsing.m in Sources */,
+				CA15A38A25E9572C007D2959 /* RSSRChannelCell.m in Sources */,
 				CA15A35F25E86561007D2959 /* RSSRChannel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

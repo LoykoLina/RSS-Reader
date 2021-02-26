@@ -23,3 +23,6 @@
 
 "LoadChannelErrorTitle" = "Error";
 "LoadChannelErrorMessage" = "Can not load RSS feed";
+
+"NoResultErrorTitle" = "No Result";
+"NoResultErrorMessage" = "RSS feeds not found on the provided website";

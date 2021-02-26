@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="KGk-i7-Jjw" customClass="RSSRChannelOptionCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wTK-eS-OI7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yw-IP-afk">
+                                <rect key="frame" x="30" y="10" width="275" height="55"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="Up4-Ab-H1g">
+                                <rect key="frame" x="15" y="35" width="5" height="5"/>
+                                <color key="tintColor" name="Light olive green"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="5" id="jB4-sq-21q"/>
+                                    <constraint firstAttribute="height" constant="5" id="yqK-Eh-PkS"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Up4-Ab-H1g" firstAttribute="centerY" secondItem="3yw-IP-afk" secondAttribute="centerY" id="0iA-0k-aDu"/>
+                            <constraint firstItem="3yw-IP-afk" firstAttribute="top" secondItem="wTK-eS-OI7" secondAttribute="top" constant="10" id="Lpu-1R-9bO"/>
+                            <constraint firstItem="Up4-Ab-H1g" firstAttribute="leading" secondItem="wTK-eS-OI7" secondAttribute="leading" constant="15" id="MVw-88-Oca"/>
+                            <constraint firstItem="3yw-IP-afk" firstAttribute="leading" secondItem="Up4-Ab-H1g" secondAttribute="trailing" constant="10" id="VDQ-U0-2SB"/>
+                            <constraint firstAttribute="trailing" secondItem="3yw-IP-afk" secondAttribute="trailing" constant="15" id="oka-PD-dQ9"/>
+                            <constraint firstAttribute="bottom" secondItem="3yw-IP-afk" secondAttribute="bottom" constant="10" id="vvF-PD-AP8"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="Background color"/>
+                <constraints>
+                    <constraint firstItem="wTK-eS-OI7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="FTf-9J-gCk"/>
+                    <constraint firstAttribute="bottom" secondItem="wTK-eS-OI7" secondAttribute="bottom" id="K2B-xy-dsh"/>
+                    <constraint firstItem="wTK-eS-OI7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Nft-uD-Inl"/>
+                    <constraint firstAttribute="trailing" secondItem="wTK-eS-OI7" secondAttribute="trailing" id="TdV-dh-u1p"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="cellView" destination="wTK-eS-OI7" id="CwS-xV-buJ"/>
+                <outlet property="titleLabel" destination="3yw-IP-afk" id="Rza-wU-WfN"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="85.379464285714278"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="circle" width="24" height="24"/>
+        <namedColor name="Background color">
+            <color red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Light olive green">
+            <color red="0.60000002384185791" green="0.60799998044967651" blue="0.51800000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

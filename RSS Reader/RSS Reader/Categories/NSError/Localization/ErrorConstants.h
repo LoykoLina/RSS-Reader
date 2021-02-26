@@ -26,5 +26,8 @@ static NSString * const kSaveChannelErrorMessage = @"SaveChannelErrorMessage";
 static NSString * const kLoadChannelErrorTitle = @"LoadChannelErrorTitle";
 static NSString * const kLoadChannelErrorMessage = @"LoadChannelErrorMessage";
 
+static NSString * const kNoResultErrorTitle = @"NoResultErrorTitle";
+static NSString * const kNoResultErrorMessage = @"NoResultErrorMessage";
+
 
 #endif /* ErrorConstants_h */

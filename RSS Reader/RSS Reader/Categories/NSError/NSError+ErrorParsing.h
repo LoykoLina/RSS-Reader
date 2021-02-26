@@ -9,9 +9,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef enum : NSUInteger {
+    RSSRDeleteChannelErrorType = 2000,
+    RSSRNoResultErrorType,
+} RSSRErrorType;
+
+
 @interface NSError (ErrorParsing)
 
 - (void)parseErrorWithCompletion:(void (^)(NSString * _Nonnull title, NSString * _Nonnull message)) completion;
+
++ (NSError *)errorWithType:(RSSRErrorType)type;
 
 @end
 

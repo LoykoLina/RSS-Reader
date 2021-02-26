@@ -44,10 +44,8 @@ static NSString * const kStorageFileName = @"RSSChannelStorage";
     completion(nil);
 }
 
-- (void)deleteChannel:(void(^)(NSError *error))completion {
-    NSError *error = nil;
-    [[NSFileManager defaultManager] removeItemAtPath:self.storageFilePath error:&error];
-    completion(error);
+- (BOOL)deleteChannel {
+    return [[NSFileManager defaultManager] removeItemAtPath:self.storageFilePath error:nil];
 }
 
 - (void)loadChannel:(void (^)(RSSRChannel *channel, NSError *error))completion {
@@ -66,6 +64,8 @@ static NSString * const kStorageFileName = @"RSSChannelStorage";
             [channel configureWithDictionary:jsonObject];
             completion([channel autorelease], nil);
         }
+    } else {
+        completion(nil, nil);
     }
 }
 

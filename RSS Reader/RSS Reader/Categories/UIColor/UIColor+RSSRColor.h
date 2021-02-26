@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (class, nonatomic, readonly) UIColor *RSSRBackgroundColor;
 @property (class, nonatomic, readonly) UIColor *RSSRSelectedStateColor;
+@property (class, nonatomic, readonly) UIColor *RSSROliveColor;
 
 @end
 

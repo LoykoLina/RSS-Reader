@@ -9,19 +9,19 @@
 #import "RSSRTopic.h"
 #import "RSSRTopicsListPresenter.h"
 #import "RSSRTopicTableViewCell.h"
-#import "RSSFeedPresenter.h"
 #import "UIViewController+ViewControllerPresentable.h"
 #import "UIColor+RSSRColor.h"
-#import "RSSRTopicCellDelegate.h"
+#import "UIImage+RSSRImage.h"
 
 static NSString * const kReuseIdentifier = @"RSSRTopicTableViewCell";
-static NSString * const kTitle = @"TUT.by News";
+static NSString * const kTitle = @"News Feed";
 
-@interface RSSRTopicsListViewController () <UITableViewDataSource, UITableViewDelegate, RSSRTopicCellDelegate>
+@interface RSSRTopicsListViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, retain) id<RSSFeedPresenter> presenter;
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, retain) UIBarButtonItem *settingsButton;
 
 @property (nonatomic) CGFloat lastContentOffset;
 
@@ -55,8 +55,15 @@ static NSString * const kTitle = @"TUT.by News";
     return _activityIndicator;
 }
 
+- (UIBarButtonItem *)settingsButton {
+    if (!_settingsButton) {
+        _settingsButton = [[UIBarButtonItem alloc] initWithImage:UIImage.RSSRSettings style:UIBarButtonItemStylePlain target:self.presenter action:@selector(openFeedsSettings)];
+    }
+    return _settingsButton;
+}
 
-#pragma mark - Initialization & Deallocation
+
+#pragma mark -  Initialization & Deallocation
 
 - (instancetype)initWithPresenter:(id<RSSFeedPresenter>)presenter {
     self = [super init];
@@ -71,6 +78,7 @@ static NSString * const kTitle = @"TUT.by News";
     [_presenter release];
     [_tableView release];
     [_activityIndicator release];
+    [_settingsButton release];
     [super dealloc];
 }
 
@@ -81,18 +89,19 @@ static NSString * const kTitle = @"TUT.by News";
     [super viewDidLoad];
     
     self.navigationItem.title = kTitle;
+    self.navigationItem.rightBarButtonItem = self.settingsButton;
+    self.navigationController.navigationBar.tintColor = UIColor.RSSROliveColor;
     
     [self setupConstraints];
     [self configureRefreshControl];
-    
-    [self.activityIndicator startAnimating];
-    [self.presenter loadTopics];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     [self.navigationController setToolbarHidden:YES];
+    [self.activityIndicator startAnimating];
+    [self.presenter loadTopics];
 }
 
 
@@ -157,18 +166,12 @@ static NSString * const kTitle = @"TUT.by News";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RSSRTopicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kReuseIdentifier forIndexPath:indexPath];
+    __block typeof(self) weakSelf = self;
     [cell configureWithItem:[self.presenter topics][indexPath.row]
-                   delegate:self];
+              reloadHandler:^(id<RSSRTopicItemProtocol> topic) {
+        [weakSelf reloadCellWithTopic:topic];
+    }];
     return cell;
-}
-
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    [self.presenter showTopicAtIndexPath:indexPath];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -180,7 +183,16 @@ static NSString * const kTitle = @"TUT.by News";
 }
 
 
-#pragma mark - RSSRTopicsListView Protocol
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    [self.presenter showTopicAtIndexPath:indexPath];
+}
+
+
+#pragma mark - RSSFeedView Protocol
 
 - (void)reloadData {
     [self.tableView reloadData];
@@ -195,7 +207,7 @@ static NSString * const kTitle = @"TUT.by News";
 }
 
 
-#pragma mark - RSSRTopicCellDelegate Protocol
+#pragma mark - Reload cell
 
 - (void)reloadCellWithTopic:(id<RSSRTopicItemProtocol>)topic {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[[self.presenter topics] indexOfObject:topic] inSection:0];

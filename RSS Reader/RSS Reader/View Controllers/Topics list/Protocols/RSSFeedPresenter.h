@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)attachView:(id<RSSFeedView, ViewControllerPresentable>)view;
 - (void)showTopicAtIndexPath:(NSIndexPath *)indexPath;
 
+- (void)openFeedsSettings;
+
 @end
 
 NS_ASSUME_NONNULL_END

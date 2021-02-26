@@ -9,17 +9,19 @@
 #import "RSSFeedView.h"
 #import "RSSFeedPresenter.h"
 #import "ViewControllerPresentable.h"
+#import "RSSRFileService.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class RSSRXMLParser;
+@class RSSRFeedParser;
 @class RSSRNetworkService;
 @class RSSRTopic;
 
 @interface RSSRTopicsListPresenter : NSObject <RSSFeedPresenter>
 
 - (instancetype)initWithService:(RSSRNetworkService *)service
-                         parser:(RSSRXMLParser *)parser;
+                         parser:(RSSRFeedParser *)parser
+                    fileService:(RSSRFileService *)fileService;
 
 @end
 

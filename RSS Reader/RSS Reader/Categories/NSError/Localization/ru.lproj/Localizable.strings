@@ -23,3 +23,6 @@
 
 "LoadChannelErrorTitle" = "Ошибка";
 "LoadChannelErrorMessage" = "Не удалось загрузить RSS канал";
+
+"NoResultErrorTitle" = "Нет результата";
+"NoResultErrorMessage" = "RSS каналы по предоставленному веб-сайту не найдены";

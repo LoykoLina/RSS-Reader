@@ -7,14 +7,13 @@
 
 #import <UIKit/UIKit.h>
 #import "RSSRTopicItemProtocol.h"
-#import "RSSRTopicCellDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RSSRTopicTableViewCell : UITableViewCell
 
 - (void)configureWithItem:(id<RSSRTopicItemProtocol>)topic
-                 delegate:(id<RSSRTopicCellDelegate>)delegate;
+            reloadHandler:(void(^)(id<RSSRTopicItemProtocol> topic))handler;
 
 @end
 

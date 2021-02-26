@@ -12,6 +12,7 @@ static NSString * const kNextImageName = @"next";
 static NSString * const kReloadImageName = @"reload";
 static NSString * const kStopImageName = @"stop";
 static NSString * const kExploreImageName = @"explore";
+static NSString * const kSettingsImageName = @"settings";
 
 @implementation UIImage (RSSRImage)
 
@@ -33,6 +34,10 @@ static NSString * const kExploreImageName = @"explore";
 
 + (UIImage *)RSSRExplore {
     return [UIImage imageNamed:kExploreImageName];
+}
+
++ (UIImage *)RSSRSettings {
+    return [UIImage imageNamed:kSettingsImageName];
 }
 
 @end
