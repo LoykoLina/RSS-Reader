@@ -60,7 +60,7 @@ static NSString * const kSlash = @"/";
     htmlString = [htmlString substringFromIndex:[htmlString rangeOfString:kRSSTypeAndTitleMark].location + kRSSTypeAndTitleMark.length];
     
     if (!self.channels) {
-        self.channels = [NSMutableArray new];
+        self.channels = [NSMutableArray array];
     }
     [self.channels addObject:[self extractChannelfromHTMLString:htmlString]];
     htmlString = [htmlString substringFromIndex:[htmlString rangeOfString:kEndQuotationMark].location + kEndQuotationMark.length];
