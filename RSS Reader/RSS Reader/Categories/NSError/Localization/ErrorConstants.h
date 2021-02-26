@@ -17,4 +17,14 @@ static NSString * const kDefaultErrorMessage = @"DefaultErrorMessage";
 static NSString * const kNoInternetConnectionErrorTitle = @"NoInternetConnectionErrorTitle";
 static NSString * const kNoInternetConnectionErrorMessage = @"NoInternetConnectionErrorMessage";
 
+static NSString * const kDeleteChannelErrorTitle = @"DeleteChannelErrorTitle";
+static NSString * const kDeleteChannelErrorMessage = @"DeleteChannelErrorMessage";
+
+static NSString * const kSaveChannelErrorTitle = @"SaveChannelErrorTitle";
+static NSString * const kSaveChannelErrorMessage = @"SaveChannelErrorMessage";
+
+static NSString * const kLoadChannelErrorTitle = @"LoadChannelErrorTitle";
+static NSString * const kLoadChannelErrorMessage = @"LoadChannelErrorMessage";
+
+
 #endif /* ErrorConstants_h */

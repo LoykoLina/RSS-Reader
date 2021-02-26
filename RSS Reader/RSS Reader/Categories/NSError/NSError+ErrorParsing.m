@@ -18,6 +18,13 @@
             break;
         case NSURLErrorNotConnectedToInternet:
             completion([kNoInternetConnectionErrorTitle localize], [kNoInternetConnectionErrorMessage localize]);
+            break;
+        case NSPropertyListWriteInvalidError:
+            completion([kSaveChannelErrorTitle localize], [kSaveChannelErrorMessage localize]);
+            break;
+        case NSPropertyListReadCorruptError:
+            completion([kLoadChannelErrorTitle localize], [kLoadChannelErrorMessage localize]);
+            break;
         default:
             completion([kDefaultErrorTitle localize], [kDefaultErrorMessage localize]);
             break; 

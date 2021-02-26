@@ -14,3 +14,12 @@
 
 "DefaultErrorTitle" = "Ошибка";
 "DefaultErrorMessage" = "Что-то пошло не так";
+
+"DeleteChannelErrorTitle" = "Ошибка";
+"DeleteChannelErrorMessage" = "Не удалось удалить RSS канал";
+
+"SaveChannelErrorTitle" = "Ошибка";
+"SaveChannelErrorMessage" = "Не удалось сохранить RSS канал";
+
+"LoadChannelErrorTitle" = "Ошибка";
+"LoadChannelErrorMessage" = "Не удалось загрузить RSS канал";

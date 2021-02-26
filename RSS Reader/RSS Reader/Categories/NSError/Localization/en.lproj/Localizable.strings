@@ -14,3 +14,12 @@
 
 "DefaultErrorTitle" = "Error";
 "DefaultErrorMessage" = "Something went wrong";
+
+"DeleteChannelErrorTitle" = "Error";
+"DeleteChannelErrorMessage" = "Can not delete RSS feed";
+
+"SaveChannelErrorTitle" = "Error";
+"SaveChannelErrorMessage" = "Can not save RSS feed";
+
+"LoadChannelErrorTitle" = "Error";
+"LoadChannelErrorMessage" = "Can not load RSS feed";
