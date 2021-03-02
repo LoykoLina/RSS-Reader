@@ -7,7 +7,11 @@
 
 #import "RSSRFileService.h"
 
+
+#define BLOCK_EXEC(block, ...)  if (block) { block(__VA_ARGS__); };
+
 static NSString * const kStorageFileName = @"RSSChannelStorage";
+
 
 @interface RSSRFileService ()
 
@@ -37,11 +41,12 @@ static NSString * const kStorageFileName = @"RSSChannelStorage";
                                                        options:kNilOptions
                                                          error:&error];
     if (error) {
-        completion(error);
+        BLOCK_EXEC(completion, error);
+        return;
     }
     
     [jsonData writeToFile:self.storageFilePath atomically:YES];
-    completion(nil);
+    BLOCK_EXEC(completion, nil);
 }
 
 - (BOOL)deleteChannel {
@@ -58,14 +63,16 @@ static NSString * const kStorageFileName = @"RSSChannelStorage";
                                                                    options:kNilOptions
                                                                      error:&error];
         if (error) {
-            completion(nil, error);
-        } else {
-            RSSRChannel *channel = [RSSRChannel new];
-            [channel configureWithDictionary:jsonObject];
-            completion([channel autorelease], nil);
+            BLOCK_EXEC(completion, nil, error);
+            return;
         }
+        
+        RSSRChannel *channel = [RSSRChannel new];
+        [channel configureWithDictionary:jsonObject];
+        BLOCK_EXEC(completion, [channel autorelease], nil);
+        
     } else {
-        completion(nil, nil);
+        BLOCK_EXEC(completion, nil, nil);
     }
 }
 

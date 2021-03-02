@@ -49,7 +49,9 @@ static NSString * const kSlash = @"/";
         }
     }
     
-    completion(self.channels);
+    if (completion) {
+        completion(self.channels);
+    }
 }
 
 - (void)findChannelsFromHTMLString:(NSString *)htmlString {
@@ -87,7 +89,7 @@ static NSString * const kSlash = @"/";
 
 - (BOOL)isRSSFeed:(NSData *)data {
     NSString *contentString = [NSString stringWithUTF8String:data.bytes];
-    return [contentString containsString:kRSSFeedMark] ? YES : NO;
+    return [contentString containsString:kRSSFeedMark];
 }
 
 

@@ -85,16 +85,17 @@
 - (void)retrieveFeedsFromURL:(NSString *)url {
     __block typeof(self) weakSelf = self;
     [self.networkService loadDataFromURL:[NSURL URLWithString:url]
-                         completion:^(NSData *data, NSError *error) {
+                              completion:^(NSData *data, NSError *error) {
         if (error) {
             [weakSelf showError:error];
+            return;
+        }
+        
+        if ([weakSelf.feedService isRSSFeed:data]) {
+            [weakSelf saveChannel:[self.feedService retrieveChannelFromRSSContent:data
+                                                                       channelURL:url]];
         } else {
-            if ([weakSelf.feedService isRSSFeed:data]) {
-                [weakSelf saveChannel:[self.feedService retrieveChannelFromRSSContent:data
-                                                                           channelURL:url]];
-            } else {
-                [weakSelf retrieveFeedsFromHTMLContent:data URL:url];
-            }
+            [weakSelf retrieveFeedsFromHTMLContent:data URL:url];
         }
     }];
 }
@@ -104,12 +105,13 @@
     [self.fileService saveChannel:channel completion:^(NSError *error) {
         if (error) {
             [weakSelf showError:error];
-        } else {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [weakSelf.feedsSettingsView hideActivitiIndicator];
-                [weakSelf.feedsSettingsView displayAddedFeed:channel];
-            });
+            return;
         }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.feedsSettingsView hideActivitiIndicator];
+            [weakSelf.feedsSettingsView displayAddedFeed:channel];
+        });
     }];
 }
 

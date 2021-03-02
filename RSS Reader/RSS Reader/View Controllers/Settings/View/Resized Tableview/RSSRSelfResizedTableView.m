@@ -29,7 +29,7 @@
 
 - (CGSize)intrinsicContentSize {
     CGFloat height = MIN(self.contentSize.height, self.maxHeight);
-    self.scrollEnabled = (height == self.maxHeight) ? YES : NO;
+    self.scrollEnabled = (height == self.maxHeight);
     return CGSizeMake(self.contentSize.width, height);
 }
 
