@@ -9,19 +9,39 @@
 
 static NSString * const kNilCompletionMessage = @"Completion must not be nil!";
 
+@interface RSSRNetworkService ()
+
+@property (nonatomic, retain) NSURLSession *session;
+
+@end
+
 @implementation RSSRNetworkService
+
+- (NSURLSession *)session {
+    if (!_session) {
+        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        _session = [[NSURLSession sessionWithConfiguration:configuration] retain];
+    }
+    return _session;
+}
+
+- (void)dealloc {
+    [_session release];
+    [super dealloc];
+}
 
 - (void)loadDataFromURL:(NSURL *)url
              completion:(void (^)(NSData *data, NSError *error))completion {
-    [NSThread detachNewThreadWithBlock:^{
-        @autoreleasepool {
-            NSAssert(completion, kNilCompletionMessage);
-            
-            NSError *error;
-            NSData *data = [NSData dataWithContentsOfURL:url options:NSDataReadingUncached error:&error];
-            completion(data, error);
-        }
+    NSAssert(completion, kNilCompletionMessage);
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:url.absoluteURL];
+
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:request
+                                                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        completion(data, error);
     }];
+
+    [dataTask resume];
 }
 
 @end

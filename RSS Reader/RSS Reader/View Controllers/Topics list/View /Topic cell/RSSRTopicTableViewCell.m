@@ -24,7 +24,8 @@ static NSString * const kShowLess = @"Show Less";
 @property (retain, nonatomic) RSSRAnnotationButton *annotationButton;
 
 @property (nonatomic, retain) id<RSSRTopicItemProtocol> topic;
-@property (assign, nonatomic) id<RSSRTopicCellDelegate> delegate;
+
+@property (copy, nonatomic) void(^reloadHandler)(id<RSSRTopicItemProtocol> topic);
 
 @end
 
@@ -36,7 +37,7 @@ static NSString * const kShowLess = @"Show Less";
         __block typeof(self) weakSelf = self;
         _annotationButton = [[RSSRAnnotationButton alloc] initWithActionBlock:^{
             weakSelf.topic.showDetails = !weakSelf.topic.showDetails;
-            [weakSelf.delegate reloadCellWithTopic:weakSelf.topic];
+            weakSelf.reloadHandler(weakSelf.topic);
         }];
     }
     return _annotationButton;
@@ -67,6 +68,7 @@ static NSString * const kShowLess = @"Show Less";
     [_cellView release];
     [_annotationButton release];
     [_topic release];
+    [_reloadHandler release];
     [super dealloc];
 }
 
@@ -106,8 +108,8 @@ static NSString * const kShowLess = @"Show Less";
 }
 
 - (void)configureWithItem:(id<RSSRTopicItemProtocol>)topic
-                 delegate:(id<RSSRTopicCellDelegate>)delegate {
-    self.delegate = delegate;
+            reloadHandler:(void(^)(id<RSSRTopicItemProtocol> topic))handler {
+    self.reloadHandler = handler;
     self.topic = topic;
     self.title.text = [self.topic itemTitle];
     self.pubDate.text = [[self.topic itemPubDate] stringWithFormat:kTopicDateFormat];

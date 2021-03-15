@@ -8,8 +8,10 @@
 #import "SceneDelegate.h"
 #import "RSSRTopicsListViewController.h"
 #import "RSSRNetworkService.h"
-#import "RSSRXMLParser.h"
+#import "RSSRFeedParser.h"
 #import "RSSRTopicsListPresenter.h"
+#import "UIColor+RSSRColor.h"
+#import "RSSRFileService.h"
 
 @interface SceneDelegate ()
 
@@ -21,17 +23,27 @@
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions API_AVAILABLE(ios(13.0)){
     UIWindow *window = [[[UIWindow alloc] initWithWindowScene:(UIWindowScene *)scene] autorelease];
     self.window = window;
-    self.window.backgroundColor = UIColor.whiteColor;
     
-    RSSRXMLParser *parser = [[RSSRXMLParser new] autorelease];
-    RSSRNetworkService *service = [[RSSRNetworkService new] autorelease];
-    RSSRTopicsListPresenter *presenter = [[[RSSRTopicsListPresenter alloc] initWithService:service
-                                                                                    parser:parser] autorelease];
-    RSSRTopicsListViewController *rootVC = [[[RSSRTopicsListViewController alloc] initWithPresenter:presenter] autorelease];
-    UINavigationController *navigationController = [[[UINavigationController alloc] initWithRootViewController:rootVC] autorelease];
+    RSSRFeedParser *parser = [RSSRFeedParser new];
+    RSSRNetworkService *service = [RSSRNetworkService new];
+    RSSRFileService *fileService = [RSSRFileService new];
+    RSSRTopicsListPresenter *presenter = [[RSSRTopicsListPresenter alloc] initWithService:service
+                                                                                   parser:parser
+                                                                              fileService:fileService];
+    RSSRTopicsListViewController *rootVC = [[RSSRTopicsListViewController alloc] initWithPresenter:presenter];
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootVC];
     
     [self.window setRootViewController:navigationController];
+    self.window.backgroundColor = UIColor.RSSRBackgroundColor;
     [self.window makeKeyAndVisible];
+    
+    [navigationController release];
+    [rootVC release];
+    [parser release];
+    [presenter release];
+    [service release];
+    [fileService release];
 }
 
 - (void)dealloc {

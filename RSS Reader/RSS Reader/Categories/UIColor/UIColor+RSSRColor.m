@@ -17,4 +17,8 @@
     return [UIColor colorNamed:@"Selected state color"];
 }
 
++ (UIColor *)RSSROliveColor {
+    return [UIColor colorNamed:@"Olive green"];
+}
+
 @end

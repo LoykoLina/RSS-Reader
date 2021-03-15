@@ -5,10 +5,10 @@
 //  Created by Lina Loyko on 11/17/20.
 //
 
-#import "RSSRXMLParser.h"
+#import "RSSRFeedParser.h"
 #import "RSSRTopic.h"
 
-@interface RSSRXMLParser () <NSXMLParserDelegate>
+@interface RSSRFeedParser () <NSXMLParserDelegate>
 
 @property (nonatomic, retain) NSMutableDictionary *itemDictionary;
 @property (nonatomic, retain) NSMutableDictionary *parsingDictionary;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation RSSRXMLParser
+@implementation RSSRFeedParser
 
 - (void)parseTopics:(NSData *)data
          completion:(void (^)(NSMutableArray<RSSRTopic *> *topics, NSError *error))completion {

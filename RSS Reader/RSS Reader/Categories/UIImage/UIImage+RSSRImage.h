@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, nonatomic, readonly) UIImage *RSSRReload;
 @property (class, nonatomic, readonly) UIImage *RSSRNext;
 @property (class, nonatomic, readonly) UIImage *RSSRBack;
+@property (class, nonatomic, readonly) UIImage *RSSRSettings;
 
 @end
 

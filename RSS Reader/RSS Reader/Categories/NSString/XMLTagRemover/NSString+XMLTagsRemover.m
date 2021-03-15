@@ -7,21 +7,38 @@
 
 #import "NSString+XMLTagsRemover.h"
 
-static NSString * const kTagBeforeKeyPart = @"/>";
-static NSString * const kTagAfterKeyPart = @"<br";
+static NSString * const kTagClose = @">";
+static NSString * const kTagOpen = @"<";
 
 @implementation NSString (XMLTagsRemover)
 
 - (NSString *)extractKeyPart {
-    if ([self containsString:kTagBeforeKeyPart]) {
-        NSRange range = [self rangeOfString:kTagBeforeKeyPart];
-        NSString *newDescription = [self substringFromIndex:range.location + kTagBeforeKeyPart.length];
+    if ([self containsString:kTagOpen] && [self containsString:kTagClose]) {
+        self = [self substringFromIndex:1];
+        self = [self substringToIndex:self.length - 2];
         
-        range = [newDescription rangeOfString:kTagAfterKeyPart];
-        newDescription = [newDescription substringToIndex:range.location];
-
-        return newDescription;
+        NSRange startRange = [self rangeOfString:kTagClose];
+        NSRange endRange = [self rangeOfString:kTagOpen];
+        
+        NSMutableString *result = [NSMutableString string];
+        
+        while (startRange.location < endRange.location) {
+            self = [self substringFromIndex:startRange.location + startRange.length];
+            
+            endRange = [self rangeOfString:kTagOpen];
+            [result appendString:[self substringToIndex:endRange.location]];
+            
+            self = [self substringFromIndex:endRange.location + endRange.length];
+            
+            startRange = [self rangeOfString:kTagClose];
+            endRange = [self rangeOfString:kTagOpen];
+        }
+        
+        if (![result isEqualToString:@""]) {
+            return result;
+        }
     }
+    
     return self;
 }
 

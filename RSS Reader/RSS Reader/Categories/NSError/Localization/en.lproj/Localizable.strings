@@ -6,8 +6,23 @@
   
 */
 
-"ParserErrorTitle" = "Parse error";
+"ParserErrorTitle" = "Parse Error";
 "ParserErrorMessage" = "There was a problem while getting data from feed";
+
+"NoInternetConnectionErrorTitle" = "No Internet Connection";
+"NoInternetConnectionErrorMessage" = "Make sure your device is connected to the internet";
 
 "DefaultErrorTitle" = "Error";
 "DefaultErrorMessage" = "Something went wrong";
+
+"DeleteChannelErrorTitle" = "Error";
+"DeleteChannelErrorMessage" = "Can not delete RSS feed";
+
+"SaveChannelErrorTitle" = "Error";
+"SaveChannelErrorMessage" = "Can not save RSS feed";
+
+"LoadChannelErrorTitle" = "Error";
+"LoadChannelErrorMessage" = "Can not load RSS feed";
+
+"NoResultErrorTitle" = "No Result";
+"NoResultErrorMessage" = "RSS feeds not found on the provided website";

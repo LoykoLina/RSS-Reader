@@ -9,5 +9,20 @@
 "ParserErrorTitle" = "Ошибка синтаксического анализа";
 "ParserErrorMessage" = "Возникла проблема при получении дынных из ленты";
 
+"NoInternetConnectionErrorTitle" = "Нет подключения к Интернету";
+"NoInternetConnectionErrorMessage" = "Убедитесь, что ваше устройство подключено к Интернету";
+
 "DefaultErrorTitle" = "Ошибка";
 "DefaultErrorMessage" = "Что-то пошло не так";
+
+"DeleteChannelErrorTitle" = "Ошибка";
+"DeleteChannelErrorMessage" = "Не удалось удалить RSS канал";
+
+"SaveChannelErrorTitle" = "Ошибка";
+"SaveChannelErrorMessage" = "Не удалось сохранить RSS канал";
+
+"LoadChannelErrorTitle" = "Ошибка";
+"LoadChannelErrorMessage" = "Не удалось загрузить RSS канал";
+
+"NoResultErrorTitle" = "Нет результата";
+"NoResultErrorMessage" = "RSS каналы по предоставленному веб-сайту не найдены";
