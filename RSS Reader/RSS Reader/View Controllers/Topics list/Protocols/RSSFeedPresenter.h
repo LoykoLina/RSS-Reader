@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol RSSFeedPresenter <NSObject>
 
 - (void)loadTopics;
+- (void)refreshTopics;
 - (NSArray<RSSRTopic *> *)topics;
 
 - (void)attachView:(id<RSSFeedView, ViewControllerPresentable>)view;

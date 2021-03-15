@@ -116,6 +116,20 @@
     }];
 }
 
+- (void)refreshTopics {
+    if (self.channel) {
+        __block typeof(self) weakSelf = self;
+        [self.networkService loadDataFromURL:[NSURL URLWithString:self.channel.link]
+                                  completion:^(NSData *data, NSError *error) {
+            if (error) {
+                [weakSelf showError:error];
+            } else {
+                [weakSelf parseTopicsData:data];
+            }
+        }];
+    }
+}
+
 - (NSArray<RSSRTopic *> *)topics {
     return self.dataSource;
 }

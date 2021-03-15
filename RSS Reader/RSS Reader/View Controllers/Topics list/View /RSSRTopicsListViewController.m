@@ -130,7 +130,7 @@ static NSString * const kTitle = @"News Feed";
 - (void)configureRefreshControl {
     UIRefreshControl *refreshControl = [UIRefreshControl new];
     [refreshControl addTarget:self.presenter
-                       action:@selector(loadTopics)
+                       action:@selector(refreshTopics)
              forControlEvents:UIControlEventValueChanged];
     refreshControl.layer.zPosition = -1;
     
@@ -208,6 +208,28 @@ static NSString * const kTitle = @"News Feed";
                           withRowAnimation:UITableViewRowAnimationNone];
     }];
 }
+
+
+#pragma mark - Shake gesture
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    if (event.type == UIEventSubtypeMotionShake) {
+        CGPoint offset = CGPointMake(0, - self.tableView.refreshControl.frame.size.height -
+                                     self.navigationController.navigationBar.frame.size.height -
+                                     UIApplication.sharedApplication.statusBarFrame.size.height);
+        
+        [self.tableView setContentOffset:offset
+                                animated:YES];
+        
+        [self.tableView.refreshControl beginRefreshing];
+        [self.presenter refreshTopics];
+    }
+}
+
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
 
 @end
 
