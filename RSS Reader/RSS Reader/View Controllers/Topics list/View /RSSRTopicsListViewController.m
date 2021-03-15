@@ -18,10 +18,10 @@ static NSString * const kTitle = @"News Feed";
 
 @interface RSSRTopicsListViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, retain) id<RSSFeedPresenter> presenter;
-@property (nonatomic, retain) UITableView *tableView;
-@property (nonatomic, retain) UIActivityIndicatorView *activityIndicator;
-@property (nonatomic, retain) UIBarButtonItem *settingsButton;
+@property (nonatomic) id<RSSFeedPresenter> presenter;
+@property (nonatomic) UITableView *tableView;
+@property (nonatomic) UIActivityIndicatorView *activityIndicator;
+@property (nonatomic) UIBarButtonItem *settingsButton;
 
 @property (nonatomic) CGFloat lastContentOffset;
 
@@ -63,23 +63,15 @@ static NSString * const kTitle = @"News Feed";
 }
 
 
-#pragma mark -  Initialization & Deallocation
+#pragma mark -  Initialization
 
 - (instancetype)initWithPresenter:(id<RSSFeedPresenter>)presenter {
     self = [super init];
     if (self) {
-        _presenter = [presenter retain];
+        _presenter = presenter;
         [_presenter attachView:self];
     }
     return self;
-}
-
-- (void)dealloc {
-    [_presenter release];
-    [_tableView release];
-    [_activityIndicator release];
-    [_settingsButton release];
-    [super dealloc];
 }
 
 
@@ -143,7 +135,6 @@ static NSString * const kTitle = @"News Feed";
     refreshControl.layer.zPosition = -1;
     
     self.tableView.refreshControl = refreshControl;
-    [refreshControl release];
 }
 
 

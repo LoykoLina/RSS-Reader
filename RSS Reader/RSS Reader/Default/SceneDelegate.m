@@ -21,7 +21,7 @@
 
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions API_AVAILABLE(ios(13.0)){
-    UIWindow *window = [[[UIWindow alloc] initWithWindowScene:(UIWindowScene *)scene] autorelease];
+    UIWindow *window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene *)scene];
     self.window = window;
     
     RSSRFeedParser *parser = [RSSRFeedParser new];
@@ -37,18 +37,7 @@
     [self.window setRootViewController:navigationController];
     self.window.backgroundColor = UIColor.RSSRBackgroundColor;
     [self.window makeKeyAndVisible];
-    
-    [navigationController release];
-    [rootVC release];
-    [parser release];
-    [presenter release];
-    [service release];
-    [fileService release];
 }
 
-- (void)dealloc {
-    [_window release];
-    [super dealloc];
-}
 
 @end

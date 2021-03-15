@@ -12,34 +12,27 @@
 @interface RSSRSettingsPresenter ()
 
 @property (nonatomic, assign) id<RSSFeedsSettingsView, ViewControllerPresentable> feedsSettingsView;
-@property (nonatomic, retain) RSSRNetworkService *networkService;
-@property (nonatomic, retain) RSSRFeedService *feedService;
-@property (nonatomic, retain) RSSRFileService *fileService;
+@property (nonatomic) RSSRNetworkService *networkService;
+@property (nonatomic) RSSRFeedService *feedService;
+@property (nonatomic) RSSRFileService *fileService;
 
 @end
 
 @implementation RSSRSettingsPresenter
 
 
-#pragma mark -  Initialization & Deallocation
+#pragma mark -  Initialization 
 
 - (instancetype)initWithFeedService:(RSSRFeedService *)feedService
                      networkService:(RSSRNetworkService *)networkService
                         fileService:(RSSRFileService *)fileService {
     self = [super init];
     if (self) {
-        _networkService = [networkService retain];
-        _feedService = [feedService retain];
-        _fileService = [fileService retain];
+        _networkService = networkService;
+        _feedService = feedService;
+        _fileService = fileService;
     }
     return self;
-}
-
-- (void)dealloc {
-    [_networkService release];
-    [_feedService release];
-    [_fileService release];
-    [super dealloc];
 }
 
 

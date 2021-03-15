@@ -382,10 +382,10 @@
             filePath = "RSS Reader/View Controllers/Topics list/View /RSSRTopicsListViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "-scrollViewDidScroll:"
-            landmarkType = "7">
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "RSSRTopicsListViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -398,9 +398,9 @@
             filePath = "RSS Reader/View Controllers/Topics list/View /Topic cell/RSSRTopicTableViewCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "-showDetails"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-setSelected:animated:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -414,10 +414,10 @@
             filePath = "RSS Reader/View Controllers/Topics list/View /Topic cell/RSSRTopicTableViewCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "-configureWithItem:delegate:"
-            landmarkType = "7">
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "RSSRTopicTableViewCell"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -430,10 +430,10 @@
             filePath = "RSS Reader/View Controllers/Topics list/View /RSSRTopicsListViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
-            landmarkName = "-reloadCellWithTopic:"
-            landmarkType = "7">
+            startingLineNumber = "195"
+            endingLineNumber = "195"
+            landmarkName = "RSSRTopicsListViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -446,9 +446,9 @@
             filePath = "RSS Reader/View Controllers/Topics list/View /Topic cell/RSSRTopicTableViewCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "-configureWithItem:delegate:"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "-showDetails"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -462,9 +462,9 @@
             filePath = "RSS Reader/View Controllers/Topics list/View /Topic cell/RSSRTopicTableViewCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "-configureAnnotationButtonLayout"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "-configureWithItem:reloadHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -478,9 +478,9 @@
             filePath = "RSS Reader/View Controllers/Topics list/View /Topic cell/RSSRTopicTableViewCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "-configureWithItem:delegate:"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "-hideDetails"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -494,9 +494,25 @@
             filePath = "RSS Reader/View Controllers/Topics list/View /Topic cell/RSSRTopicTableViewCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "-configureWithItem:delegate:"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "-configureWithItem:reloadHandler:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "963DCD16-CE75-4092-9406-E2689661DD06"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RSS Reader/View Controllers/Topics list/Presenter/RSSRTopicsListPresenter.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-loadTopics"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

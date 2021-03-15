@@ -11,14 +11,14 @@
 
 @interface RSSRWebBrowserController () <WKNavigationDelegate, UIScrollViewDelegate>
 
-@property (retain, nonatomic) IBOutlet WKWebView *webView;
-@property (retain, nonatomic) UIBarButtonItem *backButton;
-@property (retain, nonatomic) UIBarButtonItem *forwardButton;
-@property (retain, nonatomic) UIBarButtonItem *reloadButton;
-@property (retain, nonatomic) UIBarButtonItem *stopButton;
+@property (nonatomic) IBOutlet WKWebView *webView;
+@property (nonatomic) UIBarButtonItem *backButton;
+@property (nonatomic) UIBarButtonItem *forwardButton;
+@property (nonatomic) UIBarButtonItem *reloadButton;
+@property (nonatomic) UIBarButtonItem *stopButton;
 
 @property (copy, nonatomic) NSURLRequest *request;
-@property (nonatomic) CGFloat lastContentOffset;
+@property (nonatomic, assign) CGFloat lastContentOffset;
 
 @end
 
@@ -68,24 +68,14 @@
 }
 
 
-#pragma mark - Initialization & Deallocation
+#pragma mark - Initialization
 
 - (instancetype)initWithURLRequest:(NSURLRequest *)request {
     self = [super init];
     if (self) {
-        _request = [request retain];
+        _request = request;
     }
     return self;
-}
-
-- (void)dealloc {
-    [_webView release];
-    [_request release];
-    [_backButton release];
-    [_forwardButton release];
-    [_reloadButton release];
-    [_stopButton release];
-    [super dealloc];
 }
 
 
@@ -118,9 +108,6 @@
                                                                                    action:nil];
     
     [self setToolbarItems:@[self.backButton, flexibleSpace, self.forwardButton, flexibleSpace, self.reloadButton, flexibleSpace, self.stopButton, flexibleSpace, safariButton]];
-    
-    [safariButton release];
-    [flexibleSpace release];
 }
 
 - (void)configureNavigationController {
@@ -132,7 +119,6 @@
                                                                                     target:self
                                                                                     action:@selector(popViewController)];
     self.navigationItem.leftBarButtonItem = doneBackButton;
-    [doneBackButton release];
 }
 
 - (void)popViewController {

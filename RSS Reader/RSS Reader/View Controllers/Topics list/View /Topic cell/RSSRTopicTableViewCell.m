@@ -17,13 +17,13 @@ static NSString * const kShowLess = @"Show Less";
 
 @interface RSSRTopicTableViewCell ()
 
-@property (retain, nonatomic) IBOutlet UILabel *title;
-@property (retain, nonatomic) IBOutlet UILabel *pubDate;
-@property (retain, nonatomic) UILabel *summary;
-@property (retain, nonatomic) IBOutlet UIView *cellView;
-@property (retain, nonatomic) RSSRAnnotationButton *annotationButton;
+@property (nonatomic) IBOutlet UILabel *title;
+@property (nonatomic) IBOutlet UILabel *pubDate;
+@property (nonatomic) UILabel *summary;
+@property (nonatomic) IBOutlet UIView *cellView;
+@property (nonatomic) RSSRAnnotationButton *annotationButton;
 
-@property (nonatomic, retain) id<RSSRTopicItemProtocol> topic;
+@property (nonatomic) id<RSSRTopicItemProtocol> topic;
 
 @property (copy, nonatomic) void(^reloadHandler)(id<RSSRTopicItemProtocol> topic);
 
@@ -59,17 +59,6 @@ static NSString * const kShowLess = @"Show Less";
     self.cellView.layer.cornerRadius = kCellViewCornerRadius;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.contentView.userInteractionEnabled = YES;
-}
-
-- (void)dealloc {
-    [_title release];
-    [_pubDate release];
-    [_summary release];
-    [_cellView release];
-    [_annotationButton release];
-    [_topic release];
-    [_reloadHandler release];
-    [super dealloc];
 }
 
 
