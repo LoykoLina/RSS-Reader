@@ -22,40 +22,32 @@
 
 @property (nonatomic, assign) id<RSSFeedView, ViewControllerPresentable> feedView;
 
-@property (nonatomic, retain) RSSRNetworkService *networkService;
-@property (nonatomic, retain) RSSRFeedParser *parser;
-@property (nonatomic, retain) RSSRFileService *fileService;
+@property (nonatomic) RSSRNetworkService *networkService;
+@property (nonatomic) RSSRFeedParser *parser;
+@property (nonatomic) RSSRFileService *fileService;
 
-@property (nonatomic, retain) NSArray<RSSRTopic *> *dataSource;
-@property (nonatomic, retain) RSSRChannel *channel;
+@property (nonatomic) NSArray<RSSRTopic *> *dataSource;
+@property (nonatomic) RSSRChannel *channel;
 
 @end
 
 @implementation RSSRTopicsListPresenter
 
 
-#pragma mark -  Initialization & Deallocation
+#pragma mark -  Initialization
 
 - (instancetype)initWithService:(RSSRNetworkService *)service
                          parser:(RSSRFeedParser *)parser
                     fileService:(RSSRFileService *)fileService {
     self = [super init];
     if (self) {
-        _networkService = [service retain];
-        _parser = [parser retain];
-        _fileService = [fileService retain];
+        _networkService = service;
+        _parser = parser;
+        _fileService = fileService;
     }
     return self;
 }
 
-- (void)dealloc {
-    [_networkService release];
-    [_parser release];
-    [_fileService release];
-    [_dataSource release];
-    [_channel release];
-    [super dealloc];
-}
 
 
 - (void)parseTopicsData:(NSData *)data {
@@ -124,6 +116,20 @@
     }];
 }
 
+- (void)refreshTopics {
+    if (self.channel) {
+        __block typeof(self) weakSelf = self;
+        [self.networkService loadDataFromURL:[NSURL URLWithString:self.channel.link]
+                                  completion:^(NSData *data, NSError *error) {
+            if (error) {
+                [weakSelf showError:error];
+            } else {
+                [weakSelf parseTopicsData:data];
+            }
+        }];
+    }
+}
+
 - (NSArray<RSSRTopic *> *)topics {
     return self.dataSource;
 }
@@ -136,7 +142,7 @@
     NSString *link = [self.dataSource[indexPath.row] itemLink];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:link]];
     
-    RSSRWebBrowserController *webBrowser = [[[RSSRWebBrowserController alloc] initWithURLRequest:request] autorelease];
+    RSSRWebBrowserController *webBrowser = [[RSSRWebBrowserController alloc] initWithURLRequest:request];
     [self.feedView pushViewController:webBrowser];
 }
 
@@ -149,10 +155,6 @@
                                                                                            channel:self.channel];
     
     [self.feedView pushViewController:settingsController];
-    
-    [feedService release];
-    [presenter release];
-    [settingsController release];
 }
 
 @end

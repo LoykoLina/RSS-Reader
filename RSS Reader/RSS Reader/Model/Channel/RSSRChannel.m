@@ -22,16 +22,10 @@
 - (instancetype)initWithTitle:(NSString *)title link:(NSString *)link {
     self = [super init];
     if (self) {
-        _title = [title retain];
-        _link = [link retain];
+        _title = title;
+        _link = link;
     }
     return self;
-}
-
-- (void)dealloc {
-    [_title release];
-    [_link release];
-    [super dealloc];
 }
 
 
@@ -39,7 +33,6 @@
     NSMutableString *newLink = [url mutableCopy];
     [newLink appendString:self.link];
     self.link = newLink;
-    [newLink release];
 }
 
 

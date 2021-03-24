@@ -22,7 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     if (@available(iOS 13.0, *)) {
     } else {
-        UIWindow *window = [[[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds] autorelease];
+        UIWindow *window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
         self.window = window;
         
         RSSRFeedParser *parser = [RSSRFeedParser new];
@@ -38,13 +38,6 @@
         [self.window setRootViewController:navigationController];
         self.window.backgroundColor = UIColor.RSSRBackgroundColor;
         [self.window makeKeyAndVisible];
-        
-        [navigationController release];
-        [rootVC release];
-        [parser release];
-        [presenter release];
-        [service release];
-        [fileService release];
     }
     return YES;
 }
@@ -56,7 +49,7 @@
 - (UISceneConfiguration *)application:(UIApplication *)application
 configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession
                               options:(UISceneConnectionOptions *)options API_AVAILABLE(ios(13.0)){
-    return [[[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role] autorelease];
+    return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
 }
 
 @end

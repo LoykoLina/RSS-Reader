@@ -28,9 +28,5 @@
     return self;
 }
 
-- (void)dealloc {
-    [_actionBlock release];
-    [super dealloc];
-}
 
 @end

@@ -18,10 +18,10 @@ static NSString * const kTitle = @"News Feed";
 
 @interface RSSRTopicsListViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, retain) id<RSSFeedPresenter> presenter;
-@property (nonatomic, retain) UITableView *tableView;
-@property (nonatomic, retain) UIActivityIndicatorView *activityIndicator;
-@property (nonatomic, retain) UIBarButtonItem *settingsButton;
+@property (nonatomic) id<RSSFeedPresenter> presenter;
+@property (nonatomic) UITableView *tableView;
+@property (nonatomic) UIActivityIndicatorView *activityIndicator;
+@property (nonatomic) UIBarButtonItem *settingsButton;
 
 @property (nonatomic) CGFloat lastContentOffset;
 
@@ -63,23 +63,15 @@ static NSString * const kTitle = @"News Feed";
 }
 
 
-#pragma mark -  Initialization & Deallocation
+#pragma mark -  Initialization
 
 - (instancetype)initWithPresenter:(id<RSSFeedPresenter>)presenter {
     self = [super init];
     if (self) {
-        _presenter = [presenter retain];
+        _presenter = presenter;
         [_presenter attachView:self];
     }
     return self;
-}
-
-- (void)dealloc {
-    [_presenter release];
-    [_tableView release];
-    [_activityIndicator release];
-    [_settingsButton release];
-    [super dealloc];
 }
 
 
@@ -138,12 +130,11 @@ static NSString * const kTitle = @"News Feed";
 - (void)configureRefreshControl {
     UIRefreshControl *refreshControl = [UIRefreshControl new];
     [refreshControl addTarget:self.presenter
-                       action:@selector(loadTopics)
+                       action:@selector(refreshTopics)
              forControlEvents:UIControlEventValueChanged];
     refreshControl.layer.zPosition = -1;
     
     self.tableView.refreshControl = refreshControl;
-    [refreshControl release];
 }
 
 
@@ -217,6 +208,28 @@ static NSString * const kTitle = @"News Feed";
                           withRowAnimation:UITableViewRowAnimationNone];
     }];
 }
+
+
+#pragma mark - Shake gesture
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    if (event.type == UIEventSubtypeMotionShake) {
+        CGPoint offset = CGPointMake(0, - self.tableView.refreshControl.frame.size.height -
+                                     self.navigationController.navigationBar.frame.size.height -
+                                     UIApplication.sharedApplication.statusBarFrame.size.height);
+        
+        [self.tableView setContentOffset:offset
+                                animated:YES];
+        
+        [self.tableView.refreshControl beginRefreshing];
+        [self.presenter refreshTopics];
+    }
+}
+
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
 
 @end
 

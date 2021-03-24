@@ -7,40 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CA15A35F25E86561007D2959 /* RSSRChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = CA15A35D25E86561007D2959 /* RSSRChannel.m */; };
+		CA15A35F25E86561007D2959 /* RSSRChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = CA15A35D25E86561007D2959 /* RSSRChannel.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		CA15A36425E86676007D2959 /* RSSRFeedService.m in Sources */ = {isa = PBXBuildFile; fileRef = CA15A36325E86676007D2959 /* RSSRFeedService.m */; };
 		CA15A36925E952E6007D2959 /* RSSRFileService.m in Sources */ = {isa = PBXBuildFile; fileRef = CA15A36825E952E6007D2959 /* RSSRFileService.m */; };
-		CA15A38525E9572C007D2959 /* RSSRSettingsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CA15A37125E9572C007D2959 /* RSSRSettingsPresenter.m */; };
+		CA15A38525E9572C007D2959 /* RSSRSettingsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CA15A37125E9572C007D2959 /* RSSRSettingsPresenter.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		CA15A38625E9572C007D2959 /* RSSRSettingsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA15A37425E9572C007D2959 /* RSSRSettingsController.xib */; };
 		CA15A38725E9572C007D2959 /* RSSRChannelOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA15A37725E9572C007D2959 /* RSSRChannelOptionCell.m */; };
 		CA15A38825E9572C007D2959 /* RSSRChannelOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA15A37825E9572C007D2959 /* RSSRChannelOptionCell.xib */; };
 		CA15A38925E9572C007D2959 /* RSSRChannelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA15A37C25E9572C007D2959 /* RSSRChannelCell.xib */; };
 		CA15A38A25E9572C007D2959 /* RSSRChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA15A37D25E9572C007D2959 /* RSSRChannelCell.m */; };
-		CA15A38B25E9572C007D2959 /* RSSRSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA15A37E25E9572C007D2959 /* RSSRSettingsController.m */; };
-		CA15A38C25E9572C007D2959 /* RSSRSelfResizedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA15A38125E9572C007D2959 /* RSSRSelfResizedTableView.m */; };
+		CA15A38B25E9572C007D2959 /* RSSRSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA15A37E25E9572C007D2959 /* RSSRSettingsController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CA15A38C25E9572C007D2959 /* RSSRSelfResizedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA15A38125E9572C007D2959 /* RSSRSelfResizedTableView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		CA3025542579A65C00BFEF5A /* NSString+XMLTagsRemover.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3025532579A65C00BFEF5A /* NSString+XMLTagsRemover.m */; };
-		CA46CEF325C89E3D00057BAA /* RSSRTopicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDD0256711A200163CBC /* RSSRTopicTableViewCell.m */; };
-		CA46CEF625C89F9100057BAA /* RSSRTopicsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDCE256711A200163CBC /* RSSRTopicsListViewController.m */; };
-		CA46CEFC25C8A4DC00057BAA /* RSSRWebBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA46CEFA25C8A4DC00057BAA /* RSSRWebBrowserController.m */; };
+		CA46CEF325C89E3D00057BAA /* RSSRTopicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDD0256711A200163CBC /* RSSRTopicTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CA46CEF625C89F9100057BAA /* RSSRTopicsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDCE256711A200163CBC /* RSSRTopicsListViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CA46CEFC25C8A4DC00057BAA /* RSSRWebBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA46CEFA25C8A4DC00057BAA /* RSSRWebBrowserController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		CA46CEFD25C8A4DC00057BAA /* RSSRWebBrowserController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA46CEFB25C8A4DC00057BAA /* RSSRWebBrowserController.xib */; };
 		CA46CF0225C8A50C00057BAA /* UIImage+RSSRImage.m in Sources */ = {isa = PBXBuildFile; fileRef = CA46CF0025C8A50C00057BAA /* UIImage+RSSRImage.m */; };
-		CA46CF0725C8AF6D00057BAA /* RSSRTopicsListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDCA256711A200163CBC /* RSSRTopicsListPresenter.m */; };
-		CA554FC125642E8E009F124F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA554FC025642E8E009F124F /* AppDelegate.m */; };
-		CA554FC425642E8E009F124F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA554FC325642E8E009F124F /* SceneDelegate.m */; };
+		CA46CF0725C8AF6D00057BAA /* RSSRTopicsListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDCA256711A200163CBC /* RSSRTopicsListPresenter.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CA554FC125642E8E009F124F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA554FC025642E8E009F124F /* AppDelegate.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CA554FC425642E8E009F124F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA554FC325642E8E009F124F /* SceneDelegate.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		CA554FCC25642E91009F124F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA554FCB25642E91009F124F /* Assets.xcassets */; };
 		CA554FCF25642E91009F124F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA554FCD25642E91009F124F /* LaunchScreen.storyboard */; };
 		CA554FD225642E91009F124F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA554FD125642E91009F124F /* main.m */; };
 		CA589B2B25DC8F3600178E51 /* NSString+WhitespaceString.m in Sources */ = {isa = PBXBuildFile; fileRef = CA589B2A25DC8F3600178E51 /* NSString+WhitespaceString.m */; };
 		CA589B3125DD1BBE00178E51 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA589B3025DD1BBE00178E51 /* WebKit.framework */; };
-		CA6FCAC925B88B46006E4DB7 /* NSError+ErrorParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = CA85149E257E45FC00908C5A /* NSError+ErrorParsing.m */; };
+		CA6FCAC925B88B46006E4DB7 /* NSError+ErrorParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = CA85149E257E45FC00908C5A /* NSError+ErrorParsing.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		CA6FCAD525B898ED006E4DB7 /* NSString+LocalizedString.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6FCAD425B898ED006E4DB7 /* NSString+LocalizedString.m */; };
 		CA6FCAE225B8A5D4006E4DB7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA6FCAE425B8A5D4006E4DB7 /* Localizable.strings */; };
-		CAB5FDD6256711A200163CBC /* RSSRNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDBF256711A200163CBC /* RSSRNetworkService.m */; };
-		CAB5FDD7256711A200163CBC /* RSSRFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDC1256711A200163CBC /* RSSRFeedParser.m */; };
+		CAB5FDD6256711A200163CBC /* RSSRNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDBF256711A200163CBC /* RSSRNetworkService.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CAB5FDD7256711A200163CBC /* RSSRFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDC1256711A200163CBC /* RSSRFeedParser.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		CAB5FDDC256711A200163CBC /* RSSRTopicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAB5FDD2256711A200163CBC /* RSSRTopicTableViewCell.xib */; };
 		CAB5FDDD256711A200163CBC /* RSSRTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDD4256711A200163CBC /* RSSRTopic.m */; };
 		CAB5FDE525671B1900163CBC /* UIColor+RSSRColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDE425671B1900163CBC /* UIColor+RSSRColor.m */; };
-		CAD0D96625E3B85800457435 /* RSSRAnnotationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CAD0D96525E3B85800457435 /* RSSRAnnotationButton.m */; };
+		CAD0D96625E3B85800457435 /* RSSRAnnotationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CAD0D96525E3B85800457435 /* RSSRAnnotationButton.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		CAD3D8EB256D9C6100BCDD49 /* NSDate+StringConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = CAD3D8EA256D9C6100BCDD49 /* NSDate+StringConversion.m */; };
 		CAFB3C412571128500440354 /* UIViewController+ViewControllerPresentable.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFB3C402571128500440354 /* UIViewController+ViewControllerPresentable.m */; };
 /* End PBXBuildFile section */

@@ -118,32 +118,17 @@ static NSString * const kFeedOptionsReuseIdentifier = @"RSSRChannelOptionCell";
 }
 
 
-#pragma mark -  Initialization & Deallocation
+#pragma mark -  Initialization
 
 - (instancetype)initWithPresenter:(id<RSSFeedsSettingsPresenter>)presenter
                           channel:(RSSRChannel *)channel {
     self = [super init];
     if (self) {
-        _presenter = [presenter retain];
+        _presenter = presenter;
         [_presenter attachView:self];
-        _channel = [channel retain];
+        _channel = channel;
     }
     return self;
-}
-
-- (void)dealloc {
-    [_findButton release];
-    [_addTextField release];
-    [_feedsLabel release];
-    [_activityIndicator release];
-    [_presenter release];
-    [_channel release];
-    [_noFeedsLabel release];
-    [_channelsOptions release];
-    [_feedOptionsLabel release];
-    [_feedOptionsTableView release];
-    [_feedsTableView release];
-    [super dealloc];
 }
 
 

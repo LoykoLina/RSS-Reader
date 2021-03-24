@@ -10,10 +10,10 @@
 
 @interface RSSRFeedParser () <NSXMLParserDelegate>
 
-@property (nonatomic, retain) NSMutableDictionary *itemDictionary;
-@property (nonatomic, retain) NSMutableDictionary *parsingDictionary;
-@property (nonatomic, retain) NSMutableString *parsingString;
-@property (nonatomic, retain) NSMutableArray *items;
+@property (nonatomic) NSMutableDictionary *itemDictionary;
+@property (nonatomic) NSMutableDictionary *parsingDictionary;
+@property (nonatomic) NSMutableString *parsingString;
+@property (nonatomic) NSMutableArray *items;
 @property (nonatomic, copy) void (^completion)(NSMutableArray<RSSRTopic *> *, NSError *);
 
 @end
@@ -26,17 +26,8 @@
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
     parser.delegate = self;
     [parser parse];
-    [parser release];
 }
 
-- (void)dealloc {
-    [_itemDictionary release];
-    [_parsingString release];
-    [_parsingDictionary release];
-    [_items release];
-    [_completion release];
-    [super dealloc];
-}
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
     self.completion(nil, parseError);
@@ -61,7 +52,6 @@
         self.parsingDictionary = [NSMutableDictionary dictionary];
         NSMutableString *enclosureURL = [attributeDict[kRSSElementKeyURL] mutableCopy];
         self.parsingString = enclosureURL;
-        [enclosureURL release];
     }
 }
 
@@ -86,7 +76,6 @@
         RSSRTopic *item = [RSSRTopic new];
         [item configureWithDictionary:self.itemDictionary];
         [self.items addObject:item];
-        [item release];
     }
 }
 

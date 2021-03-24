@@ -11,7 +11,7 @@ static NSString * const kNilCompletionMessage = @"Completion must not be nil!";
 
 @interface RSSRNetworkService ()
 
-@property (nonatomic, retain) NSURLSession *session;
+@property (nonatomic) NSURLSession *session;
 
 @end
 
@@ -20,15 +20,11 @@ static NSString * const kNilCompletionMessage = @"Completion must not be nil!";
 - (NSURLSession *)session {
     if (!_session) {
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-        _session = [[NSURLSession sessionWithConfiguration:configuration] retain];
+        _session = [NSURLSession sessionWithConfiguration:configuration];
     }
     return _session;
 }
 
-- (void)dealloc {
-    [_session release];
-    [super dealloc];
-}
 
 - (void)loadDataFromURL:(NSURL *)url
              completion:(void (^)(NSData *data, NSError *error))completion {
