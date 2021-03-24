@@ -10,16 +10,15 @@
 #import "RSSFeedPresenter.h"
 #import "ViewControllerPresentable.h"
 #import "RSSRFileService.h"
+#import "RSSRNetworkService.h"
+#import "RSSRTopic.h"
+#import "RSSRFeedParser.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class RSSRFeedParser;
-@class RSSRNetworkService;
-@class RSSRTopic;
-
 @interface RSSRTopicsListPresenter : NSObject <RSSFeedPresenter>
 
-- (instancetype)initWithService:(RSSRNetworkService *)service
+- (instancetype)initWithService:(id<RSSRNetworkService>)service
                          parser:(RSSRFeedParser *)parser
                     fileService:(RSSRFileService *)fileService;
 

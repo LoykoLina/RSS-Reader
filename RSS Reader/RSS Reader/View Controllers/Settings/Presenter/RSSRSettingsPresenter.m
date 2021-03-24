@@ -12,7 +12,7 @@
 @interface RSSRSettingsPresenter ()
 
 @property (nonatomic, assign) id<RSSFeedsSettingsView, ViewControllerPresentable> feedsSettingsView;
-@property (nonatomic) RSSRNetworkService *networkService;
+@property (nonatomic) id<RSSRNetworkService> networkService;
 @property (nonatomic) RSSRFeedService *feedService;
 @property (nonatomic) RSSRFileService *fileService;
 
@@ -21,10 +21,10 @@
 @implementation RSSRSettingsPresenter
 
 
-#pragma mark -  Initialization 
+#pragma mark -  Initialization
 
 - (instancetype)initWithFeedService:(RSSRFeedService *)feedService
-                     networkService:(RSSRNetworkService *)networkService
+                     networkService:(id<RSSRNetworkService>)networkService
                         fileService:(RSSRFileService *)fileService {
     self = [super init];
     if (self) {

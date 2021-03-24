@@ -8,9 +8,12 @@
 #import "AppDelegate.h"
 #import "RSSRTopicsListViewController.h"
 #import "RSSRNetworkService.h"
+#import "RSSRNetworkServiceRuntime.h"
 #import "RSSRFeedParser.h"
 #import "RSSRTopicsListPresenter.h"
 #import "UIColor+RSSRColor.h"
+
+Class RSSRNetworkServiceRuntime;
 
 @interface AppDelegate ()
 
@@ -20,13 +23,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    RSSRNetworkServiceRuntime = createRSSRNetworkServiceClass();
+    
     if (@available(iOS 13.0, *)) {
     } else {
         UIWindow *window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
         self.window = window;
         
         RSSRFeedParser *parser = [RSSRFeedParser new];
-        RSSRNetworkService *service = [RSSRNetworkService new];
+        id service = [RSSRNetworkServiceRuntime new];
         RSSRFileService *fileService = [RSSRFileService new];
         RSSRTopicsListPresenter *presenter = [[RSSRTopicsListPresenter alloc] initWithService:service
                                                                                        parser:parser

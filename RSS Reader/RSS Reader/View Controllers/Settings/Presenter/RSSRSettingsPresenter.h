@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface RSSRSettingsPresenter : NSObject <RSSFeedsSettingsPresenter>
 
 - (instancetype)initWithFeedService:(RSSRFeedService *)feedService
-                     networkService:(RSSRNetworkService *)networkService
+                     networkService:(id<RSSRNetworkService>)networkService
                         fileService:(RSSRFileService *)fileService;
 
 @end

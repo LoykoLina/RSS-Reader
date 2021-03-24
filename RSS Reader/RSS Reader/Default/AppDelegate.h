@@ -7,6 +7,8 @@
 
 #import <UIKit/UIKit.h>
 
+extern Class RSSRNetworkServiceRuntime;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 

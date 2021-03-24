@@ -5,9 +5,9 @@
 //  Created by Lina Loyko on 11/17/20.
 //
 
+#import "AppDelegate.h"
 #import "SceneDelegate.h"
 #import "RSSRTopicsListViewController.h"
-#import "RSSRNetworkService.h"
 #import "RSSRFeedParser.h"
 #import "RSSRTopicsListPresenter.h"
 #import "UIColor+RSSRColor.h"
@@ -25,7 +25,7 @@
     self.window = window;
     
     RSSRFeedParser *parser = [RSSRFeedParser new];
-    RSSRNetworkService *service = [RSSRNetworkService new];
+    id service = [RSSRNetworkServiceRuntime new];
     RSSRFileService *fileService = [RSSRFileService new];
     RSSRTopicsListPresenter *presenter = [[RSSRTopicsListPresenter alloc] initWithService:service
                                                                                    parser:parser
