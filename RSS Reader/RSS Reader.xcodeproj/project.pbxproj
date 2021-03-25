@@ -67,7 +67,6 @@
 		CA15A38125E9572C007D2959 /* RSSRSelfResizedTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRSelfResizedTableView.m; sourceTree = "<group>"; };
 		CA15A38325E9572C007D2959 /* RSSFeedsSettingsPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSFeedsSettingsPresenter.h; sourceTree = "<group>"; };
 		CA15A38425E9572C007D2959 /* RSSFeedsSettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSFeedsSettingsView.h; sourceTree = "<group>"; };
-		CA2CC3A4260BD74500772096 /* RSSRNetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSSRNetworkService.h; path = "../../../../../RSS-Reader v1.5/RSS Reader/RSS Reader/Services/Network service/RSSRNetworkService.h"; sourceTree = "<group>"; };
 		CA3025522579A65C00BFEF5A /* NSString+XMLTagsRemover.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+XMLTagsRemover.h"; sourceTree = "<group>"; };
 		CA3025532579A65C00BFEF5A /* NSString+XMLTagsRemover.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLTagsRemover.m"; sourceTree = "<group>"; };
 		CA46CEF925C8A4DC00057BAA /* RSSRWebBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRWebBrowserController.h; sourceTree = "<group>"; };
@@ -115,6 +114,7 @@
 		CAD0D96525E3B85800457435 /* RSSRAnnotationButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSSRAnnotationButton.m; sourceTree = "<group>"; };
 		CAD3D8E9256D9C6100BCDD49 /* NSDate+StringConversion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+StringConversion.h"; sourceTree = "<group>"; };
 		CAD3D8EA256D9C6100BCDD49 /* NSDate+StringConversion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+StringConversion.m"; sourceTree = "<group>"; };
+		CAD88D7F260C63B10043C885 /* RSSRNetworkService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSRNetworkService.h; sourceTree = "<group>"; };
 		CAFB3C3B2571067E00440354 /* RSSFeedPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSFeedPresenter.h; sourceTree = "<group>"; };
 		CAFB3C3E2571125200440354 /* ViewControllerPresentable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerPresentable.h; sourceTree = "<group>"; };
 		CAFB3C3F2571128500440354 /* UIViewController+ViewControllerPresentable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ViewControllerPresentable.h"; sourceTree = "<group>"; };
@@ -393,7 +393,7 @@
 			children = (
 				CAB5FDC3256711A200163CBC /* RSSRNetworkServiceRuntime.h */,
 				CAB5FDBF256711A200163CBC /* RSSRNetworkServiceRuntime.m */,
-				CA2CC3A4260BD74500772096 /* RSSRNetworkService.h */,
+				CAD88D7F260C63B10043C885 /* RSSRNetworkService.h */,
 			);
 			path = "Network service";
 			sourceTree = "<group>";
