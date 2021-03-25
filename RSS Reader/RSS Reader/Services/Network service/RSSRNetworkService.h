@@ -2,17 +2,17 @@
 //  RSSRNetworkService.h
 //  RSS Reader
 //
-//  Created by Lina Loyko on 11/17/20.
+//  Created by Lina Loyko on 3/24/21.
 //
 
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RSSRNetworkService : NSObject
+@protocol RSSRNetworkService <NSObject>
 
 - (void)loadDataFromURL:(NSURL *)url
-               completion:(void (^)(NSData * _Nullable data, NSError * _Nullable error))completion;
+             completion:(void (^)(NSData * _Nullable data, NSError * _Nullable error))completion;
 
 @end
 

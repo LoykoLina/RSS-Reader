@@ -7,9 +7,6 @@
 
 #import <UIKit/UIKit.h>
 #import "RSSRTopicsListPresenter.h"
-#import "RSSRTopic.h"
-#import "RSSRNetworkService.h"
-#import "RSSRFeedParser.h"
 #import "UIViewController+ViewControllerPresentable.h"
 #import "NSError+ErrorParsing.h"
 #import "RSSRWebBrowserController.h"
@@ -22,7 +19,7 @@
 
 @property (nonatomic, assign) id<RSSFeedView, ViewControllerPresentable> feedView;
 
-@property (nonatomic) RSSRNetworkService *networkService;
+@property (nonatomic) id<RSSRNetworkService> networkService;
 @property (nonatomic) RSSRFeedParser *parser;
 @property (nonatomic) RSSRFileService *fileService;
 
@@ -36,7 +33,7 @@
 
 #pragma mark -  Initialization
 
-- (instancetype)initWithService:(RSSRNetworkService *)service
+- (instancetype)initWithService:(id<RSSRNetworkService>)service
                          parser:(RSSRFeedParser *)parser
                     fileService:(RSSRFileService *)fileService {
     self = [super init];
@@ -93,7 +90,7 @@
             });
             
             [weakSelf.networkService loadDataFromURL:[NSURL URLWithString:weakSelf.channel.link]
-                                      completion:^(NSData *data, NSError *error) {
+                                          completion:^(NSData *data, NSError *error) {
                 if (error) {
                     [weakSelf showError:error];
                 } else {

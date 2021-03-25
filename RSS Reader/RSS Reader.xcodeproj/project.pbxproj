@@ -35,7 +35,7 @@
 		CA6FCAC925B88B46006E4DB7 /* NSError+ErrorParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = CA85149E257E45FC00908C5A /* NSError+ErrorParsing.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		CA6FCAD525B898ED006E4DB7 /* NSString+LocalizedString.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6FCAD425B898ED006E4DB7 /* NSString+LocalizedString.m */; };
 		CA6FCAE225B8A5D4006E4DB7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA6FCAE425B8A5D4006E4DB7 /* Localizable.strings */; };
-		CAB5FDD6256711A200163CBC /* RSSRNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDBF256711A200163CBC /* RSSRNetworkService.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CAB5FDD6256711A200163CBC /* RSSRNetworkServiceRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDBF256711A200163CBC /* RSSRNetworkServiceRuntime.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		CAB5FDD7256711A200163CBC /* RSSRFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDC1256711A200163CBC /* RSSRFeedParser.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		CAB5FDDC256711A200163CBC /* RSSRTopicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAB5FDD2256711A200163CBC /* RSSRTopicTableViewCell.xib */; };
 		CAB5FDDD256711A200163CBC /* RSSRTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5FDD4256711A200163CBC /* RSSRTopic.m */; };
@@ -94,10 +94,10 @@
 		CA7EC38E256E8745007CEACB /* RSSRTopicItemProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSRTopicItemProtocol.h; sourceTree = "<group>"; };
 		CA85149D257E45FC00908C5A /* NSError+ErrorParsing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSError+ErrorParsing.h"; sourceTree = "<group>"; };
 		CA85149E257E45FC00908C5A /* NSError+ErrorParsing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSError+ErrorParsing.m"; sourceTree = "<group>"; };
-		CAB5FDBF256711A200163CBC /* RSSRNetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRNetworkService.m; sourceTree = "<group>"; };
+		CAB5FDBF256711A200163CBC /* RSSRNetworkServiceRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRNetworkServiceRuntime.m; sourceTree = "<group>"; };
 		CAB5FDC1256711A200163CBC /* RSSRFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRFeedParser.m; sourceTree = "<group>"; };
 		CAB5FDC2256711A200163CBC /* RSSRFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRFeedParser.h; sourceTree = "<group>"; };
-		CAB5FDC3256711A200163CBC /* RSSRNetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRNetworkService.h; sourceTree = "<group>"; };
+		CAB5FDC3256711A200163CBC /* RSSRNetworkServiceRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRNetworkServiceRuntime.h; sourceTree = "<group>"; };
 		CAB5FDC9256711A200163CBC /* RSSRTopicsListPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRTopicsListPresenter.h; sourceTree = "<group>"; };
 		CAB5FDCA256711A200163CBC /* RSSRTopicsListPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSRTopicsListPresenter.m; sourceTree = "<group>"; };
 		CAB5FDCC256711A200163CBC /* RSSRTopicsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSRTopicsListViewController.h; sourceTree = "<group>"; };
@@ -114,6 +114,7 @@
 		CAD0D96525E3B85800457435 /* RSSRAnnotationButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSSRAnnotationButton.m; sourceTree = "<group>"; };
 		CAD3D8E9256D9C6100BCDD49 /* NSDate+StringConversion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+StringConversion.h"; sourceTree = "<group>"; };
 		CAD3D8EA256D9C6100BCDD49 /* NSDate+StringConversion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+StringConversion.m"; sourceTree = "<group>"; };
+		CAD88D7F260C63B10043C885 /* RSSRNetworkService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSRNetworkService.h; sourceTree = "<group>"; };
 		CAFB3C3B2571067E00440354 /* RSSFeedPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSFeedPresenter.h; sourceTree = "<group>"; };
 		CAFB3C3E2571125200440354 /* ViewControllerPresentable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerPresentable.h; sourceTree = "<group>"; };
 		CAFB3C3F2571128500440354 /* UIViewController+ViewControllerPresentable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ViewControllerPresentable.h"; sourceTree = "<group>"; };
@@ -390,8 +391,9 @@
 		CAB5FDBE256711A200163CBC /* Network service */ = {
 			isa = PBXGroup;
 			children = (
-				CAB5FDC3256711A200163CBC /* RSSRNetworkService.h */,
-				CAB5FDBF256711A200163CBC /* RSSRNetworkService.m */,
+				CAB5FDC3256711A200163CBC /* RSSRNetworkServiceRuntime.h */,
+				CAB5FDBF256711A200163CBC /* RSSRNetworkServiceRuntime.m */,
+				CAD88D7F260C63B10043C885 /* RSSRNetworkService.h */,
 			);
 			path = "Network service";
 			sourceTree = "<group>";
@@ -598,7 +600,7 @@
 				CAB5FDE525671B1900163CBC /* UIColor+RSSRColor.m in Sources */,
 				CA46CEFC25C8A4DC00057BAA /* RSSRWebBrowserController.m in Sources */,
 				CAFB3C412571128500440354 /* UIViewController+ViewControllerPresentable.m in Sources */,
-				CAB5FDD6256711A200163CBC /* RSSRNetworkService.m in Sources */,
+				CAB5FDD6256711A200163CBC /* RSSRNetworkServiceRuntime.m in Sources */,
 				CA589B2B25DC8F3600178E51 /* NSString+WhitespaceString.m in Sources */,
 				CA15A38B25E9572C007D2959 /* RSSRSettingsController.m in Sources */,
 				CA6FCAD525B898ED006E4DB7 /* NSString+LocalizedString.m in Sources */,
